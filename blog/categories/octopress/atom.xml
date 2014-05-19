@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2014-05-19T22:27:25+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside/"/>
+    <updated>2014-04-21T21:19:01+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside</id>
+    <content type="html"><![CDATA[<h2>方法</h2>
+
+<p>1.Qiitaと同じアイコンを使いたいので、<a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>を使う。</p>
+
+<p>今回は、CDNを使うが、ダウンロードして配置してもよい。</p>
+
+<p><code>html ./source/_includes/custom/head.html
+&lt;link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"&gt;
+</code></p>
+
+<p>2./source/_includes/custom/asidesに本体を記述する</p>
+
+<p>Qiitaに人気の投稿を取得するAPIがないので、全記事を取得してソートしています。</p>
+
+<p>``` html qiita.html
+
+<section></p>
+
+<h1>Qiita 人気の投稿</h1>
+
+
+<ul id="qiita_post" class="post">
+</ul>
+
+
+<p>  <script type="text/javascript"></p>
+
+<pre><code>$(document).ready(function(){
+  $.getJSON("https://qiita.com/api/v1/users/ko2ic/items",function(response){
+
+    # 全投稿を取得して人気順に並び替える
+    response.sort(function(a, b){
+      a = a.stock_count;
+      b = b.stock_count;
+      return b - a;
+    });
+    for(var i = 0; i &lt; response.length ; i++){
+      var data = response[i];
+      var aTag = $("&lt;a/&gt;").text(data.title).attr("href",data.url);
+
+      var iStockTag = $("&lt;i/&gt;").css({"color":"#000","margin-right":"1em"}).attr("class","fa fa-folder-o");
+      iStockTag.append("  " + data.stock_count);
+
+      var iCommentTag = $("&lt;i/&gt;").css({"color":"#000"}).attr("class","fa fa-folder-o");
+      iCommentTag.append("  " + data.comment_count);
+
+      var pTag = $("&lt;p/&gt;");
+      pTag.append(iStockTag);
+      pTag.append(iCommentTag);
+
+      var liTag = $("&lt;li/&gt;").attr("class","post").attr("data-qiita-stock",data.stock_count).append(aTag).append(pTag);
+      $("#qiita_post").append(liTag);
+
+      # 指定した投稿数だけ表示する
+      if(i === 5 - 1){
+        break;
+      }
+    }
+  });
+});
+</code></pre>
+
+<p>  </script>
+</section>
+</p>
+
+<p>```</p>
+
+<ol>
+<li>./_config.ymlに記述する</li>
+</ol>
+
+
+<p>``` xml _config.yml
+qiita_user: user_name
+qiita_display_count: 5</p>
+
+<p>default_asides:[custom/asides/qiita.html]
+```</p>
+
+<h2>まとめ</h2>
+
+<p>全記事を取得しているので、投稿数が多い場合はパフォーマンスが悪くなると思います。<br/>
+その場合は、最近の記事を表示するのものいいでしょう。
+両方に対応したソースは、githubにあります。
+<a href="https://github.com/ko2ic/octopress-qiita-aside">https://github.com/ko2ic/octopress-qiita-aside</a>
+なにかあれば、pull requestでもお願いします。</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Eclipse | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2014-05-19T22:27:25+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Eclipse MarketPlaceに自作のPluginを登録する]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/"/>
+    <updated>2014-04-24T02:45:41+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace</id>
+    <content type="html"><![CDATA[<p>自作のEclipse Pluginの登録は簡単です。</p>
+
+<h2>Eclipse.org accountのアカウントを作成する</h2>
+
+<p>以下のサイトから辿ってサインアップする。(login → Create Account)  <br/>
+<a href="http://marketplace.eclipse.org/">http://marketplace.eclipse.org/</a></p>
+
+<p>アカウント作成するとメールが来るので本登録を終わらせて、ログインする.</p>
+
+<h2>コンテンツを追加する</h2>
+
+<p>1.ログイン後のメニューに「Add Content」があるのでそれを叩く。
+2.「Add a new Solutions Listing」リンクを叩く。
+3. 登録するPluginの情報を記述</p>
+
+<p>Solution Name　: Eclipse MarketPlaceに表示される名前   <br/>
+Product URL　:　プロジェクトのURLとか、自分はgithubレポジトリのURLを書いた   <br/>
+Version: Eclipse MarketPlaceに表示されるバージョン   <br/>
+Update Site URL: 自分はbintrayに作ったのでそのURL   <br/>
+Supported Eclipse Version: 例えば 4.3.2   <br/>
+Feature IDs: 以下のid</p>
+
+<p><code>xml feature.xml
+&lt;feature url="path/to/feature.jar" id="feature.to.install" version="1.x.x.x"&gt;
+</code></p>
+
+<p>Support URL: issue tracking systemのURL。自分はgithubのissues   <br/>
+Status : Eclipse MarketPlaceに表示されるDevelopment Status   <br/>
+Solution Type : This product requires an existing Eclipse installation to functionをチェック   <br/>
+Solution Description : Eclipse MarketPlaceに表示される説明   <br/>
+Categories : タグ。5個まで   <br/>
+Markets : 検索対象のマーケット</p>
+
+<p>saveボタンで終了。</p>
+
+<h2>審査とMy Marketplaceに表示されるのを待つ</h2>
+
+<p>これは一日以上待った気がする。上記save後のメッセージなどが地味なので、本当にsaveできたのかが不安になるが、待っていれば、登録される。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/23/jmerge/"/>
+    <updated>2014-04-23T22:25:51+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/23/jmerge</id>
+    <content type="html"><![CDATA[<p>8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br/>
+コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br/>
+そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした） <br/>
+最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+
+<p>自動生成したコードに手を加えたい場合、Generation Gapパターンを使うことが多いと思います。<br/>
+しかし、Eclipse Modeling Framework(EMF)のJmergeを使えば、自動生成したコードを直接修正してもうまいことマージしてくれます。</p>
+
+<p>例えば、以下のようにjavadocコメントの@generatedがあるメソッドは自動生成で上書きされます。   <br/>
+逆に@generatedを消したり、noneをつけるとそのメソッドの内容が上書きされず、修正した内容がそのまま残ります。これはメソッドだけでなく、フィールドでも同じ動作をします。</p>
+
+<p>``` java 元々の自動生成コード</p>
+
+<pre><code>/**
+ * method1.&lt;br/&gt;
+ * @generated
+ */
+public void method1() {        
+    System.out.println("a");
+}
+
+/**
+ * method2.&lt;br/&gt;
+ * @generated
+ */
+public void method2() {        
+    System.out.println("a");
+}
+</code></pre>
+
+<p>```</p>
+
+<p>``` java その後に手修正したコード</p>
+
+<pre><code>/**
+ * method1.&lt;br/&gt;
+ * @generated
+ */
+public void method1() {        
+    System.out.println("あ");
+}
+
+/**
+ * method2.&lt;br/&gt;
+ */
+public void method2() {        
+    System.out.println("あ");
+}
+</code></pre>
+
+<p>```</p>
+
+<p>``` java もう一度自動生成させたコード</p>
+
+<pre><code>/**
+ * method1.&lt;br/&gt;
+ * @generated
+ */
+public void method1() {        
+    System.out.println("a");
+}
+
+/**
+ * method2.&lt;br/&gt;
+ */
+public void method2() {        
+    System.out.println("あ");
+}
+</code></pre>
+
+<p>```</p>
+
+<p>この機能を扱うクラスはEMFにあるので、eclipseにEMFを入れておく必要があります。  <br/>
+Eclipseのupdate site で、例えば、<code>Kepler - http://download.eclipse.org/releases/kepler</code>を選択して、Modeling → 「EMF &ndash; Eclipse Modeling Framework SDK」をチェックしてインストールします。</p>
+
+<h1>merge ruleを記述</h1>
+
+<p>どのようにマージするかのルールはxmlで記述します。  <br/>
+これを始めから作成するのは大変なので、
+eclipseディレクトリの   <br/>
+./plugins/org.eclipse.emf.codegen.ecore_d.d.d.vyyyyMMdd-dddd.jarの./templates/emf-merge.xmlを使います。以下がデフォルトです。</p>
+
+<p>``` xml emf-merge.xml
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?>
+&lt;merge:options
+  indent=&ldquo;  "<br/>
+  braceStyle="matching"<br/>
+  redirect="Gen&rdquo;
+  block=&ldquo;\s<em>@\s</em>generated\s<em>NOT\s</em>(?:\n\r?|\r\n?)&rdquo;
+  noImport=&ldquo;\s<em>//\s</em>import\s+([\w.<em>]</em>)\s<em>;\s</em>(?:\n\r?|\r\n?)&rdquo;
+  xmlns:merge=&ldquo;<a href="http://www.eclipse.org/org/eclipse/emf/codegen/jmerge/Options">http://www.eclipse.org/org/eclipse/emf/codegen/jmerge/Options</a>&rdquo;></p>
+
+<!-- Tabbed Standard
+
+  indent="&#x9;"  
+  braceStyle="standard"  
+
+-->
+
+
+<p>  <!-- this accepts both new and old style markup. --></p>
+
+<p>  &lt;merge:dictionaryPattern</p>
+
+<pre><code>name="modelMembers" 
+select="Member/getComment" 
+match="@\s*(model)"/&gt;
+</code></pre>
+
+<p>  &lt;merge:dictionaryPattern</p>
+
+<pre><code>name="generatedUnmodifiableMembers" 
+select="Member/getComment" 
+match="@\s*(gen)erated\s*(This field/method[^(?:\n\r?|\r\n?)]*)*(?:\n\r?|\r\n?)"/&gt;
+</code></pre>
+
+<p>  &lt;merge:dictionaryPattern</p>
+
+<pre><code>name="generatedModifiableMembers" 
+select="Member/getComment" 
+match="@\s*generated\s*(modifiable)\s*(?:\n\r?|\r\n?)"/&gt;
+</code></pre>
+
+<p>  <!-- This is like the above, but for backward compatibility -->
+  &lt;merge:dictionaryPattern</p>
+
+<pre><code>name="generatedLastGenMembers" 
+select="Member/getComment" 
+match="@\s*(lastgen).*(?:\n\r?|\r\n?)"/&gt;
+</code></pre>
+
+<p>  &lt;merge:dictionaryPattern</p>
+
+<pre><code>name="orderedMembers" 
+select="Member/getComment" 
+match="@\s*(ordered)\s*(?:\n\r?|\r\n?)"/&gt;
+</code></pre>
+
+<p>  <!-- Only push Annotations for the Members marked by gen-->
+  &lt;merge:push targetParentMarkup=&ldquo;^gen$&rdquo; select=&ldquo;Annotation&rdquo;/></p>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceMarkup="^modifiable$"
+sourceGet="Member/getComment"
+sourceTransfer="(\s*&amp;lt;!--\s*begin-user-doc.*?end-user-doc\s*--&gt;\s*)(?:\n\r?|\r\n?)"
+targetMarkup="^modifiable$"
+targetPut="Member/setComment"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceMarkup="^gen$"
+sourceGet="Member/getComment"
+sourceTransfer="(\s*&amp;lt;!--\s*begin-user-doc.*?end-user-doc\s*--&gt;\s*)(?:\n\r?|\r\n?)"
+targetMarkup="^gen$"
+targetPut="Member/setComment"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Member/getFlags"
+targetMarkup="^gen$"
+equals="Member/getName"
+targetPut="Member/setFlags"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceMarkup="^gen$"
+sourceGet="AbstractType/getComment"
+sourceTransfer="(\s*&amp;lt;!--\s*begin-user-doc.*?end-user-doc\s*--&gt;\s*)(?:\n\r?|\r\n?)"
+targetMarkup="^modifiable$"
+targetPut="AbstractType/setComment"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Type/getTypeParameters"
+targetMarkup="^lastgen$|^gen$|^modifiable$|^model$"
+targetPut="Type/setTypeParameters"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Type/getSuperclass"
+targetMarkup="^lastgen$|^gen$|^modifiable$|^model$"
+targetPut="Type/setSuperclass"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Type/getSuperInterfaces"
+sourceTransfer="(\s*@\s*extends|\s*@\s*implements)(.*?)(?:&amp;lt;!--|(?:\n\r?|\r\n?))"
+targetMarkup="^lastgen$|^gen$|^modifiable$|^model$"
+targetPut="Type/addSuperInterface"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Enum/getSuperInterfaces"
+sourceTransfer="(\s*@\s*extends|\s*@\s*implements)(.*?)(?:&amp;lt;!--|(?:\n\r?|\r\n?))"
+targetMarkup="^lastgen$|^gen$|^modifiable$|^model$"
+targetPut="Enum/addSuperInterface"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="EnumConstant/getArguments"
+targetMarkup="^lastgen$|^gen$|^modifiable$|^model$"
+targetPut="EnumConstant/setArguments"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="EnumConstant/getBody"
+targetMarkup="^lastgen$|^gen$|^modifiable$|^model$$"
+targetPut="EnumConstant/setBody"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="AnnotationTypeMember/getType"
+targetMarkup="^gen$"
+targetPut="AnnotationTypeMember/setType"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="AnnotationTypeMember/getDefaultValue"
+targetMarkup="^gen$"
+targetPut="AnnotationTypeMember/setDefaultValue"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Initializer/getBody"
+targetMarkup="^gen$"
+targetPut="Initializer/setBody"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Field/getType"
+targetMarkup="^gen$"
+targetPut="Field/setType"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Field/getInitializer"
+targetMarkup="^gen$"
+targetPut="Field/setInitializer"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Method/getTypeParameters"
+targetMarkup="^gen$"
+targetPut="Method/setTypeParameters"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Method/getReturnType"
+targetMarkup="^gen$|^model$"
+targetPut="Method/setReturnType"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Method/getParameters"
+targetMarkup="^gen$"
+targetPut="Method/setParameters"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Method/getBody"
+targetMarkup="^gen$"
+targetPut="Method/setBody"/&gt;
+</code></pre>
+
+<p>  &lt;merge:pull</p>
+
+<pre><code>sourceGet="Method/getExceptions"
+targetMarkup="^gen$"
+targetPut="Method/addException"/&gt;
+</code></pre>
+
+<p>  &lt;merge:sweep markup=&ldquo;^gen$&rdquo; select=&ldquo;Member&rdquo;/>
+  &lt;merge:sweep markup=&ldquo;^org.eclipse.emf.ecore.EMetaObject$&rdquo; select=&ldquo;Import&rdquo;/>
+  &lt;merge:sweep markup=&ldquo;^org.eclipse.emf.ecore.impl.EMetaObjectImpl$&rdquo; select=&ldquo;Import&rdquo;/>
+  &lt;merge:sweep markup=&ldquo;^org.eclipse.emf.ecore.util.EObjectCompositeEList$&rdquo; select=&ldquo;Import&rdquo;/>
+  &lt;merge:sweep markup=&ldquo;^org.eclipse.emf.ecore.util.EObjectCompositeWithInverseEList$&rdquo; select=&ldquo;Import&rdquo;/>
+  &lt;merge:sweep markup=&ldquo;^org.eclipse.emf.common.util.AbstractEnumerator$&rdquo; select=&ldquo;Import&rdquo;/></p>
+
+<p>  &lt;merge:sort markup=&ldquo;^ordered$&rdquo; select=&ldquo;Field&rdquo;/>
+  &lt;merge:sort markup=&ldquo;^ordered$&rdquo; select=&ldquo;EnumConstant&rdquo;/></p>
+
+<!-- Basic Rules
+
+    <merge:pull 
+      sourceGet="CompilationUnit/getHeader"
+      targetPut="CompilationUnit/setHeader"/>
+
+    <merge:pull 
+      sourceGet="Package/getName"
+      targetPut="Package/setName"/>
+
+    <merge:pull 
+      sourceGet="Member/getFlags"
+      targetPut="Member/setFlags"/>
+    <merge:pull 
+      sourceGet="Member/getComment"
+      targetPut="Member/setComment"/>
+
+    <merge:pull 
+      sourceGet="Type/getSuperclass"
+      targetPut="Type/setSuperclass"/>
+    <merge:pull 
+      sourceGet="Type/getSuperInterfaces"
+      targetPut="Type/addSuperInterface"/>
+
+    <merge:pull 
+      sourceGet="Initializer/getBody"
+      targetPut="Initializer/setBody"/>
+
+    <merge:pull 
+      sourceGet="Field/getType"
+      targetPut="Field/setType"/>
+    <merge:pull 
+      sourceGet="Field/getInitializer"
+      targetPut="Field/setInitializer"/>
+
+    <merge:pull 
+      sourceGet="Method/getBody"
+      targetPut="Method/setBody"/>
+    <merge:pull 
+      sourceGet="Method/getReturnType"
+      targetPut="Method/setReturnType"/>
+    <merge:pull 
+      sourceGet="Method/getExceptions"
+      targetPut="Method/addException"/>
+-->
+
+
+
+
+<!-- Push Enum Constants only for generated Enums -->
+
+
+<!-- 
+  <merge:push targetParentMarkup="^gen$" select="EnumConstant"/>
+-->
+
+
+
+
+<!-- Push Annotation Type Members only for generated Annotation Types -->
+
+
+<!--
+  <merge:push targetParentMarkup="^gen$" select="AnnotationTypeMember"/>
+-->
+
+
+
+
+<!-- Sets the content of annotations if the parent is marked with gen -->
+
+
+<p></p>
+
+<!--
+    <merge:pull 
+      sourceGet="Annotation/getContents"
+      targetParentMarkup="^gen$"
+      targetPut="Annotation/setContents"/>
+-->
+
+
+<p></p>
+
+<!-- Remove annotations of generated target nodes if the annotation is not in the source -->
+
+
+<!--
+  <merge:sweep parentMarkup="^gen$" select="Annotation"/>
+-->
+
+
+<p></p>
+
+<!-- 
+    <merge:pull 
+      sourceMarkup="^modifiable$"
+      sourceGet="Member/getComment"
+      targetMarkup="^gen$"
+      targetPut="Member/setComment"/>
+-->
+
+
+<p>&lt;/merge:options></p>
+
+<p>```</p>
+
+<h1>マージするクラスを作成する</h1>
+
+<p>String merge(String source, String target);を使えば、マージされた結果を返してくれます。</p>
+
+<p>``` java EclipseJavaMerger.java
+public class EclipseJavaMerger {</p>
+
+<pre><code>private final JMerger merger = new JMerger(buildMergeRule());
+
+public String merge(String source, String target) {
+    try {
+        if (target == null) {
+            return source;
+        }
+        merger.setSourceCompilationUnit(merger.createCompilationUnitForContents(source));
+        merger.setTargetCompilationUnit(merger.createCompilationUnitForContents(target));
+        merger.merge();
+        return merger.getTargetCompilationUnitContents();
+    } finally {
+        merger.reset();
+    }
+}
+
+private JControlModel buildMergeRule() {
+    JControlModel controlModel = new JControlModel();
+    String configFileUri = getClass().getResource("/emf-merge.xml").toString();
+    controlModel.initialize(new ASTFacadeHelper(), configFileUri);
+    return controlModel;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h1>実際に動作確認をしたい</h1>
+
+<p>この動作を確認したい場合は、Eclipse Marketで、Comment Tag Genを検索してください。（試しに作ってみました）</p>
+
+<p>スプレッドシートからenumクラスなどを自動生成するpluginになります。</p>
+
+<p>以下のプロジェクトで動作させてください。ここにあるスプレッドシートを使えば、自動生成されます。
+<a href="https://github.com/ko2ic/comment-tag-gen-plugin-sample">https://github.com/ko2ic/comment-tag-gen-plugin-sample</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mavenですべての設定ファイルを自動生成させる方法]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
+    <updated>2014-04-19T20:24:48+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
+    <content type="html"><![CDATA[<p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
+
+<p>maven-eclipse-pluginを使って作成できるのは、プロジェクトのディレクトリに置けるファイル/ディレクトリです。
+例えば、<code>.checkstyle</code>であったり、<code>.settings/</code>だったり。
+しかし、Eclipseの設定ファイルは、それ以外にも存在します。
+例えば、<code>workspace/.metadata/</code>です。</p>
+
+<p>今回は例として、<code>workspace/.metadata/</code>以下にできる「Run Configurations」や「External Tools Configurations」画面で設定できるファイルを生成させます。</p>
+
+<p><a name="add"><strong><em>追記(2014/4/21)</em></strong></a> <br/>
+<em>eclipseの設定ファイルは<code>.settings/</code>に出来れば問題ありません。
+記事を書いたとき、eclipseの仕組みを勘違いしていました。
+今回の場合、antrunの処理は必要ありません。
+というのも、<code>.settings/</code>以下に置けば、<code>workspace/.metadata</code>に移動させなくても認識するからです。
+ちなみに以下が試した結果です。</em> <br/>
+.settings/open finder.launch ×<br/>
+.settings/.plugins/org.eclipse.debug.core/.launches/open finder.launch ×<br/>
+.settings/custom/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch × <br/>
+.settings/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch ○</p>
+
+<h2>前提</h2>
+
+<ul>
+<li>チーム内で人によってworkspaceのパスが違う。</li>
+<li>「Project Explore」で選択したファイルをFinderで開く機能（設定）を全員に設定させたい。</li>
+<li>設定するのに時間をかけたくない。</li>
+<li>mvn後にExternal Tools Configurationを開くと以下のようになる</li>
+</ul>
+
+
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/10494/8e24f7ad-c910-bb90-b21e-a029d6f65b70.png" title="openFinder.png" alt="openFinder.png" /></p>
+
+<h2>方法</h2>
+
+<p>1.個々人の~.m2/settings.xmlにworkspaceのパスを記述する</p>
+
+<p>```xml settings.xml
+  <profiles></p>
+
+<pre><code>&lt;profile&gt;
+  &lt;id&gt;local&lt;/id&gt;
+  &lt;activation&gt;
+    &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+  &lt;/activation&gt;
+  &lt;properties&gt;
+    &lt;eclipse.workspace&gt;/Users/hoge/sources/workspace&lt;/eclipse.workspace&gt;
+  &lt;/properties&gt;
+&lt;/profile&gt;
+</code></pre>
+
+<p>  </profiles>
+```</p>
+
+<p>2.maven-eclipse-pluginで、プロジェクトに一時ファイルを作る処理を記述<sub><a href="#add">追記参照</a></sub></p>
+
+<p>```xml pom.xml</p>
+
+<pre><code>  &lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-eclipse-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+      &lt;additionalConfig&gt;
+        &lt;file&gt;
+          &lt;name&gt;.settings/temp/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch&lt;/name&gt;
+          &lt;content&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+</code></pre>
+
+<p><launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="/usr/bin/open"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="${container_loc}"/>
+</launchConfiguration>            <br/>
+]]&gt;</p>
+
+<pre><code>          &lt;/content&gt;
+        &lt;/file&gt;
+      &lt;/additionalConfig&gt;
+    &lt;/configuration&gt;
+  &lt;/plugin&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>3.maven-antrun-pluginでプロジェクトの一時パスからworkspaceへ移動させる処理を記述<sub><a href="#add">追記参照</a></sub></p>
+
+<p>```xml pom.xml</p>
+
+<pre><code>  &lt;plugin&gt;
+    &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
+    &lt;version&gt;1.7&lt;/version&gt;
+    &lt;dependencies&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.ant&lt;/groupId&gt;
+        &lt;artifactId&gt;ant&lt;/artifactId&gt;
+        &lt;version&gt;1.9.3&lt;/version&gt;
+      &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;executions&gt;
+      &lt;execution&gt;
+        &lt;id&gt;gen-launches&lt;/id&gt;
+        &lt;phase&gt;process-resources&lt;/phase&gt;
+        &lt;configuration&gt;
+          &lt;target&gt;
+            &lt;mkdir dir=".settings/temp/" /&gt;
+            &lt;move todir="${eclipse.workspace}/"&gt;
+              &lt;fileset dir=".settings/temp/" includes="**/*" /&gt;
+            &lt;/move&gt;
+          &lt;/target&gt;
+        &lt;/configuration&gt;
+        &lt;goals&gt;
+          &lt;goal&gt;run&lt;/goal&gt;
+        &lt;/goals&gt;
+      &lt;/execution&gt;
+    &lt;/executions&gt;
+  &lt;/plugin&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>4.<code>$ mvn eclipse:eclipse process-resources</code>を叩く</p>
+
+<p>5.完成。プロジェクトを選択して、External Tools で　「open finder」を選択すると実行する。</p>
+
+<p>一度、実行すると以下のように使えます。</p>
+
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/10494/04dd8f95-7fe0-9179-0f59-7b06066de308.png" title="openFinder2.png" alt="openFinder2.png" /></p>
+
+<h2>まとめ</h2>
+
+<p>今回は、「External Tools Configurations」の設定の自動化をしましたが、この仕組みであれば、ほぼ全ての設定を自動化できます。
+当然、mavenのプロパティを&lt;content>タグ内でも使えるので、それぞれの環境依存の設定ファイルも作成可能です。</p>
+
+<p>実際「Run Configurations」でも同じようにできました。
+（その場合は、classpathにテストリソースが含まれないようにclassesだけを選択した設定を記述する必要があります。）</p>
+
+<p>これで、wikiなどを書いて、それぞれのチームメンバーに設定してもらうコストが削減できると思います。</p>
+]]></content>
+  </entry>
+  
+</feed>

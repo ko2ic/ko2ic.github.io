@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Maven | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/maven/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2014-05-19T22:27:25+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Eclipseプラグインを簡単に作成する]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/23/tycho/"/>
+    <updated>2014-04-23T03:35:07+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/23/tycho</id>
+    <content type="html"><![CDATA[<p>いまの時代、Eclipse Pluginは簡単に作れます。昔はプロジェクトを作ること自体が難しい（めんどくさい）イメージがあり、ハードルが高かったのですが、いまはtychoがあります。
+<a href="https://www.eclipse.org/tycho/">https://www.eclipse.org/tycho/</a></p>
+
+<p>tychoを使えば、プロジェクト作成、build、依存性管理などをある程度自動化できます。
+ある程度と言ったのは、まだまだ依存性解決に関しては、うまく動作しない（tycho 0.20.0）ことがあり、手作業が必要になるからです。</p>
+
+<p>依存性を完全に手作業でやるとしたら、以下のサイトのを使って下さい。プロジェクト作成、署名付きjar,featureなどリリースための作業が自動化されます。
+<a href="https://github.com/open-archetypes/tycho-eclipse-plugin-archetype">https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</a></p>
+
+<p>依存性もある程度任せたいと思うなら、以下の方法で可能です。</p>
+
+<h2>プロジェクトの作成</h2>
+
+<h3>archetypeを選択</h3>
+
+<p>まずは、実験用にforkしたcatalogがあるので、そこから作成します。　　</p>
+
+<pre><code>$ mvn archetype:generate -DarchetypeCatalog=https://raw.githubusercontent.com/ko2ic/maven-catalog/master/snapshots/archetype-catalog.xml
+</code></pre>
+
+<p>このとき気をつけることは、バージョンを必ず、major.minor.rivisonと3桁にすることです。
+こうしないとpackageできません。</p>
+
+<h3>Eclpseファイルの作成</h3>
+
+<p>今回は、m2eを使わないで環境構築します。
+(m2eを使っても今のところjarの依存性管理が効いてくれません。rootのpom.xmlの管理ができる・プロジェクト作成が楽など、m2eを使う意味はあります)</p>
+
+<pre><code>$ mvn eclipse:eclipse
+</code></pre>
+
+<p>その後Eclipseにソースを取り込みます</p>
+
+<h3>mvn eclipse:eclipse後にやる作業</h3>
+
+<p>META-INF/MANIFEST.MFのBundle-VersionがSNAPSHOTに変わってしまっているので、qualifierに戻す
+（これをしないとpackageできない）</p>
+
+<h2>jarの追加</h2>
+
+<h3>依存性を追加</h3>
+
+<p>例えば、</p>
+
+<pre><code>&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;
+    &lt;version&gt;3.10-FINAL&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<p>その後</p>
+
+<pre><code>$ mvn eclipse:eclipse
+</code></pre>
+
+<h3>META-INF/MANIFEST.MFの修正</h3>
+
+<p>コンパイルは通っているが、packageしたときに依存jarがパッケージされないので、修正する <br/>
+Build ConfigurationでBinary Buildに依存させたいjarをチェックする。(RuntimeのClasspathにあるjarをチェックすればよい)</p>
+
+<h2>Packageing</h2>
+
+<pre><code>$ mvn package -Psing
+</code></pre>
+
+<p>これで、siteプロジェクトのtargetにzipファイルが出来上がります。 <br/>
+中身を確認して、coreのjarの直下に依存jarが入っていれば、成功です。</p>
+
+<h2>その他</h2>
+
+<p>Eclipse上、邪魔なjarが表示されているのですが、packagingされないので気にしなくて良いです。 <br/>
+気になる場合は、削除しても構いませんが、<code>mvn eclipse:ecipse</code>をすると再度追加されてしまいます。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mavenですべての設定ファイルを自動生成させる方法]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
+    <updated>2014-04-19T20:24:48+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
+    <content type="html"><![CDATA[<p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
+
+<p>maven-eclipse-pluginを使って作成できるのは、プロジェクトのディレクトリに置けるファイル/ディレクトリです。
+例えば、<code>.checkstyle</code>であったり、<code>.settings/</code>だったり。
+しかし、Eclipseの設定ファイルは、それ以外にも存在します。
+例えば、<code>workspace/.metadata/</code>です。</p>
+
+<p>今回は例として、<code>workspace/.metadata/</code>以下にできる「Run Configurations」や「External Tools Configurations」画面で設定できるファイルを生成させます。</p>
+
+<p><a name="add"><strong><em>追記(2014/4/21)</em></strong></a> <br/>
+<em>eclipseの設定ファイルは<code>.settings/</code>に出来れば問題ありません。
+記事を書いたとき、eclipseの仕組みを勘違いしていました。
+今回の場合、antrunの処理は必要ありません。
+というのも、<code>.settings/</code>以下に置けば、<code>workspace/.metadata</code>に移動させなくても認識するからです。
+ちなみに以下が試した結果です。</em> <br/>
+.settings/open finder.launch ×<br/>
+.settings/.plugins/org.eclipse.debug.core/.launches/open finder.launch ×<br/>
+.settings/custom/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch × <br/>
+.settings/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch ○</p>
+
+<h2>前提</h2>
+
+<ul>
+<li>チーム内で人によってworkspaceのパスが違う。</li>
+<li>「Project Explore」で選択したファイルをFinderで開く機能（設定）を全員に設定させたい。</li>
+<li>設定するのに時間をかけたくない。</li>
+<li>mvn後にExternal Tools Configurationを開くと以下のようになる</li>
+</ul>
+
+
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/10494/8e24f7ad-c910-bb90-b21e-a029d6f65b70.png" title="openFinder.png" alt="openFinder.png" /></p>
+
+<h2>方法</h2>
+
+<p>1.個々人の~.m2/settings.xmlにworkspaceのパスを記述する</p>
+
+<p>```xml settings.xml
+  <profiles></p>
+
+<pre><code>&lt;profile&gt;
+  &lt;id&gt;local&lt;/id&gt;
+  &lt;activation&gt;
+    &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+  &lt;/activation&gt;
+  &lt;properties&gt;
+    &lt;eclipse.workspace&gt;/Users/hoge/sources/workspace&lt;/eclipse.workspace&gt;
+  &lt;/properties&gt;
+&lt;/profile&gt;
+</code></pre>
+
+<p>  </profiles>
+```</p>
+
+<p>2.maven-eclipse-pluginで、プロジェクトに一時ファイルを作る処理を記述<sub><a href="#add">追記参照</a></sub></p>
+
+<p>```xml pom.xml</p>
+
+<pre><code>  &lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-eclipse-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+      &lt;additionalConfig&gt;
+        &lt;file&gt;
+          &lt;name&gt;.settings/temp/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch&lt;/name&gt;
+          &lt;content&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+</code></pre>
+
+<p><launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="/usr/bin/open"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="${container_loc}"/>
+</launchConfiguration>            <br/>
+]]&gt;</p>
+
+<pre><code>          &lt;/content&gt;
+        &lt;/file&gt;
+      &lt;/additionalConfig&gt;
+    &lt;/configuration&gt;
+  &lt;/plugin&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>3.maven-antrun-pluginでプロジェクトの一時パスからworkspaceへ移動させる処理を記述<sub><a href="#add">追記参照</a></sub></p>
+
+<p>```xml pom.xml</p>
+
+<pre><code>  &lt;plugin&gt;
+    &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
+    &lt;version&gt;1.7&lt;/version&gt;
+    &lt;dependencies&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.ant&lt;/groupId&gt;
+        &lt;artifactId&gt;ant&lt;/artifactId&gt;
+        &lt;version&gt;1.9.3&lt;/version&gt;
+      &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;executions&gt;
+      &lt;execution&gt;
+        &lt;id&gt;gen-launches&lt;/id&gt;
+        &lt;phase&gt;process-resources&lt;/phase&gt;
+        &lt;configuration&gt;
+          &lt;target&gt;
+            &lt;mkdir dir=".settings/temp/" /&gt;
+            &lt;move todir="${eclipse.workspace}/"&gt;
+              &lt;fileset dir=".settings/temp/" includes="**/*" /&gt;
+            &lt;/move&gt;
+          &lt;/target&gt;
+        &lt;/configuration&gt;
+        &lt;goals&gt;
+          &lt;goal&gt;run&lt;/goal&gt;
+        &lt;/goals&gt;
+      &lt;/execution&gt;
+    &lt;/executions&gt;
+  &lt;/plugin&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>4.<code>$ mvn eclipse:eclipse process-resources</code>を叩く</p>
+
+<p>5.完成。プロジェクトを選択して、External Tools で　「open finder」を選択すると実行する。</p>
+
+<p>一度、実行すると以下のように使えます。</p>
+
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/10494/04dd8f95-7fe0-9179-0f59-7b06066de308.png" title="openFinder2.png" alt="openFinder2.png" /></p>
+
+<h2>まとめ</h2>
+
+<p>今回は、「External Tools Configurations」の設定の自動化をしましたが、この仕組みであれば、ほぼ全ての設定を自動化できます。
+当然、mavenのプロパティを&lt;content>タグ内でも使えるので、それぞれの環境依存の設定ファイルも作成可能です。</p>
+
+<p>実際「Run Configurations」でも同じようにできました。
+（その場合は、classpathにテストリソースが含まれないようにclassesだけを選択した設定を記述する必要があります。）</p>
+
+<p>これで、wikiなどを書いて、それぞれのチームメンバーに設定してもらうコストが削減できると思います。</p>
+]]></content>
+  </entry>
+  
+</feed>

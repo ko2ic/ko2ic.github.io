@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ko2ic Blog</title>
+  <title>自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge - ko2ic Blog</title>
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="macをクリーンインストールすることになったので、環境構築を自分用の備忘録として残しておきます。
-基本的に自分が使いやすいようにしています。 このページで書かないこと homebrew-caskやdotfileなど自動でできること このページで書くこと GUIで設定すること &hellip;">
+  <meta name="description" content="8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。
+コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。
+そう感じた理由の一つに、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ko2ic.github.io">
+  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/04/23/jmerge">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="ko2ic Blog" type="application/atom+xml">
@@ -82,294 +83,12 @@ $(document).ready( function () {
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/18/mac-env-init/">Mac環境構築手順(GUI編)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-05-18T19:20:40+09:00" pubdate data-updated="true">May 18<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/05/18/mac-env-init/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/18/mac-env-init/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>macをクリーンインストールすることになったので、環境構築を自分用の備忘録として残しておきます。<br/>
-基本的に自分が使いやすいようにしています。</p>
-
-<h2>このページで書かないこと</h2>
-
-<ul>
-<li>homebrew-caskやdotfileなど自動でできること</li>
-</ul>
-
-
-<h2>このページで書くこと</h2>
-
-<ul>
-<li>GUIで設定すること</li>
-<li>defaultsコマンドで設定すること</li>
-</ul>
-
-
-<h4>defaultsコマンドについて</h4>
-
-<p>defaultsコマンドは「plist」と呼ばれるアプリやシステムの設定ファイルに、設定値を追加、変更、削除、検索するコマンドで以下のファイルが変更されます。</p>
-
-<pre><code>~/Library/Preferences/~.plist
-</code></pre>
-
-<p>以下のコマンドで上記のファイルを表示します</p>
-
-<pre><code>defaults read キー名
-</code></pre>
-
-<p>以下でキーに対応する値を削除できる<br>
-但しキー自体は削除されないのでplistファイル自体を削除します。</p>
-
-<pre><code>defaults delete キー名
-</code></pre>
-
-<p>それぞれの隠し機能のコマンドで変更した場合は以下のように再起動をして反映させましょう。</p>
-
-<pre><code>killall Finder
-killall Dock
-</code></pre>
-
-<h2>キーボード</h2>
-
-<p>システム環境設定　→　キーボード　→　</p>
-
-<h4>capsキー変更（日本語キーボード）</h4>
-
-<p>macは、windowsでのショートカットで利用するCtrlの役割がcommandになる。<br/>
-（例：command+C コピー）<br>
-windowsのCtrlの位置がmacのcapsの位置にあるので、同じ配置でできるように変更する</p>
-
-<p>→　修飾キー<br>　
-Caps Lock を Commandに変更</p>
-
-<p><img src="/images/mac-env-init/Keyboard-caps-change.png" alt="caps" /></p>
-
-<h4>ファンクションキーの動作を変更</h4>
-
-<p>デフォルトでは以下の動作になるために逆になるように変更する</p>
-
-<ul>
-<li>F1キーだけを押下するとディスプレイが暗くなる</li>
-<li>fnキー+F1でファンクションキーの動作</li>
-</ul>
-
-
-<p>→　F1、F2などの・・・にチェックを入れる</p>
-
-<p><img src="/images/mac-env-init/keyboard-function-key.png" alt="function" /></p>
-
-<h2>トラッックパッド</h2>
-
-<p>システム環境設定　→　トラックバッド　→</p>
-
-<p>画像のようにすると使いやすい
-<img src="/images/mac-env-init/trackpad1.png" alt="trackpad1" />
-<img src="/images/mac-env-init/trackpad2.png" alt="trackpad2" /></p>
-
-<h2>Finder</h2>
-
-<p>Finder →　環境設定　→　詳細</p>
-
-<h4>拡張子を表示</h4>
-
-<p>「すべてのファイル名拡張子を表示」をチェック</p>
-
-<h4>確実にごみ箱を空にする</h4>
-
-<p>チェックする</p>
-
-<h4>検索実行時の検索対象を変更</h4>
-
-<p>「検索実行時」を「現在のフォルダ内を検索」</p>
-
-<p><img src="/images/mac-env-init/finder1.png" alt="finder" /></p>
-
-<h4>新規Finderで開く先を変更</h4>
-
-<p>一般タブで「新規Finderウィンドウで次を表示」でホームを選択する</p>
-
-<h4>隠しファイルを表示する</h4>
-
-<p>デフォルトではFinder上で「.」ファイルは不可視なのでこれを変更する</p>
-
-<pre><code>defaults write com.apple.finder AppleShowAllFiles -boolean true
-</code></pre>
-
-<h4>終了できるようにする</h4>
-
-<p>デフォルトではFinderに終了がないのでこれを変更する</p>
-
-<pre><code>defaults write com.apple.finder QuitMenuItem -bool true
-</code></pre>
-
-<h4>タイトルにフルパスを表示する</h4>
-
-<p>ウインドウタイトルにもパスを表示する</p>
-
-<pre><code>defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-</code></pre>
-
-<h4>ネットワーク上に.DS_Storeを作らない</h4>
-
-<p>Mac OS Xでは、フォルダの表示形式を変更すると「.DS_Store」という不可視ファイルができるが、これをネットワーク上には作らなくする</p>
-
-<pre><code>defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool YES
-</code></pre>
-
-<h2>Dock</h2>
-
-<p> システム環境設定→　Dock</p>
-
-<h4>Dockを自動で隠す</h4>
-
-<p><img src="/images/mac-env-init/dock.png" alt="Dock" /></p>
-
-<h4>隠しているアプリを半透明で表示する</h4>
-
-<pre><code>defaults write com.apple.Dock showhidden -boolean true
-</code></pre>
-
-<h2>Mission Control</h2>
-
-<p> システム環境設定→　Mission Control</p>
-
-<p><img src="/images/mac-env-init/mission-control.png" alt="mission" /></p>
-
-<h4>ダッシュボードを起動させない</h4>
-
-<pre><code>defaults write com.apple.dashboard mcx-disabled -boolean YES
-</code></pre>
-
-<h2>その他</h2>
-
-<h4>残バッテリーを表示する</h4>
-
-<p><img src="/images/mac-env-init/percent.png" alt="battery" /></p>
-
-<h4>HardDiskが遅いので早くしたい</h4>
-
-<p>Spotlightのインデックス作成が、頻繁に行われているため、HDDが一杯になってくると、かなり遅くなります。<br>
-Spotlightを使っていないなら、下記の手順でインデックス作成をしないようにすれば、緩和されます。<br>
-「システム環境設定」→「Spotlight」→「プライバシー」で、除するパスを指定すると、インデックスの作成はされなくなりますが、Alfredはこのインデックスを利用しているので考えて設定しましょう。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/24/octoeclipse-marketplace/">Eclipse MarketPlaceに自作のPluginを登録する</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-24T02:45:41+09:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/24/octoeclipse-marketplace/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>自作のEclipse Pluginの登録は簡単です。</p>
-
-<h2>Eclipse.org accountのアカウントを作成する</h2>
-
-<p>以下のサイトから辿ってサインアップする。(login → Create Account)  <br/>
-<a href="http://marketplace.eclipse.org/">http://marketplace.eclipse.org/</a></p>
-
-<p>アカウント作成するとメールが来るので本登録を終わらせて、ログインする.</p>
-
-<h2>コンテンツを追加する</h2>
-
-<p>1.ログイン後のメニューに「Add Content」があるのでそれを叩く。
-2.「Add a new Solutions Listing」リンクを叩く。
-3. 登録するPluginの情報を記述</p>
-
-<p>Solution Name　: Eclipse MarketPlaceに表示される名前   <br/>
-Product URL　:　プロジェクトのURLとか、自分はgithubレポジトリのURLを書いた   <br/>
-Version: Eclipse MarketPlaceに表示されるバージョン   <br/>
-Update Site URL: 自分はbintrayに作ったのでそのURL   <br/>
-Supported Eclipse Version: 例えば 4.3.2   <br/>
-Feature IDs: 以下のid</p>
-
-<figure class='code'><figcaption><span>feature.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;feature</span> <span class="na">url=</span><span class="s">&quot;path/to/feature.jar&quot;</span> <span class="na">id=</span><span class="s">&quot;feature.to.install&quot;</span> <span class="na">version=</span><span class="s">&quot;1.x.x.x&quot;</span><span class="nt">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Support URL: issue tracking systemのURL。自分はgithubのissues   <br/>
-Status : Eclipse MarketPlaceに表示されるDevelopment Status   <br/>
-Solution Type : This product requires an existing Eclipse installation to functionをチェック   <br/>
-Solution Description : Eclipse MarketPlaceに表示される説明   <br/>
-Categories : タグ。5個まで   <br/>
-Markets : 検索対象のマーケット</p>
-
-<p>saveボタンで終了。</p>
-
-<h2>審査とMy Marketplaceに表示されるのを待つ</h2>
-
-<p>これは一日以上待った気がする。上記save後のメッセージなどが地味なので、本当にsaveできたのかが不安になるが、待っていれば、登録される。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/23/jmerge/">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</a></h1>
+      <h1 class="entry-title">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</h1>
     
     
       <p class="meta">
@@ -387,15 +106,15 @@ Markets : 検索対象のマーケット</p>
 
 <time datetime="2014-04-23T22:25:51+09:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
         
-           | <a href="/blog/2014/04/23/jmerge/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/23/jmerge/">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br/>
+<div class="entry-content"><p>8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br/>
 コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br/>
 そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした） <br/>
 最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
@@ -1050,135 +769,16 @@ eclipseディレクトリの   <br/>
 <p>以下のプロジェクトで動作させてください。ここにあるスプレッドシートを使えば、自動生成されます。
 <a href="https://github.com/ko2ic/comment-tag-gen-plugin-sample">https://github.com/ko2ic/comment-tag-gen-plugin-sample</a></p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/23/tycho/">Eclipseプラグインを簡単に作成する</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Koji Ishii</span></span>
 
-<time datetime="2014-04-23T03:35:07+09:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/23/tycho/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/23/tycho/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>いまの時代、Eclipse Pluginは簡単に作れます。昔はプロジェクトを作ること自体が難しい（めんどくさい）イメージがあり、ハードルが高かったのですが、いまはtychoがあります。
-<a href="https://www.eclipse.org/tycho/">https://www.eclipse.org/tycho/</a></p>
-
-<p>tychoを使えば、プロジェクト作成、build、依存性管理などをある程度自動化できます。
-ある程度と言ったのは、まだまだ依存性解決に関しては、うまく動作しない（tycho 0.20.0）ことがあり、手作業が必要になるからです。</p>
-
-<p>依存性を完全に手作業でやるとしたら、以下のサイトのを使って下さい。プロジェクト作成、署名付きjar,featureなどリリースための作業が自動化されます。
-<a href="https://github.com/open-archetypes/tycho-eclipse-plugin-archetype">https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</a></p>
-
-<p>依存性もある程度任せたいと思うなら、以下の方法で可能です。</p>
-
-<h2>プロジェクトの作成</h2>
-
-<h3>archetypeを選択</h3>
-
-<p>まずは、実験用にforkしたcatalogがあるので、そこから作成します。　　</p>
-
-<pre><code>$ mvn archetype:generate -DarchetypeCatalog=https://raw.githubusercontent.com/ko2ic/maven-catalog/master/snapshots/archetype-catalog.xml
-</code></pre>
-
-<p>このとき気をつけることは、バージョンを必ず、major.minor.rivisonと3桁にすることです。
-こうしないとpackageできません。</p>
-
-<h3>Eclpseファイルの作成</h3>
-
-<p>今回は、m2eを使わないで環境構築します。
-(m2eを使っても今のところjarの依存性管理が効いてくれません。rootのpom.xmlの管理ができる・プロジェクト作成が楽など、m2eを使う意味はあります)</p>
-
-<pre><code>$ mvn eclipse:eclipse
-</code></pre>
-
-<p>その後Eclipseにソースを取り込みます</p>
-
-<h3>mvn eclipse:eclipse後にやる作業</h3>
-
-<p>META-INF/MANIFEST.MFのBundle-VersionがSNAPSHOTに変わってしまっているので、qualifierに戻す
-（これをしないとpackageできない）</p>
-
-<h2>jarの追加</h2>
-
-<h3>依存性を追加</h3>
-
-<p>例えば、</p>
-
-<pre><code>&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
-    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;
-    &lt;version&gt;3.10-FINAL&lt;/version&gt;
-  &lt;/dependency&gt;
-&lt;/dependencies&gt;
-</code></pre>
-
-<p>その後</p>
-
-<pre><code>$ mvn eclipse:eclipse
-</code></pre>
-
-<h3>META-INF/MANIFEST.MFの修正</h3>
-
-<p>コンパイルは通っているが、packageしたときに依存jarがパッケージされないので、修正する <br/>
-Build ConfigurationでBinary Buildに依存させたいjarをチェックする。(RuntimeのClasspathにあるjarをチェックすればよい)</p>
-
-<h2>Packageing</h2>
-
-<pre><code>$ mvn package -Psing
-</code></pre>
-
-<p>これで、siteプロジェクトのtargetにzipファイルが出来上がります。 <br/>
-中身を確認して、coreのjarの直下に依存jarが入っていれば、成功です。</p>
-
-<h2>その他</h2>
-
-<p>Eclipse上、邪魔なjarが表示されているのですが、packagingされないので気にしなくて良いです。 <br/>
-気になる場合は、削除しても構いませんが、<code>mvn eclipse:ecipse</code>をすると再度追加されてしまいます。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/21/octopress-qiita-aside/">OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -1190,415 +790,54 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
   
 
 
-<time datetime="2014-04-21T21:19:01+09:00" pubdate data-updated="true">Apr 21<span>st</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/21/octopress-qiita-aside/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>方法</h2>
-
-<p>1.Qiitaと同じアイコンを使いたいので、<a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>を使う。</p>
-
-<p>今回は、CDNを使うが、ダウンロードして配置してもよい。</p>
-
-<figure class='code'><figcaption><span>./source/_includes/custom/head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span><span class="nt">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>2./source/_includes/custom/asidesに本体を記述する</p>
-
-<p>Qiitaに人気の投稿を取得するAPIがないので、全記事を取得してソートしています。</p>
-
-<figure class='code'><figcaption><span>qiita.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>
-</span><span class='line'><span class="nt">&lt;section&gt;</span>
-</span><span class='line'><span class="nt">&lt;h1&gt;</span>Qiita 人気の投稿<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;qiita_post&quot;</span> <span class="na">class=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>      <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s2">&quot;https://qiita.com/api/v1/users/ko2ic/items&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="err">#</span> <span class="err">全投稿を取得して人気順に並び替える</span>
-</span><span class='line'>        <span class="nx">response</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
-</span><span class='line'>          <span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">stock_count</span><span class="p">;</span>
-</span><span class='line'>          <span class="nx">b</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">stock_count</span><span class="p">;</span>
-</span><span class='line'>          <span class="k">return</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">});</span>
-</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">length</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">response</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">aTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a/&gt;&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span><span class="nx">data</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">iStockTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;i/&gt;&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="s2">&quot;#000&quot;</span><span class="p">,</span><span class="s2">&quot;margin-right&quot;</span><span class="o">:</span><span class="s2">&quot;1em&quot;</span><span class="p">}).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span><span class="s2">&quot;fa fa-folder-o&quot;</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">iStockTag</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;  &quot;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">stock_count</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">iCommentTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;i/&gt;&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="s2">&quot;#000&quot;</span><span class="p">}).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span><span class="s2">&quot;fa fa-folder-o&quot;</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">iCommentTag</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;  &quot;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">comment_count</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">pTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;p/&gt;&quot;</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">pTag</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">iStockTag</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">pTag</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">iCommentTag</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">liTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;li/&gt;&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span><span class="s2">&quot;post&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-qiita-stock&quot;</span><span class="p">,</span><span class="nx">data</span><span class="p">.</span><span class="nx">stock_count</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">aTag</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">pTag</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#qiita_post&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">liTag</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="err">#</span> <span class="err">指定した投稿数だけ表示する</span>
-</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="p"></span> <span class="o">-</span> <span class="mi">1</span><span class="p">){</span>
-</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>  <span class="nt">&lt;/script&gt;</span>
-</span><span class='line'><span class="nt">&lt;/section&gt;</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>./_config.ymlに記述する</li>
-</ol>
-
-
-<figure class='code'><figcaption><span>_config.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>qiita_user: user_name
-</span><span class='line'>qiita_display_count: 5
-</span><span class='line'>
-</span><span class='line'>default_asides:[custom/asides/qiita.html]
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>まとめ</h2>
-
-<p>全記事を取得しているので、投稿数が多い場合はパフォーマンスが悪くなると思います。<br/>
-その場合は、最近の記事を表示するのものいいでしょう。
-両方に対応したソースは、githubにあります。
-<a href="https://github.com/ko2ic/octopress-qiita-aside">https://github.com/ko2ic/octopress-qiita-aside</a>
-なにかあれば、pull requestでもお願いします。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2014-04-23T22:25:51+09:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/19/maven-eclipse/">Mavenですべての設定ファイルを自動生成させる方法</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
   
+    <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/eclipse/'>eclipse</a>
+  
+</span>
 
 
-<time datetime="2014-04-19T20:24:48+09:00" pubdate data-updated="true">Apr 19<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/19/maven-eclipse/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/">Comments</a>
-        
-      </p>
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/04/23/jmerge/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/04/23/jmerge/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/04/23/jmerge/">
+<img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none"/>
+
+<div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 
 
-  <div class="entry-content"><p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
-
-<p>maven-eclipse-pluginを使って作成できるのは、プロジェクトのディレクトリに置けるファイル/ディレクトリです。
-例えば、<code>.checkstyle</code>であったり、<code>.settings/</code>だったり。
-しかし、Eclipseの設定ファイルは、それ以外にも存在します。
-例えば、<code>workspace/.metadata/</code>です。</p>
-
-<p>今回は例として、<code>workspace/.metadata/</code>以下にできる「Run Configurations」や「External Tools Configurations」画面で設定できるファイルを生成させます。</p>
-
-<p><a name="add"><strong><em>追記(2014/4/21)</em></strong></a> <br/>
-<em>eclipseの設定ファイルは<code>.settings/</code>に出来れば問題ありません。
-記事を書いたとき、eclipseの仕組みを勘違いしていました。
-今回の場合、antrunの処理は必要ありません。
-というのも、<code>.settings/</code>以下に置けば、<code>workspace/.metadata</code>に移動させなくても認識するからです。
-ちなみに以下が試した結果です。</em> <br/>
-.settings/open finder.launch ×<br/>
-.settings/.plugins/org.eclipse.debug.core/.launches/open finder.launch ×<br/>
-.settings/custom/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch × <br/>
-.settings/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch ○</p>
-
-<h2>前提</h2>
-
-<ul>
-<li>チーム内で人によってworkspaceのパスが違う。</li>
-<li>「Project Explore」で選択したファイルをFinderで開く機能（設定）を全員に設定させたい。</li>
-<li>設定するのに時間をかけたくない。</li>
-<li>mvn後にExternal Tools Configurationを開くと以下のようになる</li>
-</ul>
-
-
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/10494/8e24f7ad-c910-bb90-b21e-a029d6f65b70.png" title="openFinder.png" alt="openFinder.png" /></p>
-
-<h2>方法</h2>
-
-<p>1.個々人の~.m2/settings.xmlにworkspaceのパスを記述する</p>
-
-<figure class='code'><figcaption><span>settings.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;profiles&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;profile&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;id&gt;</span>local<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;activation&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;activeByDefault&gt;</span>true<span class="nt">&lt;/activeByDefault&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/activation&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;properties&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;eclipse.workspace&gt;</span>/Users/hoge/sources/workspace<span class="nt">&lt;/eclipse.workspace&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/properties&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/profile&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/profiles&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>2.maven-eclipse-pluginで、プロジェクトに一時ファイルを作る処理を記述<sub><a href="#add">追記参照</a></sub></p>
-
-<figure class='code'><figcaption><span>pom.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;plugin&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>maven-eclipse-plugin<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;configuration&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;additionalConfig&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;file&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;name&gt;</span>.settings/temp/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span>
-</span><span class='line'><span class="cp">&lt;launchConfiguration type=&quot;org.eclipse.ui.externaltools.ProgramLaunchConfigurationType&quot;&gt;</span>
-</span><span class='line'><span class="cp">&lt;stringAttribute key=&quot;org.eclipse.ui.externaltools.ATTR_LOCATION&quot; value=&quot;/usr/bin/open&quot;/&gt;</span>
-</span><span class='line'><span class="cp">&lt;stringAttribute key=&quot;org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS&quot; value=&quot;${container_loc}&quot;/&gt;</span>
-</span><span class='line'><span class="cp">&lt;/launchConfiguration&gt;              </span>
-</span><span class='line'><span class="cp">]]&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;/content&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/file&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/additionalConfig&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/configuration&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/plugin&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>3.maven-antrun-pluginでプロジェクトの一時パスからworkspaceへ移動させる処理を記述<sub><a href="#add">追記参照</a></sub></p>
-
-<figure class='code'><figcaption><span>pom.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;plugin&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>maven-antrun-plugin<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.7<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;dependencies&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;groupId&gt;</span>org.apache.ant<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;artifactId&gt;</span>ant<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;version&gt;</span>1.9.3<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/dependencies&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;executions&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;execution&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;id&gt;</span>gen-launches<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;phase&gt;</span>process-resources<span class="nt">&lt;/phase&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;configuration&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;target&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&quot;.settings/temp/&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;move</span> <span class="na">todir=</span><span class="s">&quot;${eclipse.workspace}/&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>              <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&quot;.settings/temp/&quot;</span> <span class="na">includes=</span><span class="s">&quot;**/*&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;/move&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;/target&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/configuration&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;goals&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;goal&gt;</span>run<span class="nt">&lt;/goal&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/goals&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/execution&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/executions&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/plugin&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>4.<code>$ mvn eclipse:eclipse process-resources</code>を叩く</p>
-
-<p>5.完成。プロジェクトを選択して、External Tools で　「open finder」を選択すると実行する。</p>
-
-<p>一度、実行すると以下のように使えます。</p>
-
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/10494/04dd8f95-7fe0-9179-0f59-7b06066de308.png" title="openFinder2.png" alt="openFinder2.png" /></p>
-
-<h2>まとめ</h2>
-
-<p>今回は、「External Tools Configurations」の設定の自動化をしましたが、この仕組みであれば、ほぼ全ての設定を自動化できます。
-当然、mavenのプロパティを&lt;content>タグ内でも使えるので、それぞれの環境依存の設定ファイルも作成可能です。</p>
-
-<p>実際「Run Configurations」でも同じようにできました。
-（その場合は、classpathにテストリソースが含まれないようにclassesだけを選択した設定を記述する必要があります。）</p>
-
-<p>これで、wikiなどを書いて、それぞれのチームメンバーに設定してもらうコストが削減できると思います。</p>
+</a>
 </div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/15/first-octopress/">Octopress始めてみた！</a></h1>
-    
-    
-      <p class="meta">
-        
+        <a class="basic-alignment left" href="/blog/2014/04/23/tycho/" title="Previous Post: Eclipseプラグインを簡単に作成する">&laquo; Eclipseプラグインを簡単に作成する</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/04/24/octoeclipse-marketplace/" title="Next Post: Eclipse MarketPlaceに自作のPluginを登録する">Eclipse MarketPlaceに自作のPluginを登録する &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-15T19:58:32+09:00" pubdate data-updated="true">Apr 15<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/15/first-octopress/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/15/first-octopress/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>初心に帰って技術ブログでも始めようかと。<br/>
-<a href="http://qiita.com/ko2ic">Qiita</a>との棲み分けはどうしよう。 <br/>
-感想とか自分の考えはこちらに書けばいいけど、技術的な内容はどうしようか。<br/>
-ブログと言えども同じ内容を書くのはDRY原則に反するから、悩み中。  <br/>
-まあ、でも試しに両方に書いて見ようかな。</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  
-  
+  </section>
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -1686,7 +925,7 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/ko2ic">@ko2ic</a> on GitHub
@@ -1756,6 +995,7 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -1770,7 +1010,10 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
       var disqus_shortname = 'ko2ic';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/04/23/jmerge/';
+        var disqus_url = 'http://ko2ic.github.io/blog/2014/04/23/jmerge/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

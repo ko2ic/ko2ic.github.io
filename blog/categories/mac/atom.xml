@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mac | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2014-05-19T22:27:25+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mac環境構築手順(GUI編)]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/05/18/mac-env-init/"/>
+    <updated>2014-05-18T19:20:40+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/05/18/mac-env-init</id>
+    <content type="html"><![CDATA[<p>macをクリーンインストールすることになったので、環境構築を自分用の備忘録として残しておきます。<br/>
+基本的に自分が使いやすいようにしています。</p>
+
+<h2>このページで書かないこと</h2>
+
+<ul>
+<li>homebrew-caskやdotfileなど自動でできること</li>
+</ul>
+
+
+<h2>このページで書くこと</h2>
+
+<ul>
+<li>GUIで設定すること</li>
+<li>defaultsコマンドで設定すること</li>
+</ul>
+
+
+<h4>defaultsコマンドについて</h4>
+
+<p>defaultsコマンドは「plist」と呼ばれるアプリやシステムの設定ファイルに、設定値を追加、変更、削除、検索するコマンドで以下のファイルが変更されます。</p>
+
+<pre><code>~/Library/Preferences/~.plist
+</code></pre>
+
+<p>以下のコマンドで上記のファイルを表示します</p>
+
+<pre><code>defaults read キー名
+</code></pre>
+
+<p>以下でキーに対応する値を削除できる<br>
+但しキー自体は削除されないのでplistファイル自体を削除します。</p>
+
+<pre><code>defaults delete キー名
+</code></pre>
+
+<p>それぞれの隠し機能のコマンドで変更した場合は以下のように再起動をして反映させましょう。</p>
+
+<pre><code>killall Finder
+killall Dock
+</code></pre>
+
+<h2>キーボード</h2>
+
+<p>システム環境設定　→　キーボード　→　</p>
+
+<h4>capsキー変更（日本語キーボード）</h4>
+
+<p>macは、windowsでのショートカットで利用するCtrlの役割がcommandになる。<br/>
+（例：command+C コピー）<br>
+windowsのCtrlの位置がmacのcapsの位置にあるので、同じ配置でできるように変更する</p>
+
+<p>→　修飾キー<br>　
+Caps Lock を Commandに変更</p>
+
+<p><img src="/images/mac-env-init/Keyboard-caps-change.png" alt="caps" /></p>
+
+<h4>ファンクションキーの動作を変更</h4>
+
+<p>デフォルトでは以下の動作になるために逆になるように変更する</p>
+
+<ul>
+<li>F1キーだけを押下するとディスプレイが暗くなる</li>
+<li>fnキー+F1でファンクションキーの動作</li>
+</ul>
+
+
+<p>→　F1、F2などの・・・にチェックを入れる</p>
+
+<p><img src="/images/mac-env-init/keyboard-function-key.png" alt="function" /></p>
+
+<h2>トラッックパッド</h2>
+
+<p>システム環境設定　→　トラックバッド　→</p>
+
+<p>画像のようにすると使いやすい
+<img src="/images/mac-env-init/trackpad1.png" alt="trackpad1" />
+<img src="/images/mac-env-init/trackpad2.png" alt="trackpad2" /></p>
+
+<h2>Finder</h2>
+
+<p>Finder →　環境設定　→　詳細</p>
+
+<h4>拡張子を表示</h4>
+
+<p>「すべてのファイル名拡張子を表示」をチェック</p>
+
+<h4>確実にごみ箱を空にする</h4>
+
+<p>チェックする</p>
+
+<h4>検索実行時の検索対象を変更</h4>
+
+<p>「検索実行時」を「現在のフォルダ内を検索」</p>
+
+<p><img src="/images/mac-env-init/finder1.png" alt="finder" /></p>
+
+<h4>新規Finderで開く先を変更</h4>
+
+<p>一般タブで「新規Finderウィンドウで次を表示」でホームを選択する</p>
+
+<h4>隠しファイルを表示する</h4>
+
+<p>デフォルトではFinder上で「.」ファイルは不可視なのでこれを変更する</p>
+
+<pre><code>defaults write com.apple.finder AppleShowAllFiles -boolean true
+</code></pre>
+
+<h4>終了できるようにする</h4>
+
+<p>デフォルトではFinderに終了がないのでこれを変更する</p>
+
+<pre><code>defaults write com.apple.finder QuitMenuItem -bool true
+</code></pre>
+
+<h4>タイトルにフルパスを表示する</h4>
+
+<p>ウインドウタイトルにもパスを表示する</p>
+
+<pre><code>defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+</code></pre>
+
+<h4>ネットワーク上に.DS_Storeを作らない</h4>
+
+<p>Mac OS Xでは、フォルダの表示形式を変更すると「.DS_Store」という不可視ファイルができるが、これをネットワーク上には作らなくする</p>
+
+<pre><code>defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool YES
+</code></pre>
+
+<h2>Dock</h2>
+
+<p> システム環境設定→　Dock</p>
+
+<h4>Dockを自動で隠す</h4>
+
+<p><img src="/images/mac-env-init/dock.png" alt="Dock" /></p>
+
+<h4>隠しているアプリを半透明で表示する</h4>
+
+<pre><code>defaults write com.apple.Dock showhidden -boolean true
+</code></pre>
+
+<h2>Mission Control</h2>
+
+<p> システム環境設定→　Mission Control</p>
+
+<p><img src="/images/mac-env-init/mission-control.png" alt="mission" /></p>
+
+<h4>ダッシュボードを起動させない</h4>
+
+<pre><code>defaults write com.apple.dashboard mcx-disabled -boolean YES
+</code></pre>
+
+<h2>その他</h2>
+
+<h4>残バッテリーを表示する</h4>
+
+<p><img src="/images/mac-env-init/percent.png" alt="battery" /></p>
+
+<h4>HardDiskが遅いので早くしたい</h4>
+
+<p>Spotlightのインデックス作成が、頻繁に行われているため、HDDが一杯になってくると、かなり遅くなります。<br>
+Spotlightを使っていないなら、下記の手順でインデックス作成をしないようにすれば、緩和されます。<br>
+「システム環境設定」→「Spotlight」→「プライバシー」で、除するパスを指定すると、インデックスの作成はされなくなりますが、Alfredはこのインデックスを利用しているので考えて設定しましょう。</p>
+]]></content>
+  </entry>
+  
+</feed>

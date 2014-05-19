@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Eclipse MarketPlaceに自作のPluginを登録する - ko2ic Blog</title>
+  <meta name="author" content="Koji Ishii">
+
+  
+  <meta name="description" content="自作のEclipse Pluginの登録は簡単です。 Eclipse.org accountのアカウントを作成する 以下のサイトから辿ってサインアップする。(login → Create Account) http://marketplace.eclipse.org/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ko2ic Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+<script language="JavaScript">
+$(document).ready( function () {
+       $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50060905-1', 'ko2ic.github.io');
+  ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ko2ic Blog</a></h1>
+  
+    <h2>悩みのネタ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ko2ic.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Eclipse MarketPlaceに自作のPluginを登録する</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-24T02:45:41+09:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>自作のEclipse Pluginの登録は簡単です。</p>
+
+<h2>Eclipse.org accountのアカウントを作成する</h2>
+
+<p>以下のサイトから辿ってサインアップする。(login → Create Account)  <br/>
+<a href="http://marketplace.eclipse.org/">http://marketplace.eclipse.org/</a></p>
+
+<p>アカウント作成するとメールが来るので本登録を終わらせて、ログインする.</p>
+
+<h2>コンテンツを追加する</h2>
+
+<p>1.ログイン後のメニューに「Add Content」があるのでそれを叩く。
+2.「Add a new Solutions Listing」リンクを叩く。
+3. 登録するPluginの情報を記述</p>
+
+<p>Solution Name　: Eclipse MarketPlaceに表示される名前   <br/>
+Product URL　:　プロジェクトのURLとか、自分はgithubレポジトリのURLを書いた   <br/>
+Version: Eclipse MarketPlaceに表示されるバージョン   <br/>
+Update Site URL: 自分はbintrayに作ったのでそのURL   <br/>
+Supported Eclipse Version: 例えば 4.3.2   <br/>
+Feature IDs: 以下のid</p>
+
+<figure class='code'><figcaption><span>feature.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;feature</span> <span class="na">url=</span><span class="s">&quot;path/to/feature.jar&quot;</span> <span class="na">id=</span><span class="s">&quot;feature.to.install&quot;</span> <span class="na">version=</span><span class="s">&quot;1.x.x.x&quot;</span><span class="nt">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Support URL: issue tracking systemのURL。自分はgithubのissues   <br/>
+Status : Eclipse MarketPlaceに表示されるDevelopment Status   <br/>
+Solution Type : This product requires an existing Eclipse installation to functionをチェック   <br/>
+Solution Description : Eclipse MarketPlaceに表示される説明   <br/>
+Categories : タグ。5個まで   <br/>
+Markets : 検索対象のマーケット</p>
+
+<p>saveボタンで終了。</p>
+
+<h2>審査とMy Marketplaceに表示されるのを待つ</h2>
+
+<p>これは一日以上待った気がする。上記save後のメッセージなどが地味なので、本当にsaveできたのかが不安になるが、待っていれば、登録される。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Koji Ishii</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-24T02:45:41+09:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/eclipse/'>eclipse</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/">
+<img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none"/>
+
+<div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+
+
+</a>
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/04/23/jmerge/" title="Previous Post: 自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge">&laquo; 自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/05/18/mac-env-init/" title="Next Post: Mac環境構築手順(GUI編)">Mac環境構築手順(GUI編) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Tag Cloud</h1>
+  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 120.0%'>Mac(1)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> </span>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="category-list"><li><a href='/blog/categories/eclipse/'>eclipse (3)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/mac/'>Mac (1)</a></li><li><a href='/blog/categories/maven/'>maven (2)</a></li><li><a href='/blog/categories/octopress/'>Octopress (1)</a></li><li><a href='/blog/categories/tycho/'>Tycho (1)</a></li></ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/18/mac-env-init/">Mac環境構築手順(GUI編)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/24/octoeclipse-marketplace/">Eclipse MarketPlaceに自作のPluginを登録する</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/23/jmerge/">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/23/tycho/">Eclipseプラグインを簡単に作成する</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/21/octopress-qiita-aside/">OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+
+<h1>Qiita 人気の投稿</h1>
+
+<ul id="qiita_post" class="post">
+</ul>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+        var url = "https://qiita.com/api/v1/users/ko2ic/items"
+
+        $.getJSON(url, function(response){
+
+        response.sort(function(a, b){
+          a = a.stock_count;
+          b = b.stock_count;
+          return b - a;
+        });
+
+        for(var i = 0; i < response.length ; i++){
+          var data = response[i];
+          var aTag = $("<a/>").text(data.title).attr("href",data.url);
+
+          var iStockTag = $("<i/>").css({"color":"#000","margin-right":"1em"}).attr("class","fa fa-folder-o");
+          iStockTag.append("  " + data.stock_count);
+          
+          var iCommentTag = $("<i/>").css({"color":"#000"}).attr("class","fa fa-folder-o");
+          iCommentTag.append("  " + data.comment_count);
+
+          var pTag = $("<p/>");
+          pTag.append(iStockTag);
+          pTag.append(iCommentTag);
+
+          var liTag = $("<li/>").attr("class","post").attr("data-qiita-stock",data.stock_count).append(aTag).append(pTag);
+          $("#qiita_post").append(liTag);
+
+          if(i === 5 - 1){
+            break;
+          }
+
+        }
+      });
+    });
+  </script>
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ko2ic">@ko2ic</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ko2ic',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Coderwall Badges</h1>
+<a href="http://coderwall.com/ko2ic">
+<div id="coderwall_badges"></div>
+</a>
+<div id="badge_description"></div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $.getJSON("http://coderwall.com/ko2ic.json?callback=?", function(data){
+        for(var i = 0; i < data.data.badges.length ; i++){
+          var badge = data.data.badges[i];
+          var badgeImg = $("<img />");
+          badgeImg.attr("src",badge.badge);
+          badgeImg.attr("alt",badge.description);
+          badgeImg.css("width","33%");
+          badgeImg.css("border-style","none");
+          badgeImg.hover(
+            function(){
+              var text = $(this).attr("alt");
+              var offset = $(this).offset();
+              msg_box = $("#badge_description").get(0);
+              msg_box.style.display = "inline";
+              msg_box.innerText = text;
+              msg_box.textContent = text;
+              msg_box.style.left = offset.left;
+              msg_box.style.top = offset.top + 60;
+            },
+            function() {
+              msg_box = $("#badge_description").get(0);
+              msg_box.style.display = "none";
+            });
+          $("#coderwall_badges").append(badgeImg);
+        }
+      });
+    });
+  </script>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Koji Ishii -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ko2ic';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/';
+        var disqus_url = 'http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net//all.js#appId=&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<script>
+(function(w,d){
+    var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
+    a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");
+    c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+    f.parentNode.insertBefore(e,f);
+})(this,document);
+</script>
+
+
+</body>
+</html>

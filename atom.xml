@@ -1,122 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>ko2ic Blog</title>
-  <meta name="author" content="Koji Ishii">
-
-  
-  <meta name="description" content="macをクリーンインストールすることになったので、環境構築を自分用の備忘録として残しておきます。
-基本的に自分が使いやすいようにしています。 このページで書かないこと homebrew-caskやdotfileなど自動でできること このページで書くこと GUIで設定すること &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://ko2ic.github.io">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="ko2ic Blog" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-<script language="JavaScript">
-$(document).ready( function () {
-       $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-})
-</script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-
-  
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-50060905-1', 'ko2ic.github.io');
-  ga('send', 'pageview');
-
-</script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">ko2ic Blog</a></h1>
-  
-    <h2>悩みのネタ</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:ko2ic.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/about">About Me</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2014-05-19T22:27:25+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/18/mac-env-init/">Mac環境構築手順(GUI編)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2014-05-18T19:20:40+09:00" pubdate data-updated="true">May 18<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/05/18/mac-env-init/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/18/mac-env-init/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>macをクリーンインストールすることになったので、環境構築を自分用の備忘録として残しておきます。<br/>
+  <entry>
+    <title type="html"><![CDATA[Mac環境構築手順(GUI編)]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/05/18/mac-env-init/"/>
+    <updated>2014-05-18T19:20:40+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/05/18/mac-env-init</id>
+    <content type="html"><![CDATA[<p>macをクリーンインストールすることになったので、環境構築を自分用の備忘録として残しておきます。<br/>
 基本的に自分が使いやすいようにしています。</p>
 
 <h2>このページで書かないこと</h2>
@@ -171,7 +73,7 @@ windowsのCtrlの位置がmacのcapsの位置にあるので、同じ配置で�
 <p>→　修飾キー<br>　
 Caps Lock を Commandに変更</p>
 
-<p><img src="/images/mac-env-init/Keyboard-caps-change.png" alt="caps" /></p>
+<p><img src="http://ko2ic.github.io/images/mac-env-init/Keyboard-caps-change.png" alt="caps" /></p>
 
 <h4>ファンクションキーの動作を変更</h4>
 
@@ -185,15 +87,15 @@ Caps Lock を Commandに変更</p>
 
 <p>→　F1、F2などの・・・にチェックを入れる</p>
 
-<p><img src="/images/mac-env-init/keyboard-function-key.png" alt="function" /></p>
+<p><img src="http://ko2ic.github.io/images/mac-env-init/keyboard-function-key.png" alt="function" /></p>
 
 <h2>トラッックパッド</h2>
 
 <p>システム環境設定　→　トラックバッド　→</p>
 
 <p>画像のようにすると使いやすい
-<img src="/images/mac-env-init/trackpad1.png" alt="trackpad1" />
-<img src="/images/mac-env-init/trackpad2.png" alt="trackpad2" /></p>
+<img src="http://ko2ic.github.io/images/mac-env-init/trackpad1.png" alt="trackpad1" />
+<img src="http://ko2ic.github.io/images/mac-env-init/trackpad2.png" alt="trackpad2" /></p>
 
 <h2>Finder</h2>
 
@@ -211,7 +113,7 @@ Caps Lock を Commandに変更</p>
 
 <p>「検索実行時」を「現在のフォルダ内を検索」</p>
 
-<p><img src="/images/mac-env-init/finder1.png" alt="finder" /></p>
+<p><img src="http://ko2ic.github.io/images/mac-env-init/finder1.png" alt="finder" /></p>
 
 <h4>新規Finderで開く先を変更</h4>
 
@@ -251,7 +153,7 @@ Caps Lock を Commandに変更</p>
 
 <h4>Dockを自動で隠す</h4>
 
-<p><img src="/images/mac-env-init/dock.png" alt="Dock" /></p>
+<p><img src="http://ko2ic.github.io/images/mac-env-init/dock.png" alt="Dock" /></p>
 
 <h4>隠しているアプリを半透明で表示する</h4>
 
@@ -262,7 +164,7 @@ Caps Lock を Commandに変更</p>
 
 <p> システム環境設定→　Mission Control</p>
 
-<p><img src="/images/mac-env-init/mission-control.png" alt="mission" /></p>
+<p><img src="http://ko2ic.github.io/images/mac-env-init/mission-control.png" alt="mission" /></p>
 
 <h4>ダッシュボードを起動させない</h4>
 
@@ -273,52 +175,22 @@ Caps Lock を Commandに変更</p>
 
 <h4>残バッテリーを表示する</h4>
 
-<p><img src="/images/mac-env-init/percent.png" alt="battery" /></p>
+<p><img src="http://ko2ic.github.io/images/mac-env-init/percent.png" alt="battery" /></p>
 
 <h4>HardDiskが遅いので早くしたい</h4>
 
 <p>Spotlightのインデックス作成が、頻繁に行われているため、HDDが一杯になってくると、かなり遅くなります。<br>
 Spotlightを使っていないなら、下記の手順でインデックス作成をしないようにすれば、緩和されます。<br>
 「システム環境設定」→「Spotlight」→「プライバシー」で、除するパスを指定すると、インデックスの作成はされなくなりますが、Alfredはこのインデックスを利用しているので考えて設定しましょう。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/24/octoeclipse-marketplace/">Eclipse MarketPlaceに自作のPluginを登録する</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-24T02:45:41+09:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/24/octoeclipse-marketplace/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>自作のEclipse Pluginの登録は簡単です。</p>
+  <entry>
+    <title type="html"><![CDATA[Eclipse MarketPlaceに自作のPluginを登録する]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/"/>
+    <updated>2014-04-24T02:45:41+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace</id>
+    <content type="html"><![CDATA[<p>自作のEclipse Pluginの登録は簡単です。</p>
 
 <h2>Eclipse.org accountのアカウントを作成する</h2>
 
@@ -357,45 +229,15 @@ Markets : 検索対象のマーケット</p>
 <h2>審査とMy Marketplaceに表示されるのを待つ</h2>
 
 <p>これは一日以上待った気がする。上記save後のメッセージなどが地味なので、本当にsaveできたのかが不安になるが、待っていれば、登録される。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/23/jmerge/">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-23T22:25:51+09:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/23/jmerge/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/23/jmerge/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br/>
+  <entry>
+    <title type="html"><![CDATA[自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/23/jmerge/"/>
+    <updated>2014-04-23T22:25:51+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/23/jmerge</id>
+    <content type="html"><![CDATA[<p>8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br/>
 コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br/>
 そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした） <br/>
 最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
@@ -1049,45 +891,15 @@ eclipseディレクトリの   <br/>
 
 <p>以下のプロジェクトで動作させてください。ここにあるスプレッドシートを使えば、自動生成されます。
 <a href="https://github.com/ko2ic/comment-tag-gen-plugin-sample">https://github.com/ko2ic/comment-tag-gen-plugin-sample</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/23/tycho/">Eclipseプラグインを簡単に作成する</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-23T03:35:07+09:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/23/tycho/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/23/tycho/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>いまの時代、Eclipse Pluginは簡単に作れます。昔はプロジェクトを作ること自体が難しい（めんどくさい）イメージがあり、ハードルが高かったのですが、いまはtychoがあります。
+  <entry>
+    <title type="html"><![CDATA[Eclipseプラグインを簡単に作成する]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/23/tycho/"/>
+    <updated>2014-04-23T03:35:07+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/23/tycho</id>
+    <content type="html"><![CDATA[<p>いまの時代、Eclipse Pluginは簡単に作れます。昔はプロジェクトを作ること自体が難しい（めんどくさい）イメージがあり、ハードルが高かったのですが、いまはtychoがあります。
 <a href="https://www.eclipse.org/tycho/">https://www.eclipse.org/tycho/</a></p>
 
 <p>tychoを使えば、プロジェクト作成、build、依存性管理などをある程度自動化できます。
@@ -1162,45 +974,15 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
 
 <p>Eclipse上、邪魔なjarが表示されているのですが、packagingされないので気にしなくて良いです。 <br/>
 気になる場合は、削除しても構いませんが、<code>mvn eclipse:ecipse</code>をすると再度追加されてしまいます。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/21/octopress-qiita-aside/">OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-21T21:19:01+09:00" pubdate data-updated="true">Apr 21<span>st</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/21/octopress-qiita-aside/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>方法</h2>
+  <entry>
+    <title type="html"><![CDATA[OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside/"/>
+    <updated>2014-04-21T21:19:01+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside</id>
+    <content type="html"><![CDATA[<h2>方法</h2>
 
 <p>1.Qiitaと同じアイコンを使いたいので、<a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>を使う。</p>
 
@@ -1325,45 +1107,15 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
 両方に対応したソースは、githubにあります。
 <a href="https://github.com/ko2ic/octopress-qiita-aside">https://github.com/ko2ic/octopress-qiita-aside</a>
 なにかあれば、pull requestでもお願いします。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/19/maven-eclipse/">Mavenですべての設定ファイルを自動生成させる方法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-19T20:24:48+09:00" pubdate data-updated="true">Apr 19<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/19/maven-eclipse/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
+  <entry>
+    <title type="html"><![CDATA[Mavenですべての設定ファイルを自動生成させる方法]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
+    <updated>2014-04-19T20:24:48+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
+    <content type="html"><![CDATA[<p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
 
 <p>maven-eclipse-pluginを使って作成できるのは、プロジェクトのディレクトリに置けるファイル/ディレクトリです。
 例えば、<code>.checkstyle</code>であったり、<code>.settings/</code>だったり。
@@ -1543,287 +1295,20 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
 （その場合は、classpathにテストリソースが含まれないようにclassesだけを選択した設定を記述する必要があります。）</p>
 
 <p>これで、wikiなどを書いて、それぞれのチームメンバーに設定してもらうコストが削減できると思います。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/15/first-octopress/">Octopress始めてみた！</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-15T19:58:32+09:00" pubdate data-updated="true">Apr 15<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/15/first-octopress/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/15/first-octopress/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>初心に帰って技術ブログでも始めようかと。<br/>
+  <entry>
+    <title type="html"><![CDATA[Octopress始めてみた！]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/15/first-octopress/"/>
+    <updated>2014-04-15T19:58:32+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/15/first-octopress</id>
+    <content type="html"><![CDATA[<p>初心に帰って技術ブログでも始めようかと。<br/>
 <a href="http://qiita.com/ko2ic">Qiita</a>との棲み分けはどうしよう。 <br/>
 感想とか自分の考えはこちらに書けばいいけど、技術的な内容はどうしようか。<br/>
 ブログと言えども同じ内容を書くのはDRY原則に反するから、悩み中。  <br/>
 まあ、でも試しに両方に書いて見ようかな。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 120.0%'>Mac(1)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> </span>
-</section>
-<section>
-  <h1>Categories</h1>
-  <ul id="category-list"><li><a href='/blog/categories/eclipse/'>eclipse (3)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/mac/'>Mac (1)</a></li><li><a href='/blog/categories/maven/'>maven (2)</a></li><li><a href='/blog/categories/octopress/'>Octopress (1)</a></li><li><a href='/blog/categories/tycho/'>Tycho (1)</a></li></ul>
-</section>
-<section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2014/05/18/mac-env-init/">Mac環境構築手順(GUI編)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/24/octoeclipse-marketplace/">Eclipse MarketPlaceに自作のPluginを登録する</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/23/jmerge/">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/23/tycho/">Eclipseプラグインを簡単に作成する</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/21/octopress-qiita-aside/">OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-
-<h1>Qiita 人気の投稿</h1>
-
-<ul id="qiita_post" class="post">
-</ul>
-  <script type="text/javascript">
-    $(document).ready(function(){
-
-        var url = "https://qiita.com/api/v1/users/ko2ic/items"
-
-        $.getJSON(url, function(response){
-
-        response.sort(function(a, b){
-          a = a.stock_count;
-          b = b.stock_count;
-          return b - a;
-        });
-
-        for(var i = 0; i < response.length ; i++){
-          var data = response[i];
-          var aTag = $("<a/>").text(data.title).attr("href",data.url);
-
-          var iStockTag = $("<i/>").css({"color":"#000","margin-right":"1em"}).attr("class","fa fa-folder-o");
-          iStockTag.append("  " + data.stock_count);
-          
-          var iCommentTag = $("<i/>").css({"color":"#000"}).attr("class","fa fa-folder-o");
-          iCommentTag.append("  " + data.comment_count);
-
-          var pTag = $("<p/>");
-          pTag.append(iStockTag);
-          pTag.append(iCommentTag);
-
-          var liTag = $("<li/>").attr("class","post").attr("data-qiita-stock",data.stock_count).append(aTag).append(pTag);
-          $("#qiita_post").append(liTag);
-
-          if(i === 5 - 1){
-            break;
-          }
-
-        }
-      });
-    });
-  </script>
-</section>
-
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/ko2ic">@ko2ic</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'ko2ic',
-            count: 3,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Coderwall Badges</h1>
-<a href="http://coderwall.com/ko2ic">
-<div id="coderwall_badges"></div>
-</a>
-<div id="badge_description"></div>
-  <script type="text/javascript">
-    $(document).ready(function(){
-
-      $.getJSON("http://coderwall.com/ko2ic.json?callback=?", function(data){
-        for(var i = 0; i < data.data.badges.length ; i++){
-          var badge = data.data.badges[i];
-          var badgeImg = $("<img />");
-          badgeImg.attr("src",badge.badge);
-          badgeImg.attr("alt",badge.description);
-          badgeImg.css("width","33%");
-          badgeImg.css("border-style","none");
-          badgeImg.hover(
-            function(){
-              var text = $(this).attr("alt");
-              var offset = $(this).offset();
-              msg_box = $("#badge_description").get(0);
-              msg_box.style.display = "inline";
-              msg_box.innerText = text;
-              msg_box.textContent = text;
-              msg_box.style.left = offset.left;
-              msg_box.style.top = offset.top + 60;
-            },
-            function() {
-              msg_box = $("#badge_description").get(0);
-              msg_box.style.display = "none";
-            });
-          $("#coderwall_badges").append(badgeImg);
-        }
-      });
-    });
-  </script>
-</section>
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Koji Ishii -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'ko2ic';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id; js.async = true;
-  js.src = "//connect.facebook.net//all.js#appId=&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-<script>
-(function(w,d){
-    var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
-    a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");
-    c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
-    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
-    f.parentNode.insertBefore(e,f);
-})(this,document);
-</script>
-
-
-</body>
-</html>
+</feed>
