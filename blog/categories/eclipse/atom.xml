@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Eclipse | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-19T22:39:37+09:00</updated>
+  <updated>2014-05-19T23:35:31+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -135,6 +135,9 @@ public void method2() {
 </code></pre>
 
 <p>```</p>
+
+<!-- more -->
+
 
 <p>この機能を扱うクラスはEMFにあるので、eclipseにEMFを入れておく必要があります。  <br/>
 Eclipseのupdate site で、例えば、<code>Kepler - http://download.eclipse.org/releases/kepler</code>を選択して、Modeling → 「EMF &ndash; Eclipse Modeling Framework SDK」をチェックしてインストールします。</p>
@@ -529,6 +532,9 @@ private JControlModel buildMergeRule() {
 例えば、<code>workspace/.metadata/</code>です。</p>
 
 <p>今回は例として、<code>workspace/.metadata/</code>以下にできる「Run Configurations」や「External Tools Configurations」画面で設定できるファイルを生成させます。</p>
+
+<!-- more -->
+
 
 <p><a name="add"><strong><em>追記(2014/4/21)</em></strong></a> <br/>
 <em>eclipseの設定ファイルは<code>.settings/</code>に出来れば問題ありません。

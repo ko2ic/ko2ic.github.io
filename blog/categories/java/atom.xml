@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-19T22:39:37+09:00</updated>
+  <updated>2014-05-19T23:35:31+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -89,6 +89,9 @@ public void method2() {
 </code></pre>
 
 <p>```</p>
+
+<!-- more -->
+
 
 <p>この機能を扱うクラスはEMFにあるので、eclipseにEMFを入れておく必要があります。  <br/>
 Eclipseのupdate site で、例えば、<code>Kepler - http://download.eclipse.org/releases/kepler</code>を選択して、Modeling → 「EMF &ndash; Eclipse Modeling Framework SDK」をチェックしてインストールします。</p>

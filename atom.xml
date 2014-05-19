@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-19T22:39:37+09:00</updated>
+  <updated>2014-05-19T23:35:31+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -59,6 +59,9 @@
 <pre><code>killall Finder
 killall Dock
 </code></pre>
+
+<!-- more -->
+
 
 <h2>キーボード</h2>
 
@@ -345,6 +348,9 @@ Markets : 検索対象のマーケット</p>
 </span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;あ&quot;</span><span class="o">);</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
+
+
+<!-- more -->
 
 
 <p>この機能を扱うクラスはEMFにあるので、eclipseにEMFを入れておく必要があります。  <br/>
@@ -910,6 +916,9 @@ eclipseディレクトリの   <br/>
 
 <p>依存性もある程度任せたいと思うなら、以下の方法で可能です。</p>
 
+<!-- more -->
+
+
 <h2>プロジェクトの作成</h2>
 
 <h3>archetypeを選択</h3>
@@ -1084,6 +1093,11 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
 </span></code></pre></td></tr></table></div></figure>
 
 
+
+
+<!-- more -->
+
+
 <ol>
 <li>./_config.ymlに記述する</li>
 </ol>
@@ -1123,6 +1137,9 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
 例えば、<code>workspace/.metadata/</code>です。</p>
 
 <p>今回は例として、<code>workspace/.metadata/</code>以下にできる「Run Configurations」や「External Tools Configurations」画面で設定できるファイルを生成させます。</p>
+
+<!-- more -->
+
 
 <p><a name="add"><strong><em>追記(2014/4/21)</em></strong></a> <br/>
 <em>eclipseの設定ファイルは<code>.settings/</code>に出来れば問題ありません。

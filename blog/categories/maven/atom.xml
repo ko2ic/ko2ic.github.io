@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Maven | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/maven/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-19T22:39:37+09:00</updated>
+  <updated>2014-05-19T23:35:31+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -28,6 +28,9 @@
 <a href="https://github.com/open-archetypes/tycho-eclipse-plugin-archetype">https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</a></p>
 
 <p>依存性もある程度任せたいと思うなら、以下の方法で可能です。</p>
+
+<!-- more -->
+
 
 <h2>プロジェクトの作成</h2>
 
@@ -109,6 +112,9 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
 例えば、<code>workspace/.metadata/</code>です。</p>
 
 <p>今回は例として、<code>workspace/.metadata/</code>以下にできる「Run Configurations」や「External Tools Configurations」画面で設定できるファイルを生成させます。</p>
+
+<!-- more -->
+
 
 <p><a name="add"><strong><em>追記(2014/4/21)</em></strong></a> <br/>
 <em>eclipseの設定ファイルは<code>.settings/</code>に出来れば問題ありません。
