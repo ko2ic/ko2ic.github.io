@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-19T23:35:31+09:00</updated>
+  <updated>2014-05-20T22:15:45+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,94 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mac環境構築手順]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/05/20/mac-env-init2/"/>
+    <updated>2014-05-20T20:43:42+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/05/20/mac-env-init2</id>
+    <content type="html"><![CDATA[<p>前回は、手動での作業を書いたので、今日は半自動な構築部分を残しておきます。</p>
+
+<h2>Macportsからhomebrewへ</h2>
+
+<p>ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
+
+<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。
+例えば
+* ディレクトリrsyncすれば他のmacと共通の環境ができる
+* 問題が起きたときなどにoptをrenameしてみて、入れ直したり、元に戻したりが気楽にできる
+* /usr/localは自分で入れたものにしかない状態はわかりやすい</p>
+
+<p>こういった利点があるので変えていなかったのですが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
+
+<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。（そこら中に記事があるので自分が書く必要もないので） <br/>
+よって完全に自分のためだけのメモになります。</p>
+
+<h2>dotfiles</h2>
+
+<p>${HOME}に.bash_profileなどの自分用の設定をおきます。</p>
+
+<pre><code>$ git clone https://github.com/ko2ic/dotfiles.git
+$ cd dotfiles
+$ chmod 766 dotfiles.sh
+$ ./dotfiles.sh
+$ source ~/.bash_profile
+</code></pre>
+
+<h2>Xcode</h2>
+
+<ul>
+<li>App StoreからXcodeを検索してインストール</li>
+<li>Xcodeを起動して同意する</li>
+<li><code>$ xcode-select -install</code>でCommand Line Toolをインストール</li>
+</ul>
+
+
+<h2>homebrew &amp; cask</h2>
+
+<p>Brewfileに記述したアプリをインストールします。</p>
+
+<pre><code>$ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+$ brew bundle
+</code></pre>
+
+<h2>NeoBundle</h2>
+
+<pre><code>$ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+$ vim .
+:NeoBundleInstall
+</code></pre>
+
+<h2>Git Settings</h2>
+
+<pre><code>$ git config --global user.name "kouji ishii"
+$ git config --global user.email ko2ic.dev@gmail.com
+$ git config --global core.excludesfile ~/.gitignore
+$ git config --global core.editor "/usr/local/bin/vim"
+</code></pre>
+
+<h2>Screen</h2>
+
+<p>縦分割できるScreenを使いたいので個別に入れます。</p>
+
+<pre><code>$ brew install --HEAD -f screen
+</code></pre>
+
+<h2>アプリ設定</h2>
+
+<h4>Alfred</h4>
+
+<p>ホットキーをaltのダブルタップに変更する</p>
+
+<p><img src="http://ko2ic.github.io/images/mac-env-init/alfred.png" alt="alfred" /></p>
+
+<h4>divvy</h4>
+
+<p>以下のURLのように設定をする</p>
+
+<p><a href="http://mizage.com/help/accessibility.html">http://mizage.com/help/accessibility.html</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac環境構築手順(GUI編)]]></title>
@@ -76,7 +164,7 @@ windowsのCtrlの位置がmacのcapsの位置にあるので、同じ配置で�
 <p>→　修飾キー<br>　
 Caps Lock を Commandに変更</p>
 
-<p><img src="http://ko2ic.github.io/images/mac-env-init/Keyboard-caps-change.png" alt="caps" /></p>
+<p><img src="http://ko2ic.github.io/images/mac-env-init/keyboard-caps-change.png" alt="caps" /></p>
 
 <h4>ファンクションキーの動作を変更</h4>
 
