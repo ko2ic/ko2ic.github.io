@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-20T22:17:41+09:00</updated>
+  <updated>2014-05-21T00:17:59+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,104 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressを再構築]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/05/21/octopress/"/>
+    <updated>2014-05-21T00:00:20+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/05/21/octopress</id>
+    <content type="html"><![CDATA[<p>OSのクリーンインストールをしたのでこのブログも入れ直す</p>
+
+<h2>ソースを取得</h2>
+
+<p>自分の場合はbitbuketにこのブログを保存しているので、そこから取得する</p>
+
+<p>初めての場合はoctopress本体を取得する</p>
+
+<pre><code>$ git clone git@github.com:imathis/octopress.git
+</code></pre>
+
+<h2>ruby</h2>
+
+<p>自分の環境はhomebrewでreadline,ruby-build,rbenvをインストール済みです。<br/>
+PATHにrbenvを通す<br/>
+古い記事だと~/.rbenv/binになっているので注意。</p>
+
+<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>/.rbenv/shims:<span class="nv">$PATH</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>rubyはrbenvでインストールする</p>
+
+<pre><code>$ rbenv install 2.1.0
+$ rbenv rehash
+</code></pre>
+
+<p>rbenvで使用するrubyバージョンを指定する。</p>
+
+<pre><code>$ rbenv global 2.1.0
+$ rbenv global
+2.1.0
+</code></pre>
+
+<p>bundlerをインストール</p>
+
+<pre><code>$ rbenv exec gem install bundler
+$ rbenv exec gem list
+bigdecimal (1.2.3)
+bundler (1.6.2)
+io-console (0.4.2)
+json (1.8.1)
+minitest (4.7.5)
+psych (2.0.2)
+rake (10.1.0)
+rdoc (4.1.0)
+test-unit (2.1.0.0)
+</code></pre>
+
+<h2>octopress初期設定</h2>
+
+<p>このプロジェクト用の必要なgemをインストール</p>
+
+<pre><code>$ bundle install --path vendor/bundle
+</code></pre>
+
+<p>github pageに設定する</p>
+
+<pre><code>$ bundle exec rake setup_github_pages
+</code></pre>
+
+<p>デプロイ先を聞かれるので入力する。自分の場合は以下</p>
+
+<pre><code> git@github.com:ko2ic/ko2ic.github.io.git
+</code></pre>
+
+<h2>ブログを書く</h2>
+
+<p>ページを作成する</p>
+
+<pre><code>$ bundle exec rake generate
+</code></pre>
+
+<p>ローカルで検証する <a href="http://localhost:4000">http://localhost:4000</a></p>
+
+<pre><code>$ bundle exec rake preview
+</code></pre>
+
+<p>別のターミナルで以下を入力しておくことで、rake generateしなくても変更を検知してリビルドしてくれる</p>
+
+<pre><code>$ bundle exec rake watch
+</code></pre>
+
+<h2>bitbuketへ</h2>
+
+<p>コミットしてpushする</p>
+
+<pre><code>$ git push origin source
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac環境構築手順]]></title>

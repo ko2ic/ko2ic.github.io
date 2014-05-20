@@ -9,7 +9,7 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="前回は、手動での作業を書いたので、今日は半自動な構築部分を記述しておきます。 Macportsからhomebrewへ ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。 macportsにも利点があって、それは &hellip;">
+  <meta name="description" content="OSのクリーンインストールをしたのでこのブログも入れ直す ソースを取得 自分の場合はbitbuketにこのブログを保存しているので、そこから取得する 初めての場合はoctopress本体を取得する $ git clone git@github.com:imathis/octopress.git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,134 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/21/octopress/">Octopressを再構築</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-21T00:00:20+09:00" pubdate data-updated="true">May 21<span>st</span>, 2014</time>
+        
+           | <a href="/blog/2014/05/21/octopress/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/21/octopress/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>OSのクリーンインストールをしたのでこのブログも入れ直す</p>
+
+<h2>ソースを取得</h2>
+
+<p>自分の場合はbitbuketにこのブログを保存しているので、そこから取得する</p>
+
+<p>初めての場合はoctopress本体を取得する</p>
+
+<pre><code>$ git clone git@github.com:imathis/octopress.git
+</code></pre>
+
+<h2>ruby</h2>
+
+<p>自分の環境はhomebrewでreadline,ruby-build,rbenvをインストール済みです。<br/>
+PATHにrbenvを通す<br/>
+古い記事だと~/.rbenv/binになっているので注意。</p>
+
+<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>/.rbenv/shims:<span class="nv">$PATH</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>rubyはrbenvでインストールする</p>
+
+<pre><code>$ rbenv install 2.1.0
+$ rbenv rehash
+</code></pre>
+
+<p>rbenvで使用するrubyバージョンを指定する。</p>
+
+<pre><code>$ rbenv global 2.1.0
+$ rbenv global
+2.1.0
+</code></pre>
+
+<p>bundlerをインストール</p>
+
+<pre><code>$ rbenv exec gem install bundler
+$ rbenv exec gem list
+bigdecimal (1.2.3)
+bundler (1.6.2)
+io-console (0.4.2)
+json (1.8.1)
+minitest (4.7.5)
+psych (2.0.2)
+rake (10.1.0)
+rdoc (4.1.0)
+test-unit (2.1.0.0)
+</code></pre>
+
+<h2>octopress初期設定</h2>
+
+<p>このプロジェクト用の必要なgemをインストール</p>
+
+<pre><code>$ bundle install --path vendor/bundle
+</code></pre>
+
+<p>github pageに設定する</p>
+
+<pre><code>$ bundle exec rake setup_github_pages
+</code></pre>
+
+<p>デプロイ先を聞かれるので入力する。自分の場合は以下</p>
+
+<pre><code> git@github.com:ko2ic/ko2ic.github.io.git
+</code></pre>
+
+<h2>ブログを書く</h2>
+
+<p>ページを作成する</p>
+
+<pre><code>$ bundle exec rake generate
+</code></pre>
+
+<p>ローカルで検証する <a href="http://localhost:4000">http://localhost:4000</a></p>
+
+<pre><code>$ bundle exec rake preview
+</code></pre>
+
+<p>別のターミナルで以下を入力しておくことで、rake generateしなくても変更を検知してリビルドしてくれる</p>
+
+<pre><code>$ bundle exec rake watch
+</code></pre>
+
+<h2>bitbuketへ</h2>
+
+<p>コミットしてpushする</p>
+
+<pre><code>$ git push origin source
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -818,11 +946,15 @@ Markets : 検索対象のマーケット</p>
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/21/octopress/">Octopressを再構築</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/20/mac-env-init2/">Mac環境構築手順</a>
@@ -838,10 +970,6 @@ Markets : 検索対象のマーケット</p>
     
       <li class="post">
         <a href="/blog/2014/04/23/jmerge/">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/23/tycho/">Eclipseプラグインを簡単に作成する</a>
       </li>
     
   </ul>
