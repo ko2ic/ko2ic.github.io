@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-21T00:17:59+09:00</updated>
+  <updated>2014-05-21T00:22:48+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -67,6 +67,9 @@ rake (10.1.0)
 rdoc (4.1.0)
 test-unit (2.1.0.0)
 </code></pre>
+
+<!-- more -->
+
 
 <h2>octopress初期設定</h2>
 
@@ -132,6 +135,9 @@ test-unit (2.1.0.0)
 
 <p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。（そこら中に記事があるので自分が書く必要もないので） <br/>
 よって完全に自分のためだけのメモになります。</p>
+
+<!-- more -->
+
 
 <h2>dotfiles</h2>
 
