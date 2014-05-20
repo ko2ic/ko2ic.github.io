@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Homebrew | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/homebrew/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-20T22:15:45+09:00</updated>
+  <updated>2014-05-20T22:17:41+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ko2ic.github.io/blog/2014/05/20/mac-env-init2/"/>
     <updated>2014-05-20T20:43:42+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/05/20/mac-env-init2</id>
-    <content type="html"><![CDATA[<p>前回は、手動での作業を書いたので、今日は半自動な構築部分を残しておきます。</p>
+    <content type="html"><![CDATA[<p>前回は、手動での作業を書いたので、今日は半自動な構築部分を記述しておきます。</p>
 
 <h2>Macportsからhomebrewへ</h2>
 
