@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Java - ko2ic Blog</title>
+  <title>+luaなvimをインストール - ko2ic Blog</title>
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="Category: Java">
+  <meta name="description" content="neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール luaをインストール $ brew install lua +luaなvimをインストール $ brew install vim --with-lua 確認してみる $ vim --version | grep &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ko2ic.github.ioblog/categories/java">
+  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/05/22/vim-lua">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="ko2ic Blog" type="application/atom+xml">
@@ -82,36 +82,155 @@ $(document).ready( function () {
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Java</h1>
+    
+      <h1 class="entry-title">+luaなvimをインストール</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール</p>
 
-  
-  <h2>2014</h2>
+<p>luaをインストール</p>
 
-<article>
-  
-<h1><a href="/blog/2014/04/23/jmerge/">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</a></h1>
-<time datetime="2014-04-23T22:25:51+09:00" pubdate><span class='month'>Apr</span> <span class='day'>23</span> <span class='year'>2014</span></time>
+<pre><code>$ brew install lua
+</code></pre>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/eclipse/'>eclipse</a></span>
-</footer>
+<p>+luaなvimをインストール</p>
+
+<pre><code>$ brew install vim --with-lua
+</code></pre>
+
+<p>確認してみる</p>
+
+<pre><code>$ vim --version | grep lua
+-lua
+</code></pre>
+
+<p>+luaになっていない！?<br/>
+インストール時のオプションを確認</p>
+
+<pre><code>$ brew options vim
+--with-lua
+        Build vim with lua support
+</code></pre>
+
+<p>ちゃんとできてるな・・・</p>
+
+<pre><code>$ which vim
+/usr/bin/vim
+</code></pre>
+
+<p>なるほど。標準のvimが使われてたのね。
+PATHを確認</p>
+
+<pre><code>$ echo $PATH
+/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+</code></pre>
+
+<p>なるほど。homebrewのvimは<code>/usr/local/bin</code>にあるので先に宣言されてる方が使われてたのね。
+PATHの順序を変える</p>
+
+<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>確認</p>
 
+<pre><code>$ vim --version | grep lua
++lua
+</code></pre>
+
+<p>成功！</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Koji Ishii</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/vim/'>vim</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/05/22/vim-lua/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/05/22/vim-lua/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/05/22/vim-lua/">
+<img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none"/>
+
+<div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+
+
+</a>
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/21/octopress/" title="Previous Post: Octopress構築">&laquo; Octopress構築</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -283,7 +402,10 @@ $(document).ready( function () {
       var disqus_shortname = 'ko2ic';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/05/22/vim-lua/';
+        var disqus_url = 'http://ko2ic.github.io/blog/2014/05/22/vim-lua/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

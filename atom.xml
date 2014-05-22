@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-22T20:57:46+09:00</updated>
+  <updated>2014-05-22T22:58:09+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[+luaなvimをインストール]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/05/22/vim-lua/"/>
+    <updated>2014-05-22T22:30:41+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/05/22/vim-lua</id>
+    <content type="html"><![CDATA[<p>neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール</p>
+
+<p>luaをインストール</p>
+
+<pre><code>$ brew install lua
+</code></pre>
+
+<p>+luaなvimをインストール</p>
+
+<pre><code>$ brew install vim --with-lua
+</code></pre>
+
+<p>確認してみる</p>
+
+<pre><code>$ vim --version | grep lua
+-lua
+</code></pre>
+
+<p>+luaになっていない！?<br/>
+インストール時のオプションを確認</p>
+
+<pre><code>$ brew options vim
+--with-lua
+        Build vim with lua support
+</code></pre>
+
+<p>ちゃんとできてるな・・・</p>
+
+<pre><code>$ which vim
+/usr/bin/vim
+</code></pre>
+
+<p>なるほど。標準のvimが使われてたのね。
+PATHを確認</p>
+
+<pre><code>$ echo $PATH
+/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+</code></pre>
+
+<p>なるほど。homebrewのvimは<code>/usr/local/bin</code>にあるので先に宣言されてる方が使われてたのね。
+PATHの順序を変える</p>
+
+<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>確認</p>
+
+<pre><code>$ vim --version | grep lua
++lua
+</code></pre>
+
+<p>成功！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress構築]]></title>
@@ -95,9 +157,11 @@ test-unit (2.1.0.0)
 
 <h2>ブログを書く</h2>
 
-<p>ページを作成する</p>
+<p>ページを作成する<br/>
+ここのtitleはurlに使われるので注意。</p>
 
-<pre><code>$ bundle exec rake generate
+<pre><code>$ rake new_post['title']
+$ bundle exec rake generate
 </code></pre>
 
 <p>ローカルで検証する <a href="http://localhost:4000">http://localhost:4000</a></p>

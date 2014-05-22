@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-22T20:57:46+09:00</updated>
+  <updated>2014-05-22T22:58:09+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -94,9 +94,11 @@ test-unit (2.1.0.0)
 
 <h2>ブログを書く</h2>
 
-<p>ページを作成する</p>
+<p>ページを作成する<br/>
+ここのtitleはurlに使われるので注意。</p>
 
-<pre><code>$ bundle exec rake generate
+<pre><code>$ rake new_post['title']
+$ bundle exec rake generate
 </code></pre>
 
 <p>ローカルで検証する <a href="http://localhost:4000">http://localhost:4000</a></p>
