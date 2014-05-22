@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-22T20:55:25+09:00</updated>
+  <updated>2014-05-22T20:57:46+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Octopressを再構築]]></title>
+    <title type="html"><![CDATA[Octopress構築]]></title>
     <link href="http://ko2ic.github.io/blog/2014/05/21/octopress/"/>
     <updated>2014-05-21T00:00:20+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/05/21/octopress</id>
