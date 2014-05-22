@@ -9,7 +9,7 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="OSのクリーンインストールをしたのでこのブログも入れ直す ソースを取得 自分の場合はbitbuketにこのブログを保存しているので、そこから取得する 初めての場合はoctopress本体を取得する $ git clone git@github.com:imathis/octopress.git &hellip;">
+  <meta name="description" content="OSのクリーンインストールをしたのでこのブログも入れ直す ソースを取得 自分の場合はbitbuketにこのブログを保存しているので、そこから取得する $ git clone git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -118,6 +118,9 @@ $(document).ready( function () {
 
 <p>自分の場合はbitbuketにこのブログを保存しているので、そこから取得する</p>
 
+<pre><code>$ git clone  git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git
+</code></pre>
+
 <p>初めての場合はoctopress本体を取得する</p>
 
 <pre><code>$ git clone git@github.com:imathis/octopress.git
@@ -126,7 +129,12 @@ $(document).ready( function () {
 <h2>ruby</h2>
 
 <p>自分の環境はhomebrewでreadline,ruby-build,rbenvをインストール済みです。<br/>
-PATHにrbenvを通す<br/>
+詳しくは<a href="https://github.com/ko2ic/dotfiles">こちらを参考</a></p>
+
+<pre><code>$ brew bundle
+</code></pre>
+
+<p>PATHにrbenvを通す<br/>
 古い記事だと~/.rbenv/binになっているので注意。</p>
 
 <figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -172,14 +180,11 @@ test-unit (2.1.0.0)
 <pre><code>$ bundle install --path vendor/bundle
 </code></pre>
 
-<p>github pageに設定する</p>
+<p>github pageに設定する<br/>
+デプロイ先を聞かれるので入力する。下は自分の場合です。</p>
 
 <pre><code>$ bundle exec rake setup_github_pages
-</code></pre>
-
-<p>デプロイ先を聞かれるので入力する。自分の場合は以下</p>
-
-<pre><code> git@github.com:ko2ic/ko2ic.github.io.git
+ git@github.com:ko2ic/ko2ic.github.io.git
 </code></pre>
 
 <h2>ブログを書く</h2>
@@ -201,10 +206,27 @@ test-unit (2.1.0.0)
 
 <h2>bitbuketへ</h2>
 
-<p>コミットしてpushする</p>
+<h4>まだbitbcketで管理してない場合</h4>
 
-<pre><code>$ git push origin source
+<p>bitbuketという名前で管理する</p>
+
+<pre><code>$ git remote add bitbucket git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git
+$ git add -a -m "add article"
+$ git push -u bitbucket source
 </code></pre>
+
+<h3>自分のbitbuketから取得した場合</h3>
+
+<p>自分のbitbuketから取得しているので、origin</p>
+
+<pre><code>$ git commit -a -m "add article"
+$ git push origin source
+</code></pre>
+
+<h2>参考</h2>
+
+<p>ruby周りは以下のサイトを参考にしました
+<a href="http://qiita.com/emadurandal/items/a60886152a4c99ce1017">http://qiita.com/emadurandal/items/a60886152a4c99ce1017</a></p>
 </div>
 
 

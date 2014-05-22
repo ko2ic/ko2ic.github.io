@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Homebrew | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/homebrew/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-21T00:22:48+09:00</updated>
+  <updated>2014-05-22T20:55:25+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -24,11 +24,15 @@
 
 <p>ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
 
-<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。
-例えば
-* ディレクトリrsyncすれば他のmacと共通の環境ができる
-* 問題が起きたときなどにoptをrenameしてみて、入れ直したり、元に戻したりが気楽にできる
-* /usr/localは自分で入れたものにしかない状態はわかりやすい</p>
+<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。<br/>
+例えば</p>
+
+<ul>
+<li>ディレクトリrsyncすれば他のmacと共通の環境ができる</li>
+<li>問題が起きたときなどにoptをrenameしてみて、入れ直したり、元に戻したりが気楽にできる</li>
+<li>/usr/localは自分で入れたものにしかない状態はわかりやすい</li>
+</ul>
+
 
 <p>こういった利点があるので変えていなかったのですが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
 

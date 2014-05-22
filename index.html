@@ -9,7 +9,7 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="OSのクリーンインストールをしたのでこのブログも入れ直す ソースを取得 自分の場合はbitbuketにこのブログを保存しているので、そこから取得する 初めての場合はoctopress本体を取得する $ git clone git@github.com:imathis/octopress.git &hellip;">
+  <meta name="description" content="OSのクリーンインストールをしたのでこのブログも入れ直す ソースを取得 自分の場合はbitbuketにこのブログを保存しているので、そこから取得する $ git clone git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -121,6 +121,9 @@ $(document).ready( function () {
 
 <p>自分の場合はbitbuketにこのブログを保存しているので、そこから取得する</p>
 
+<pre><code>$ git clone  git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git
+</code></pre>
+
 <p>初めての場合はoctopress本体を取得する</p>
 
 <pre><code>$ git clone git@github.com:imathis/octopress.git
@@ -129,7 +132,12 @@ $(document).ready( function () {
 <h2>ruby</h2>
 
 <p>自分の環境はhomebrewでreadline,ruby-build,rbenvをインストール済みです。<br/>
-PATHにrbenvを通す<br/>
+詳しくは<a href="https://github.com/ko2ic/dotfiles">こちらを参考</a></p>
+
+<pre><code>$ brew bundle
+</code></pre>
+
+<p>PATHにrbenvを通す<br/>
 古い記事だと~/.rbenv/binになっているので注意。</p>
 
 <figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -213,11 +221,15 @@ test-unit (2.1.0.0)
 
 <p>ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
 
-<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。
-例えば
-* ディレクトリrsyncすれば他のmacと共通の環境ができる
-* 問題が起きたときなどにoptをrenameしてみて、入れ直したり、元に戻したりが気楽にできる
-* /usr/localは自分で入れたものにしかない状態はわかりやすい</p>
+<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。<br/>
+例えば</p>
+
+<ul>
+<li>ディレクトリrsyncすれば他のmacと共通の環境ができる</li>
+<li>問題が起きたときなどにoptをrenameしてみて、入れ直したり、元に戻したりが気楽にできる</li>
+<li>/usr/localは自分で入れたものにしかない状態はわかりやすい</li>
+</ul>
+
 
 <p>こういった利点があるので変えていなかったのですが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
 
