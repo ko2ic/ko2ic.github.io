@@ -9,8 +9,9 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="いまの時代、Eclipse Pluginは簡単に作れます。昔はプロジェクトを作ること自体が難しい（めんどくさい）イメージがあり、ハードルが高かったのですが、いまはtychoがあります。
-https://www.eclipse.org/tycho/ tychoを使えば、プロジェクト作成、build、 &hellip;">
+  <meta name="description" content="qiitaに書きました。
+http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -113,84 +114,8 @@ $(document).ready( function () {
   </header>
 
 
-<div class="entry-content"><p>いまの時代、Eclipse Pluginは簡単に作れます。昔はプロジェクトを作ること自体が難しい（めんどくさい）イメージがあり、ハードルが高かったのですが、いまはtychoがあります。
-<a href="https://www.eclipse.org/tycho/">https://www.eclipse.org/tycho/</a></p>
-
-<p>tychoを使えば、プロジェクト作成、build、依存性管理などをある程度自動化できます。
-ある程度と言ったのは、まだまだ依存性解決に関しては、うまく動作しない（tycho 0.20.0）ことがあり、手作業が必要になるからです。</p>
-
-<p>依存性を完全に手作業でやるとしたら、以下のサイトのを使って下さい。プロジェクト作成、署名付きjar,featureなどリリースための作業が自動化されます。
-<a href="https://github.com/open-archetypes/tycho-eclipse-plugin-archetype">https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</a></p>
-
-<p>依存性もある程度任せたいと思うなら、以下の方法で可能です。</p>
-
-<!-- more -->
-
-
-<h2>プロジェクトの作成</h2>
-
-<h3>archetypeを選択</h3>
-
-<p>まずは、実験用にforkしたcatalogがあるので、そこから作成します。　　</p>
-
-<pre><code>$ mvn archetype:generate -DarchetypeCatalog=https://raw.githubusercontent.com/ko2ic/maven-catalog/master/snapshots/archetype-catalog.xml
-</code></pre>
-
-<p>このとき気をつけることは、バージョンを必ず、major.minor.rivisonと3桁にすることです。
-こうしないとpackageできません。</p>
-
-<h3>Eclpseファイルの作成</h3>
-
-<p>今回は、m2eを使わないで環境構築します。
-(m2eを使っても今のところjarの依存性管理が効いてくれません。rootのpom.xmlの管理ができる・プロジェクト作成が楽など、m2eを使う意味はあります)</p>
-
-<pre><code>$ mvn eclipse:eclipse
-</code></pre>
-
-<p>その後Eclipseにソースを取り込みます</p>
-
-<h3>mvn eclipse:eclipse後にやる作業</h3>
-
-<p>META-INF/MANIFEST.MFのBundle-VersionがSNAPSHOTに変わってしまっているので、qualifierに戻す
-（これをしないとpackageできない）</p>
-
-<h2>jarの追加</h2>
-
-<h3>依存性を追加</h3>
-
-<p>例えば、</p>
-
-<pre><code>&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
-    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;
-    &lt;version&gt;3.10-FINAL&lt;/version&gt;
-  &lt;/dependency&gt;
-&lt;/dependencies&gt;
-</code></pre>
-
-<p>その後</p>
-
-<pre><code>$ mvn eclipse:eclipse
-</code></pre>
-
-<h3>META-INF/MANIFEST.MFの修正</h3>
-
-<p>コンパイルは通っているが、packageしたときに依存jarがパッケージされないので、修正する <br/>
-Build ConfigurationでBinary Buildに依存させたいjarをチェックする。(RuntimeのClasspathにあるjarをチェックすればよい)</p>
-
-<h2>Packageing</h2>
-
-<pre><code>$ mvn package -Psing
-</code></pre>
-
-<p>これで、siteプロジェクトのtargetにzipファイルが出来上がります。 <br/>
-中身を確認して、coreのjarの直下に依存jarが入っていれば、成功です。</p>
-
-<h2>その他</h2>
-
-<p>Eclipse上、邪魔なjarが表示されているのですが、packagingされないので気にしなくて良いです。 <br/>
-気になる場合は、削除しても構いませんが、<code>mvn eclipse:ecipse</code>をすると再度追加されてしまいます。</p>
+<div class="entry-content"><p>qiitaに書きました。
+<a href="http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943">http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943</a></p>
 </div>
 
 
@@ -265,11 +190,15 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(1)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 120.0%'>Eclipse(1)</a> <a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(1)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 160.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(1)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/25/eclipse-settings/">Eclipseの設定ファイルの場所</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a>
@@ -285,10 +214,6 @@ Build ConfigurationでBinary Buildに依存させたいjarをチェックする�
     
       <li class="post">
         <a href="/blog/2014/05/18/mac-env-init/">Mac環境構築手順(GUI編)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/24/octoeclipse-marketplace/">Eclipse MarketPlaceに自作のPluginを登録する</a>
       </li>
     
   </ul>

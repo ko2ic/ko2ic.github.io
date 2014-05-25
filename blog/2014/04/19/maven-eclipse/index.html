@@ -9,7 +9,8 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。 maven-eclipse-pluginを使って作成できるのは、プロジェクトのディレクトリに置けるファイル/ &hellip;">
+  <meta name="description" content="いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。 qiitaに書きました。
+http://qiita.com/ko2ic/items/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -114,187 +115,8 @@ $(document).ready( function () {
 
 <div class="entry-content"><p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
 
-<p>maven-eclipse-pluginを使って作成できるのは、プロジェクトのディレクトリに置けるファイル/ディレクトリです。
-例えば、<code>.checkstyle</code>であったり、<code>.settings/</code>だったり。
-しかし、Eclipseの設定ファイルは、それ以外にも存在します。
-例えば、<code>workspace/.metadata/</code>です。</p>
-
-<p>今回は例として、<code>workspace/.metadata/</code>以下にできる「Run Configurations」や「External Tools Configurations」画面で設定できるファイルを生成させます。</p>
-
-<!-- more -->
-
-
-<p><a name="add"><strong><em>追記(2014/4/21)</em></strong></a> <br/>
-<em>eclipseの設定ファイルは<code>.settings/</code>に出来れば問題ありません。
-記事を書いたとき、eclipseの仕組みを勘違いしていました。
-今回の場合、antrunの処理は必要ありません。
-というのも、<code>.settings/</code>以下に置けば、<code>workspace/.metadata</code>に移動させなくても認識するからです。
-ちなみに以下が試した結果です。</em> <br/>
-.settings/open finder.launch ×<br/>
-.settings/.plugins/org.eclipse.debug.core/.launches/open finder.launch ×<br/>
-.settings/custom/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch × <br/>
-.settings/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch ○</p>
-
-<h2>前提</h2>
-
-<ul>
-<li>チーム内で人によってworkspaceのパスが違う。</li>
-<li>「Project Explore」で選択したファイルをFinderで開く機能（設定）を全員に設定させたい。</li>
-<li>設定するのに時間をかけたくない。</li>
-<li>mvn後にExternal Tools Configurationを開くと以下のようになる</li>
-</ul>
-
-
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/10494/8e24f7ad-c910-bb90-b21e-a029d6f65b70.png" title="openFinder.png" alt="openFinder.png" /></p>
-
-<h2>方法</h2>
-
-<p>1.個々人の~.m2/settings.xmlにworkspaceのパスを記述する</p>
-
-<figure class='code'><figcaption><span>settings.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;profiles&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;profile&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;id&gt;</span>local<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;activation&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;activeByDefault&gt;</span>true<span class="nt">&lt;/activeByDefault&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/activation&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;properties&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;eclipse.workspace&gt;</span>/Users/hoge/sources/workspace<span class="nt">&lt;/eclipse.workspace&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/properties&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/profile&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/profiles&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>2.maven-eclipse-pluginで、プロジェクトに一時ファイルを作る処理を記述<sub><a href="#add">追記参照</a></sub></p>
-
-<figure class='code'><figcaption><span>pom.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;plugin&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>maven-eclipse-plugin<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;configuration&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;additionalConfig&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;file&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;name&gt;</span>.settings/temp/.metadata/.plugins/org.eclipse.debug.core/.launches/open finder.launch<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span>
-</span><span class='line'><span class="cp">&lt;launchConfiguration type=&quot;org.eclipse.ui.externaltools.ProgramLaunchConfigurationType&quot;&gt;</span>
-</span><span class='line'><span class="cp">&lt;stringAttribute key=&quot;org.eclipse.ui.externaltools.ATTR_LOCATION&quot; value=&quot;/usr/bin/open&quot;/&gt;</span>
-</span><span class='line'><span class="cp">&lt;stringAttribute key=&quot;org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS&quot; value=&quot;${container_loc}&quot;/&gt;</span>
-</span><span class='line'><span class="cp">&lt;/launchConfiguration&gt;              </span>
-</span><span class='line'><span class="cp">]]&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;/content&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/file&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/additionalConfig&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/configuration&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/plugin&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>3.maven-antrun-pluginでプロジェクトの一時パスからworkspaceへ移動させる処理を記述<sub><a href="#add">追記参照</a></sub></p>
-
-<figure class='code'><figcaption><span>pom.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;plugin&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>maven-antrun-plugin<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.7<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;dependencies&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;groupId&gt;</span>org.apache.ant<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;artifactId&gt;</span>ant<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;version&gt;</span>1.9.3<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/dependencies&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;executions&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;execution&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;id&gt;</span>gen-launches<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;phase&gt;</span>process-resources<span class="nt">&lt;/phase&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;configuration&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;target&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&quot;.settings/temp/&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;move</span> <span class="na">todir=</span><span class="s">&quot;${eclipse.workspace}/&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>              <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&quot;.settings/temp/&quot;</span> <span class="na">includes=</span><span class="s">&quot;**/*&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;/move&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;/target&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/configuration&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;goals&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;goal&gt;</span>run<span class="nt">&lt;/goal&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/goals&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/execution&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/executions&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/plugin&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>4.<code>$ mvn eclipse:eclipse process-resources</code>を叩く</p>
-
-<p>5.完成。プロジェクトを選択して、External Tools で　「open finder」を選択すると実行する。</p>
-
-<p>一度、実行すると以下のように使えます。</p>
-
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/10494/04dd8f95-7fe0-9179-0f59-7b06066de308.png" title="openFinder2.png" alt="openFinder2.png" /></p>
-
-<h2>まとめ</h2>
-
-<p>今回は、「External Tools Configurations」の設定の自動化をしましたが、この仕組みであれば、ほぼ全ての設定を自動化できます。
-当然、mavenのプロパティを&lt;content>タグ内でも使えるので、それぞれの環境依存の設定ファイルも作成可能です。</p>
-
-<p>実際「Run Configurations」でも同じようにできました。
-（その場合は、classpathにテストリソースが含まれないようにclassesだけを選択した設定を記述する必要があります。）</p>
-
-<p>これで、wikiなどを書いて、それぞれのチームメンバーに設定してもらうコストが削減できると思います。</p>
+<p>qiitaに書きました。<br/>
+<a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
 </div>
 
 
@@ -369,11 +191,15 @@ $(document).ready( function () {
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(1)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 120.0%'>Eclipse(1)</a> <a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(1)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 160.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(1)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/25/eclipse-settings/">Eclipseの設定ファイルの場所</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a>
@@ -389,10 +215,6 @@ $(document).ready( function () {
     
       <li class="post">
         <a href="/blog/2014/05/18/mac-env-init/">Mac環境構築手順(GUI編)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/24/octoeclipse-marketplace/">Eclipse MarketPlaceに自作のPluginを登録する</a>
       </li>
     
   </ul>

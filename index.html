@@ -9,7 +9,8 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール luaをインストール $ brew install lua +luaなvimをインストール $ brew install vim --with-lua 確認してみる $ vim --version | grep &hellip;">
+  <meta name="description" content="qiitaに書きました。 http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +84,46 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/25/eclipse-settings/">Eclipseの設定ファイルの場所</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-25T20:20:30+09:00" pubdate data-updated="true">May 25<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/05/25/eclipse-settings/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>qiitaに書きました。 <br/>
+<a href="http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0">http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -456,43 +497,8 @@ killall Dock
 
   <div class="entry-content"><p>自作のEclipse Pluginの登録は簡単です。</p>
 
-<h2>Eclipse.org accountのアカウントを作成する</h2>
-
-<p>以下のサイトから辿ってサインアップする。(login → Create Account)  <br/>
-<a href="http://marketplace.eclipse.org/">http://marketplace.eclipse.org/</a></p>
-
-<p>アカウント作成するとメールが来るので本登録を終わらせて、ログインする.</p>
-
-<h2>コンテンツを追加する</h2>
-
-<p>1.ログイン後のメニューに「Add Content」があるのでそれを叩く。
-2.「Add a new Solutions Listing」リンクを叩く。
-3. 登録するPluginの情報を記述</p>
-
-<p>Solution Name　: Eclipse MarketPlaceに表示される名前   <br/>
-Product URL　:　プロジェクトのURLとか、自分はgithubレポジトリのURLを書いた   <br/>
-Version: Eclipse MarketPlaceに表示されるバージョン   <br/>
-Update Site URL: 自分はbintrayに作ったのでそのURL   <br/>
-Supported Eclipse Version: 例えば 4.3.2   <br/>
-Feature IDs: 以下のid</p>
-
-<figure class='code'><figcaption><span>feature.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;feature</span> <span class="na">url=</span><span class="s">&quot;path/to/feature.jar&quot;</span> <span class="na">id=</span><span class="s">&quot;feature.to.install&quot;</span> <span class="na">version=</span><span class="s">&quot;1.x.x.x&quot;</span><span class="nt">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Support URL: issue tracking systemのURL。自分はgithubのissues   <br/>
-Status : Eclipse MarketPlaceに表示されるDevelopment Status   <br/>
-Solution Type : This product requires an existing Eclipse installation to functionをチェック   <br/>
-Solution Description : Eclipse MarketPlaceに表示される説明   <br/>
-Categories : タグ。5個まで   <br/>
-Markets : 検索対象のマーケット</p>
-
-<p>saveボタンで終了。</p>
-
-<h2>審査とMy Marketplaceに表示されるのを待つ</h2>
-
-<p>これは一日以上待った気がする。上記save後のメッセージなどが地味なので、本当にsaveできたのかが不安になるが、待っていれば、登録される。</p>
+<p>qiitaに書きました。
+<a href="http://qiita.com/ko2ic/items/a602deccc88d3a11e527">http://qiita.com/ko2ic/items/a602deccc88d3a11e527</a></p>
 </div>
   
   
@@ -536,117 +542,10 @@ Markets : 検索対象のマーケット</p>
 そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした） <br/>
 最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
 
-<p>自動生成したコードに手を加えたい場合、Generation Gapパターンを使うことが多いと思います。<br/>
-しかし、Eclipse Modeling Framework(EMF)のJmergeを使えば、自動生成したコードを直接修正してもうまいことマージしてくれます。</p>
-
-<p>例えば、以下のようにjavadocコメントの@generatedがあるメソッドは自動生成で上書きされます。   <br/>
-逆に@generatedを消したり、noneをつけるとそのメソッドの内容が上書きされず、修正した内容がそのまま残ります。これはメソッドだけでなく、フィールドでも同じ動作をします。</p>
-
-<figure class='code'><figcaption><span>元々の自動生成コード</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * method1.&lt;br/&gt;</span>
-</span><span class='line'><span class="cm"> * @generated</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">method1</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;a&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * method2.&lt;br/&gt;</span>
-</span><span class='line'><span class="cm"> * @generated</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">method2</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;a&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span>その後に手修正したコード</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * method1.&lt;br/&gt;</span>
-</span><span class='line'><span class="cm"> * @generated</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">method1</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;あ&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * method2.&lt;br/&gt;</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">method2</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;あ&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span>もう一度自動生成させたコード</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * method1.&lt;br/&gt;</span>
-</span><span class='line'><span class="cm"> * @generated</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">method1</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;a&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * method2.&lt;br/&gt;</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">method2</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;あ&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
+<p>Qiitaに書きました。
+<a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/04/23/jmerge/">続きを読む &rarr;</a>
-    </footer>
   
 
 
@@ -683,23 +582,10 @@ Markets : 検索対象のマーケット</p>
   </header>
 
 
-  <div class="entry-content"><p>いまの時代、Eclipse Pluginは簡単に作れます。昔はプロジェクトを作ること自体が難しい（めんどくさい）イメージがあり、ハードルが高かったのですが、いまはtychoがあります。
-<a href="https://www.eclipse.org/tycho/">https://www.eclipse.org/tycho/</a></p>
-
-<p>tychoを使えば、プロジェクト作成、build、依存性管理などをある程度自動化できます。
-ある程度と言ったのは、まだまだ依存性解決に関しては、うまく動作しない（tycho 0.20.0）ことがあり、手作業が必要になるからです。</p>
-
-<p>依存性を完全に手作業でやるとしたら、以下のサイトのを使って下さい。プロジェクト作成、署名付きjar,featureなどリリースための作業が自動化されます。
-<a href="https://github.com/open-archetypes/tycho-eclipse-plugin-archetype">https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</a></p>
-
-<p>依存性もある程度任せたいと思うなら、以下の方法で可能です。</p>
-
+  <div class="entry-content"><p>qiitaに書きました。
+<a href="http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943">http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943</a></p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/04/23/tycho/">続きを読む &rarr;</a>
-    </footer>
   
 
 
@@ -884,60 +770,8 @@ Markets : 検索対象のマーケット</p>
 
   <div class="entry-content"><p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
 
-<p>maven-eclipse-pluginを使って作成できるのは、プロジェクトのディレクトリに置けるファイル/ディレクトリです。
-例えば、<code>.checkstyle</code>であったり、<code>.settings/</code>だったり。
-しかし、Eclipseの設定ファイルは、それ以外にも存在します。
-例えば、<code>workspace/.metadata/</code>です。</p>
-
-<p>今回は例として、<code>workspace/.metadata/</code>以下にできる「Run Configurations」や「External Tools Configurations」画面で設定できるファイルを生成させます。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/04/19/maven-eclipse/">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/15/first-octopress/">Octopress始めてみた！</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-15T19:58:32+09:00" pubdate data-updated="true">Apr 15<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/04/15/first-octopress/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/15/first-octopress/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>初心に帰って技術ブログでも始めようかと。<br/>
-<a href="http://qiita.com/ko2ic">Qiita</a>との棲み分けはどうしよう。 <br/>
-感想とか自分の考えはこちらに書けばいいけど、技術的な内容はどうしようか。<br/>
-ブログと言えども同じ内容を書くのはDRY原則に反するから、悩み中。  <br/>
-まあ、でも試しに両方に書いて見ようかな。</p>
+<p>qiitaに書きました。<br/>
+<a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
 </div>
   
   
@@ -947,6 +781,8 @@ Markets : 検索対象のマーケット</p>
   
   <div class="pagination">
     
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+    
     <a href="/blog/archives">Blog Archives</a>
     
   </div>
@@ -955,11 +791,15 @@ Markets : 検索対象のマーケット</p>
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(1)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 120.0%'>Eclipse(1)</a> <a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(1)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 160.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(1)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/25/eclipse-settings/">Eclipseの設定ファイルの場所</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a>
@@ -975,10 +815,6 @@ Markets : 検索対象のマーケット</p>
     
       <li class="post">
         <a href="/blog/2014/05/18/mac-env-init/">Mac環境構築手順(GUI編)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/24/octoeclipse-marketplace/">Eclipse MarketPlaceに自作のPluginを登録する</a>
       </li>
     
   </ul>

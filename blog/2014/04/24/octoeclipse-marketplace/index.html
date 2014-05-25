@@ -9,7 +9,9 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="自作のEclipse Pluginの登録は簡単です。 Eclipse.org accountのアカウントを作成する 以下のサイトから辿ってサインアップする。(login → Create Account) http://marketplace.eclipse.org/ &hellip;">
+  <meta name="description" content="自作のEclipse Pluginの登録は簡単です。 qiitaに書きました。
+http://qiita.com/ko2ic/items/a602deccc88d3a11e527
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -114,43 +116,8 @@ $(document).ready( function () {
 
 <div class="entry-content"><p>自作のEclipse Pluginの登録は簡単です。</p>
 
-<h2>Eclipse.org accountのアカウントを作成する</h2>
-
-<p>以下のサイトから辿ってサインアップする。(login → Create Account)  <br/>
-<a href="http://marketplace.eclipse.org/">http://marketplace.eclipse.org/</a></p>
-
-<p>アカウント作成するとメールが来るので本登録を終わらせて、ログインする.</p>
-
-<h2>コンテンツを追加する</h2>
-
-<p>1.ログイン後のメニューに「Add Content」があるのでそれを叩く。
-2.「Add a new Solutions Listing」リンクを叩く。
-3. 登録するPluginの情報を記述</p>
-
-<p>Solution Name　: Eclipse MarketPlaceに表示される名前   <br/>
-Product URL　:　プロジェクトのURLとか、自分はgithubレポジトリのURLを書いた   <br/>
-Version: Eclipse MarketPlaceに表示されるバージョン   <br/>
-Update Site URL: 自分はbintrayに作ったのでそのURL   <br/>
-Supported Eclipse Version: 例えば 4.3.2   <br/>
-Feature IDs: 以下のid</p>
-
-<figure class='code'><figcaption><span>feature.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;feature</span> <span class="na">url=</span><span class="s">&quot;path/to/feature.jar&quot;</span> <span class="na">id=</span><span class="s">&quot;feature.to.install&quot;</span> <span class="na">version=</span><span class="s">&quot;1.x.x.x&quot;</span><span class="nt">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Support URL: issue tracking systemのURL。自分はgithubのissues   <br/>
-Status : Eclipse MarketPlaceに表示されるDevelopment Status   <br/>
-Solution Type : This product requires an existing Eclipse installation to functionをチェック   <br/>
-Solution Description : Eclipse MarketPlaceに表示される説明   <br/>
-Categories : タグ。5個まで   <br/>
-Markets : 検索対象のマーケット</p>
-
-<p>saveボタンで終了。</p>
-
-<h2>審査とMy Marketplaceに表示されるのを待つ</h2>
-
-<p>これは一日以上待った気がする。上記save後のメッセージなどが地味なので、本当にsaveできたのかが不安になるが、待っていれば、登録される。</p>
+<p>qiitaに書きました。
+<a href="http://qiita.com/ko2ic/items/a602deccc88d3a11e527">http://qiita.com/ko2ic/items/a602deccc88d3a11e527</a></p>
 </div>
 
 
@@ -225,11 +192,15 @@ Markets : 検索対象のマーケット</p>
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(1)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/eclipse' style='font-size: 120.0%'>Eclipse(1)</a> <a href='/blog/categories/eclipse' style='font-size: 160.0%'>eclipse(3)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(1)</a> <a href='/blog/categories/homebrew' style='font-size: 120.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java(1)</a> <a href='/blog/categories/mac' style='font-size: 140.0%'>Mac(2)</a> <a href='/blog/categories/maven' style='font-size: 160.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 120.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 120.0%'>Tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(1)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/25/eclipse-settings/">Eclipseの設定ファイルの場所</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a>
@@ -245,10 +216,6 @@ Markets : 検索対象のマーケット</p>
     
       <li class="post">
         <a href="/blog/2014/05/18/mac-env-init/">Mac環境構築手順(GUI編)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/24/octoeclipse-marketplace/">Eclipse MarketPlaceに自作のPluginを登録する</a>
       </li>
     
   </ul>
