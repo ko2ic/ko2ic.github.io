@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Eclipse | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-27T21:36:20+09:00</updated>
+  <updated>2014-05-30T02:14:36+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -20,6 +20,45 @@
     <id>http://ko2ic.github.io/blog/2014/05/25/eclipse-settings</id>
     <content type="html"><![CDATA[<p>qiitaに書きました。 <br/>
 <a href="http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0">http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Eclipse MarketPlaceに自作のPluginを登録する]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/"/>
+    <updated>2014-04-24T02:45:41+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace</id>
+    <content type="html"><![CDATA[<p>自作のEclipse Pluginの登録は簡単です。</p>
+
+<p>qiitaに書きました。
+<a href="http://qiita.com/ko2ic/items/a602deccc88d3a11e527">http://qiita.com/ko2ic/items/a602deccc88d3a11e527</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/23/jmerge/"/>
+    <updated>2014-04-23T22:25:51+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/23/jmerge</id>
+    <content type="html"><![CDATA[<p>8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br/>
+コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br/>
+そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした） <br/>
+最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+
+<p>Qiitaに書きました。
+<a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mavenですべての設定ファイルを自動生成させる方法]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
+    <updated>2014-04-19T20:24:48+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
+    <content type="html"><![CDATA[<p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
+
+<p>qiitaに書きました。<br/>
+<a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
 ]]></content>
   </entry>
   

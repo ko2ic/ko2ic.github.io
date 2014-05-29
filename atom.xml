@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-27T21:36:20+09:00</updated>
+  <updated>2014-05-30T02:14:36+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -425,6 +425,15 @@ Caps Lock を Commandに変更</p>
 <p>→　F1、F2などの・・・にチェックを入れる</p>
 
 <p><img src="http://ko2ic.github.io/images/mac-env-init/keyboard-function-key.png" alt="function" /></p>
+
+<h3>Windowの切り替え</h3>
+
+<p>Windowsと同じようにalt+Tabで同じアプリで開いているWindowの切り替えができるようにします。</p>
+
+<p>→ ショートカット→ キーボード<br>
+次のウィンドウを操作対象にするをデフォルトの⌘ + F1から変更する</p>
+
+<p><img src="http://ko2ic.github.io/images/mac-env-init/keyboard-window.png" alt="window" /></p>
 
 <h2>トラッックパッド</h2>
 
