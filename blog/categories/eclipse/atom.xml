@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Eclipse | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-06-13T00:49:58+09:00</updated>
+  <updated>2014-06-13T00:53:42+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -25,9 +25,9 @@
   
   <entry>
     <title type="html"><![CDATA[Eclipse MarketPlaceに自作のPluginを登録する]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace/"/>
+    <link href="http://ko2ic.github.io/blog/2014/04/24/eclipse-marketplace/"/>
     <updated>2014-04-24T02:45:41+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/04/24/octoeclipse-marketplace</id>
+    <id>http://ko2ic.github.io/blog/2014/04/24/eclipse-marketplace</id>
     <content type="html"><![CDATA[<p>自作のEclipse Pluginの登録は簡単です。</p>
 
 <p>qiitaに書きました。

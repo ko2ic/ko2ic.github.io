@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 環境構築 | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/huan-jing-gou-zhu/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-06-13T00:49:58+09:00</updated>
+  <updated>2014-06-13T00:53:42+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,130 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress構築]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/05/21/octopress/"/>
+    <updated>2014-05-21T00:00:20+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/05/21/octopress</id>
+    <content type="html"><![CDATA[<p>OSのクリーンインストールをしたのでこのブログも入れ直す</p>
+
+<h2>ソースを取得</h2>
+
+<p>自分の場合はbitbuketにこのブログを保存しているので、そこから取得する</p>
+
+<pre><code>$ git clone  git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git
+</code></pre>
+
+<p>初めての場合はoctopress本体を取得する</p>
+
+<pre><code>$ git clone git@github.com:imathis/octopress.git
+</code></pre>
+
+<h2>ruby</h2>
+
+<p>自分の環境はhomebrewでreadline,ruby-build,rbenvをインストール済みです。<br/>
+詳しくは<a href="https://github.com/ko2ic/dotfiles">こちらを参考</a></p>
+
+<pre><code>$ brew bundle
+</code></pre>
+
+<p>PATHにrbenvを通す<br/>
+古い記事だと~/.rbenv/binになっているので注意。</p>
+
+<p><code>sh .bash_profile
+PATH=${HOME}/.rbenv/shims:$PATH
+</code></p>
+
+<p>rubyはrbenvでインストールする</p>
+
+<pre><code>$ rbenv install 2.1.0
+$ rbenv rehash
+</code></pre>
+
+<p>rbenvで使用するrubyバージョンを指定する。</p>
+
+<pre><code>$ rbenv global 2.1.0
+$ rbenv global
+2.1.0
+</code></pre>
+
+<p>bundlerをインストール</p>
+
+<pre><code>$ rbenv exec gem install bundler
+$ rbenv exec gem list
+bigdecimal (1.2.3)
+bundler (1.6.2)
+io-console (0.4.2)
+json (1.8.1)
+minitest (4.7.5)
+psych (2.0.2)
+rake (10.1.0)
+rdoc (4.1.0)
+test-unit (2.1.0.0)
+</code></pre>
+
+<!-- more -->
+
+
+<h2>octopress初期設定</h2>
+
+<p>このプロジェクト用の必要なgemをインストール</p>
+
+<pre><code>$ bundle install --path vendor/bundle
+</code></pre>
+
+<p>github pageに設定する<br/>
+デプロイ先を聞かれるので入力する。下は自分の場合です。</p>
+
+<pre><code>$ bundle exec rake setup_github_pages
+ git@github.com:ko2ic/ko2ic.github.io.git
+</code></pre>
+
+<h2>ブログを書く</h2>
+
+<p>ページを作成する<br/>
+ここのtitleはurlに使われるので注意。</p>
+
+<pre><code>$ rake new_post['title']
+$ bundle exec rake generate
+</code></pre>
+
+<p>ローカルで検証する <a href="http://localhost:4000">http://localhost:4000</a></p>
+
+<pre><code>$ bundle exec rake preview
+</code></pre>
+
+<p>別のターミナルで以下を入力しておくことで、rake generateしなくても変更を検知してリビルドしてくれる</p>
+
+<pre><code>$ bundle exec rake watch
+</code></pre>
+
+<h2>bitbuketへ</h2>
+
+<h4>まだbitbcketで管理してない場合</h4>
+
+<p>bitbuketという名前で管理する</p>
+
+<pre><code>$ git remote add bitbucket git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git
+$ git add -a -m "add article"
+$ git push -u bitbucket source
+</code></pre>
+
+<h3>自分のbitbuketから取得した場合</h3>
+
+<p>自分のbitbuketから取得しているので、origin</p>
+
+<pre><code>$ git commit -a -m "add article"
+$ git push origin source
+</code></pre>
+
+<h2>参考</h2>
+
+<p>ruby周りは以下のサイトを参考にしました
+<a href="http://qiita.com/emadurandal/items/a60886152a4c99ce1017">http://qiita.com/emadurandal/items/a60886152a4c99ce1017</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac環境構築手順]]></title>
