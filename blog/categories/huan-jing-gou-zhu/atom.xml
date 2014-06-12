@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mac | ko2ic Blog]]></title>
-  <link href="http://ko2ic.github.io/blog/categories/mac/atom.xml" rel="self"/>
+  <title><![CDATA[Category: 環境構築 | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/huan-jing-gou-zhu/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
   <updated>2014-06-13T00:49:58+09:00</updated>
   <id>http://ko2ic.github.io/</id>
@@ -12,48 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Mac環境構築（CocoaPods）]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/05/27/cocoapods/"/>
-    <updated>2014-05-27T20:17:09+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/05/27/cocoapods</id>
-    <content type="html"><![CDATA[<p>環境構築でiphone開発のことを忘れていたので追加</p>
-
-<h2>CocoaPods</h2>
-
-<p><a href="http://ko2ic.github.io/blog/2014/05/21/octopress/" title="Octopress構築">Ruby</a>でruby環境は整っているので、CocoaPodsをインストールする.</p>
-
-<pre><code>$ gem install -V cocoapods
-$ rbenv rehash
-$ which pod
-~/.rbenv/shims/pod
-</code></pre>
-
-<p>~/.cocoapodsを作成してライブラリの管理をする準備をするために以下のコマンド。</p>
-
-<pre><code>$ pod setup
-Setup completed (read-only access)
-</code></pre>
-
-<p>試しにPodfileのあるディレクトリで</p>
-
-<pre><code>$ pod install
-・・・
-Integrating client project
-</code></pre>
-
-<h2>Alcatraz</h2>
-
-<p>Xcode上でテンプレートやテーマやPluginをインストールできるPlugin。以下でインストール。</p>
-
-<pre><code>curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
-</code></pre>
-
-<p>Xcodeで「xcworkspace」ファイルを開く <br/>
-メニューのWindow > Package Managerがあれば成功</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac環境構築手順]]></title>

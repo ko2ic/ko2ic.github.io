@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Liquibase | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/liquibase/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2014-06-13T00:49:58+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Dropwizard(Java)でrailsのようにDBマイグレーションをする]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/"/>
+    <updated>2014-06-13T00:33:09+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase</id>
+    <content type="html"><![CDATA[<p>Qiitaに書きました。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
+]]></content>
+  </entry>
+  
+</feed>

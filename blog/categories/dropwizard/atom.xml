@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Dropwizard | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/dropwizard/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2014-06-13T00:49:58+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropWizard(その3)]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/"/>
+    <updated>2014-06-13T00:39:13+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-3</id>
+    <content type="html"><![CDATA[<p>Qiitaに書きました。 <br/>
+元々、3回くらいの記事にまとめようと思って書いたので、一つ一つの記事にあまり、関連性がありません。  <br/>
+また、説明も下手（喋るのも文章もどっちも言っている意味がわからない人）なので読みづらいかもしれません。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">http://qiita.com/ko2ic/items/8110f5959315d3255ae9</a></p>
+
+<p>他の人にも有用になるように、なるべく自分の意見を記述しないで、事実のみを書くつもりでした。    <br/>
+が、今読み返してみると自分の考えを多々書いてありますね。 <br/>
+自分には客観的に書くのは難しかったです。</p>
+
+<p>今後、Dropwizardについてもっと勉強しようと思ったことは、以下になります。</p>
+
+<ul>
+<li>Guiceか、何かのDIコンテナを使って、Resourceではないクラス（例えば、Facade）をトランザクション境界にしてみる。</li>
+<li>単体テスト周り（dropwizard-testing）</li>
+<li>Hibernate・JDBIでないFWに変えてみる</li>
+<li>自作のManaged ObjectsやCommandsなどを試してみる</li>
+</ul>
+
+
+<p>です。</p>
+
+<p>気になる点は、ホットデプロイの機能が今のところ無さそうなところです。 <br/>
+そういう意味では、Spring Bootの勉強もやろうと思います。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dropwizard(Java)でrailsのようにDBマイグレーションをする]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/"/>
+    <updated>2014-06-13T00:33:09+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase</id>
+    <content type="html"><![CDATA[<p>Qiitaに書きました。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropWizard(その２)]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-2/"/>
+    <updated>2014-06-13T00:31:18+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-2</id>
+    <content type="html"><![CDATA[<p>Qiitaに書きました。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/069c5f75823fd8964bfa">http://qiita.com/ko2ic/items/069c5f75823fd8964bfa</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropWizard(その１)]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-1/"/>
+    <updated>2014-06-13T00:26:18+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-1</id>
+    <content type="html"><![CDATA[<p>Qiitaに書きました。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463">http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463</a></p>
+
+<p>あんまりJava関連はQiitaでは流行ってないと思っていたので、たくさんストックされててびっくりしました。</p>
+]]></content>
+  </entry>
+  
+</feed>

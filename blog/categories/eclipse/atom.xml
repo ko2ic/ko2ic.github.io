@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Eclipse | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-05-30T02:20:39+09:00</updated>
+  <updated>2014-06-13T00:49:58+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -55,7 +55,7 @@
     <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
     <updated>2014-04-19T20:24:48+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
-    <content type="html"><![CDATA[<p>いまさらmavenです。mavenは、1時代から数えると10年近く(m2コマンドだったときもあるんですよ)使っていますが、今回の記事のようなことはやったことなかったので残しておきます。</p>
+    <content type="html"><![CDATA[<p>いまさらmavenです。が、今回の記事のことはやったことなかったので残しておきます。</p>
 
 <p>qiitaに書きました。<br/>
 <a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
