@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Liquibase | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/liquibase/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-06-14T03:28:25+09:00</updated>
+  <updated>2014-06-19T22:46:12+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dropwizard-testingが便利でした]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/19/dropwizard-test/"/>
+    <updated>2014-06-19T22:41:09+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/19/dropwizard-test</id>
+    <content type="html"><![CDATA[<p>Qiitaに書きました。</p>
+
+<p>dropwizardはテストを書くのも簡単でした。  <br/>
+特にIntegration Testが気楽に書ける気がします。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">http://qiita.com/ko2ic/items/b59447a75952703e809a</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dropwizard(Java)でrailsのようにDBマイグレーションをする]]></title>
