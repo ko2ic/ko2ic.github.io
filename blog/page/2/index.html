@@ -9,8 +9,7 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="macをクリーンインストールすることになったので、環境構築を自分用の備忘録として残しておきます。
-基本的に自分が使いやすいようにしています。 このページで書かないこと homebrew-caskやdotfileなど自動でできること このページで書くこと GUIで設定すること &hellip;">
+  <meta name="description" content="前回は、手動での作業を書いたので、今日は半自動な構築部分を記述しておきます。 Macportsからhomebrewへ ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。 macportsにも利点があって、それは &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +83,69 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/20/mac-env-init2/">Mac環境構築手順</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-20T20:43:42+09:00" pubdate data-updated="true">May 20<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/05/20/mac-env-init2/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/20/mac-env-init2/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>前回は、手動での作業を書いたので、今日は半自動な構築部分を記述しておきます。</p>
+
+<h2>Macportsからhomebrewへ</h2>
+
+<p>ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
+
+<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。<br/>
+例えば</p>
+
+<ul>
+<li>ディレクトリrsyncすれば他のmacと共通の環境ができる</li>
+<li>問題が起きたときなどにoptをrenameしてみて、入れ直したり、元に戻したりが気楽にできる</li>
+<li>/usr/localは自分で入れたものにしかない状態はわかりやすい</li>
+</ul>
+
+
+<p>こういった利点があるので変えていなかったのですが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
+
+<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。（そこら中に記事があるので自分が書く必要もないので） <br/>
+よって完全に自分のためだけのメモになります。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/05/20/mac-env-init2/">続きを読む &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -544,11 +606,15 @@ Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(5)</a> <a href='/blog/categories/eclipse' style='font-size: 148.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 112.0%'>gradle(1)</a> <a href='/blog/categories/homebrew' style='font-size: 112.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 112.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 124.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 136.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 136.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 112.0%'>tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 112.0%'>vim(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 136.0%'>環境構築(3)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 110.0%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 110.0%'>vim(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 130.0%'>環境構築(3)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/23/dropwizard-guice-ddd/">DropwizardでGuiceを利用してトランザクション境界を変える</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/06/19/dropwizard-test/">Dropwizard-testingが便利でした</a>
@@ -564,10 +630,6 @@ Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった
     
       <li class="post">
         <a href="/blog/2014/06/13/dropwizard-2/">いますぐ採用すべきJavaフレームワークDropWizard(その２)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-1/">いますぐ採用すべきJavaフレームワークDropWizard(その１)</a>
       </li>
     
   </ul>

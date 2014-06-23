@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dropwizard | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/dropwizard/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-06-19T22:46:12+09:00</updated>
+  <updated>2014-06-23T23:17:22+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DropwizardでGuiceを利用してトランザクション境界を変える]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/23/dropwizard-guice-ddd/"/>
+    <updated>2014-06-23T23:12:24+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/23/dropwizard-guice-ddd</id>
+    <content type="html"><![CDATA[<p>dropwizardでdddをやるためにguiceを使ってみました。  <br/>
+で、DIコンテナを使う理由はほとんどトランザクション境界を永続化層に依存させたくないことないんじゃないかと思います。
+昔は、単体テストをできるようにすることがDIを使う主な目的でしたが、今はテストフレームワークの充実で、簡単に単体テストができるような時代です。</p>
+
+<p>ということで、トランザクション境界を変えてみたことをQiitaに記述しました。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/409bfecfd806c2f903e1">http://qiita.com/ko2ic/items/409bfecfd806c2f903e1</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dropwizard-testingが便利でした]]></title>
@@ -78,19 +93,6 @@
     <content type="html"><![CDATA[<p>Qiitaに書きました。</p>
 
 <p><a href="http://qiita.com/ko2ic/items/069c5f75823fd8964bfa">http://qiita.com/ko2ic/items/069c5f75823fd8964bfa</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropWizard(その１)]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-1/"/>
-    <updated>2014-06-13T00:26:18+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-1</id>
-    <content type="html"><![CDATA[<p>Qiitaに書きました。</p>
-
-<p><a href="http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463">http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463</a></p>
-
-<p>あんまりJava関連はQiitaでは流行ってないと思っていたので、たくさんストックされててびっくりしました。</p>
 ]]></content>
   </entry>
   
