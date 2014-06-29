@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Eclipse | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-06-23T23:20:09+09:00</updated>
+  <updated>2014-06-30T00:45:22+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -40,9 +40,10 @@
     <link href="http://ko2ic.github.io/blog/2014/04/23/jmerge/"/>
     <updated>2014-04-23T22:25:51+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/23/jmerge</id>
-    <content type="html"><![CDATA[<p>8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br/>
-コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br/>
-そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした） <br/>
+    <content type="html"><![CDATA[<p>Jmergeについて記述します。        <br/>
+8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。     <br/>
+コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。        <br/>
+そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）           <br/>
 最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
 
 <p>Qiitaに書きました。
@@ -55,7 +56,8 @@
     <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
     <updated>2014-04-19T20:24:48+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
-    <content type="html"><![CDATA[<p>いまさらmavenです。が、今回の記事のことはやったことなかったので残しておきます。</p>
+    <content type="html"><![CDATA[<p>いまさらmavenです。mavenは1の頃から利用していてますが、eclipseの設定を自動でさせることはなかったので記述しておきます。        <br/>
+書いてみたら、結構便利でもっと早くやっておけばよかったと思いました。</p>
 
 <p>qiitaに書きました。<br/>
 <a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>

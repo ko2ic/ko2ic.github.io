@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Mavenですべての設定ファイルを自動生成させる方法 - ko2ic Blog</title>
+  <title>Spring BootとDropwizardのアプリコード比較 - ko2ic Blog</title>
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="いまさらmavenです。mavenは1の頃から利用していてますが、eclipseの設定を自動でさせることはなかったので記述しておきます。 書いてみたら、結構便利でもっと早くやっておけばよかったと思いました。 qiitaに書きました。
-http://qiita.com/ko2ic/items/ &hellip;">
+  <meta name="description" content="Spring BootとDropwizardの比較をQiitaに記述しました。 ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。 しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ http://qiita.com/ko2ic/items/ &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse">
+  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="ko2ic Blog" type="application/atom+xml">
@@ -87,7 +86,7 @@ $(document).ready( function () {
   
   <header>
     
-      <h1 class="entry-title">Mavenですべての設定ファイルを自動生成させる方法</h1>
+      <h1 class="entry-title">Spring BootとDropwizardのアプリコード比較</h1>
     
     
       <p class="meta">
@@ -103,7 +102,7 @@ $(document).ready( function () {
   
 
 
-<time datetime="2014-04-19T20:24:48+09:00" pubdate data-updated="true">Apr 19<span>th</span>, 2014</time>
+<time datetime="2014-06-29T21:54:04+09:00" pubdate data-updated="true">Jun 29<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io">Comments</a>
@@ -113,11 +112,26 @@ $(document).ready( function () {
   </header>
 
 
-<div class="entry-content"><p>いまさらmavenです。mavenは1の頃から利用していてますが、eclipseの設定を自動でさせることはなかったので記述しておきます。        <br/>
-書いてみたら、結構便利でもっと早くやっておけばよかったと思いました。</p>
+<div class="entry-content"><p>Spring BootとDropwizardの比較をQiitaに記述しました。</p>
 
-<p>qiitaに書きました。<br/>
-<a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
+<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。  <br/>
+しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。  <br/>
+そうなったのはおそらく、Spring Bootは多機能で色々なことができるため、調べるのが大変なのとAuto Configurationがわかりづらいくさせているように思えます。(もちろんこれはこれで便利です)</p>
+
+<p>Springに関しては元々大好きなフレームワークの一つで、1.0時代から3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。
+しかし、5年くらい利用していないので忘れている部分もあるかもしれませんが、「こんなにめんどくさかったっけ？」と感じました。</p>
+
+<p>ただ、この感覚は単純にDropwizardの得意な分野で比較したのと、Spring自体を忘れているだけなのかもしれません。
+慣れくるとSpring Bootは機能も多く、ホットデプロイもできるので、こちらの方が良くなるかもしれません。</p>
+
+<p>しかし、いま現在の率直な感想を書くと   <br/>
+RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。  <br/>
+ソースもシンプルでわかり易く拡張もしやすいように感じます。        <br/>
+(いまの時代、単体テストという面だけでいうとDIである必要もあまりないと思っています。)</p>
+
+<p>Qiitaに書きました</p>
+
+<p><a href="http://qiita.com/ko2ic/items/742fe630246848137c20">http://qiita.com/ko2ic/items/742fe630246848137c20</a></p>
 </div>
 
 
@@ -140,12 +154,12 @@ $(document).ready( function () {
   
 
 
-<time datetime="2014-04-19T20:24:48+09:00" pubdate data-updated="true">Apr 19<span>th</span>, 2014</time>
+<time datetime="2014-06-29T21:54:04+09:00" pubdate data-updated="true">Jun 29<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/eclipse/'>eclipse</a>, <a class='category' href='/blog/categories/maven/'>maven</a>
+    <a class='category' href='/blog/categories/dropwizard/'>dropwizard</a>, <a class='category' href='/blog/categories/spring-boot/'>spring-boot</a>
   
 </span>
 
@@ -154,12 +168,12 @@ $(document).ready( function () {
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
   
-  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/">
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/">
 <img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none"/>
 
 <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
@@ -171,10 +185,8 @@ $(document).ready( function () {
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/04/15/first-octopress/" title="Previous Post: octopress始めてみた！">&laquo; octopress始めてみた！</a>
+        <a class="basic-alignment left" href="/blog/2014/06/23/dropwizard-guice-ddd/" title="Previous Post: DropwizardでGuiceを利用してトランザクション境界を変える">&laquo; DropwizardでGuiceを利用してトランザクション境界を変える</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/04/21/octopress-qiita-aside/" title="Next Post: OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法">OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法 &raquo;</a>
       
     </p>
   </footer>
@@ -357,8 +369,8 @@ $(document).ready( function () {
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/';
-        var disqus_url = 'http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/';
+        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/';
+        var disqus_url = 'http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/';
         var disqus_script = 'embed.js';
       
     (function () {
