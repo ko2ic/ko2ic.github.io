@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Virtualbox | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/virtualbox/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2014-07-05T03:04:29+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Dockerメモ]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/07/04/docker/"/>
+    <updated>2014-07-04T19:00:53+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/07/04/docker</id>
+    <content type="html"><![CDATA[<p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
+（この記事ではVagrant1.6からのDocker Provider・boot2dockerを使わない）</p>
+
+<h2>Vagrant</h2>
+
+<p><a href="http://www.vagrantbox.es/">Vagrant Box</a>から適切なBoxを選択する。</p>
+
+<p>まずは、VirtualBox内で動作するubuntuのBoxを使ってVagrantfileを作成する</p>
+
+<p><code>
+$ vagrant init ubuntu-docker https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box
+</code></p>
+
+<p>作成した後に、vagrant起動。            <br/>
+この時にboxをローカルに配置している。     <br/>
+boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
+
+<p><code>
+$ vagrant up
+</code></p>
+
+<p>ちなみにvagrant終了はこれ</p>
+
+<p><code>
+$ vagrant halt
+</code></p>
+
+<p>ちなみに破棄はこれ</p>
+
+<p><code>
+$ vagrant destroy
+</code></p>
+
+<p>再起動はこれ</p>
+
+<p><code>
+$ vagrant reload
+</code></p>
+
+<p>VirtualBox内で動作するubuntuにsshで接続する</p>
+
+<p><code>
+$ vagrant ssh
+vagrant@ubuntu-14:~$
+</code></p>
+
+<h2>Dockerインストール</h2>
+
+<p>VirtualBox内で動作するubuntuにはdockerがinstallされていないので、installする。    <br/>
+この際にインストールするのは <code>docker</code> ではなくて、 <code>docker.io</code> 。     <br/>
+全く違うものなので、間違えるとこんなエラーが出るので注意。<a href="https://gist.github.com/kjellski/6158747">参考</a>    <br/>
+ <code>Segmentation Fault or Critical Error encountered. Dumping core and aborting.</code></p>
+
+<!-- more -->
+
+
+<p>```
+vagrant@ubuntu-14:~$ docker -v
+The program &lsquo;docker&rsquo; is currently not installed. You can install it by typing:</p>
+
+<p>vagrant@ubuntu-14:~$ sudo apt-get install docker.io
+vagrant@ubuntu-14:~$ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+```</p>
+
+<p>再度バージョンを調べる。</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ docker -v
+Docker version 0.9.1, build 3600720
+</code></p>
+
+<p>バージョンが古いので最新にする。</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ curl -s https://get.docker.io/ubuntu/ | sudo sh
+vagrant@ubuntu-14:~$ docker -v
+The program 'docker' is currently not installed.
+</code></p>
+
+<p>認識しなくなった。。</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ which docker
+/usr/bin/docker
+</code></p>
+
+<p>なるほど。前作ったシンボリックリンクが邪魔なのね。</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo rm /usr/local/bin/docker
+vagrant@ubuntu-14:~$ source .bashrc
+vagrant@ubuntu-14:~$ docker -v
+Docker version 1.0.1, build 990021a
+</code></p>
+
+<p>無事新しくなった。        <br/>
+dockerデーモンが動いている。</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ ps aux | grep docker
+root      6066  1.3  1.5 495764 15664 ?        Ssl  07:30   0:35 /usr/bin/docker -d
+vagrant   6298  0.0  0.0  11744   920 pts/0    S+   08:13   0:00 grep --color=auto docker
+</code></p>
+
+<h2>Docker使い方メモ</h2>
+
+<h3>docker run</h3>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker run ubuntu /bin/cat /proc/version
+Linux version 3.13.0-24-generic (buildd@panlong) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014
+</code></p>
+
+<p>これで、以下のことが起きるらしい</p>
+
+<ul>
+<li>最初はubuntuイメージを<a href="https://registry.hub.docker.com/">DockerのRepository</a>から取得</li>
+<li>ubuntuイメージを使ってdockerデーモンが新規に起動したコンテナ内で <code>cat</code> コマンドを実行</li>
+</ul>
+
+
+<p>docker内で起動しているコンテナ内で作業をしたいので、標準入力を開く <code>-i</code> と端末を割り当てる <code>-t</code> を付けて起動してみる。    <br/>
+起動後、上記と同じコマンドを叩くと確かに同じubuntu。</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker run -it ubuntu /bin/bash
+root@968e85928a5a:/# cat /proc/version
+Linux version 3.13.0-24-generic (buildd@panlong) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014
+</code></p>
+
+<p>docker内のプロセスはbashしか動いていないとのことなので確かめてみる。</p>
+
+<p><code>
+root@968e85928a5a:/# ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  18156  1964 ?        Ss   08:17   0:00 /bin/bash
+root        15  0.0  0.1  15568  1144 ?        R+   08:25   0:00 ps aux
+</code></p>
+
+<p>確かにbashだけだった。</p>
+
+<p>バックグランドで動作させるために <code>-d</code> でデーモンモードにする</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker run -t -d ubuntu /usr/bin/perl -e 'while(1){print "Hello\n"; sleep 1}'
+fdeecfacf4377cc7e81bf780b0f0bc197c45058c2b490174037db8a8f64b7598
+</code></p>
+
+<h3>docker ps</h3>
+
+<p>起動中のコンテナ一覧を表示する</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker ps
+CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
+fdeecfacf437        ubuntu:latest       "/usr/bin/perl -e 'w   5 minutes ago       Up 5 minutes                            trusting_brattain
+</code></p>
+
+<p>以下からのコマンドは、CONTAINER IDを引数にとるので、aliasにしておく</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ alias cid='sudo docker ps -l -q'
+</code></p>
+
+<p>すでに終了したコンテナを含めて一覧表示する</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker ps -a
+</code></p>
+
+<h3>docker logs</h3>
+
+<p>起動中のコンテナのログを出力する</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker logs `cid`
+Hello
+Hello
+</code></p>
+
+<p>コンテナのステータスの詳細をjson形式で出力する</p>
+
+<h3>docker inspect</h3>
+
+<p><code>``
+vagrant@ubuntu-14:~$ sudo docker inspect</code>cid`
+{</p>
+
+<pre><code>"Args": [
+    "-e",
+    "while(1){print \"Hello\\n\"; sleep 1}"
+],
+"Config": {
+    "AttachStderr": false,
+    "AttachStdin": false,
+    "AttachStdout": false,
+    "Cmd": [
+        "/usr/bin/perl",
+        "-e",
+        "while(1){print \"Hello\\n\"; sleep 1}"
+    ],
+    "CpuShares": 0,
+    "Cpuset": "",
+    "Domainname": "",
+    "Entrypoint": null,
+    "Env": [
+        "HOME=/",
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    ],
+    "ExposedPorts": null,
+    "Hostname": "fdeecfacf437",
+    "Image": "ubuntu",
+</code></pre>
+
+<p>・・・</p>
+
+<p>```</p>
+
+<h3>docker attach</h3>
+
+<p>コンテナにアタッチして端末制御を取得する</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker attach `cid`
+Hello
+</code></p>
+
+<h3>docker kill</h3>
+
+<p>起動中のコンテナを終了</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker kill `cid`
+fdeecfacf437
+</code></p>
+
+<h3>docker images</h3>
+
+<p>dockerが管理しているイメージ一覧表示</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+ubuntu              latest              e54ca5efa2e9        2 weeks ago         276.5 MB
+</code></p>
+
+<h3>docker commit</h3>
+
+<p>自作のイメージを作るためのコマンド</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker commit `cid` ko2ic/test
+vagrant@ubuntu-14:~$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+ko2ic/test         latest              8a7aadadc161        11 minutes ago      276.5 MB
+ubuntu              latest              e54ca5efa2e9        2 weeks ago         276.5 MB
+</code></p>
+
+<h3>docker rmi</h3>
+
+<p>イメージを削除するコマンド</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker rmi -f 8a7aadadc161
+Deleted: 8a7aadadc16131a6bccdce922e64a94fe8b615091b8cfa1a01d7d4ee2b0caeb8
+</code></p>
+
+<h3>コンテナでネットワークサービスを提供</h3>
+
+<p><code>``
+vagrant@ubuntu-14:~$ sudo docker run -it base /bin/bash
+root@ce1526db2356:/# apt-get install -y memcached
+root@ce1526db2356:/# exit
+vagrant@ubuntu-14:~$ sudo docker commit</code>cid` ko2ic/memcached
+vagrant@ubuntu-14:~$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+ko2ic/memcached     latest              64c0c7c2dba1        34 seconds ago      224.3 MB
+ubuntu              latest              e54ca5efa2e9        2 weeks ago         276.5 MB
+vagrant@ubuntu-14:~$ sudo docker run -p 11211 -it ko2ic/memcached /usr/bin/memcached -u memcache -vv</p>
+
+<p>```</p>
+
+<p>別のターミナルで接続確認</p>
+
+<p>```
+$ vagrant ssh
+vagrant@ubuntu-14:~$ sudo docker ps
+CONTAINER ID        IMAGE                    COMMAND                CREATED             STATUS              PORTS                      NAMES
+481bf32d1fd6        ko2ic/memcached:latest   /usr/bin/memcached &ndash;   4 seconds ago       Up 4 seconds        0.0.0.0:49153->11211/tcp   cocky_bartik
+48b171c2c366        ubuntu:latest            /bin/bash              About an hour ago   Up About an hour                               furious_pike
+vagrant@ubuntu-14:~$ sudo docker inspect 481bf32d1fd6
+・・・</p>
+
+<pre><code>"NetworkSettings": {
+    "Bridge": "docker0",
+    "Gateway": "172.17.42.1",
+    "IPAddress": "172.17.0.22",
+    "IPPrefixLen": 16,
+    "PortMapping": null,
+    "Ports": {
+        "11211/tcp": [
+            {
+                "HostIp": "0.0.0.0",
+                "HostPort": "49153"
+</code></pre>
+
+<p>・・・
+vagrant@ubuntu-14:~$ telnet 172.17.0.22 11211
+Trying 172.17.0.22&hellip;
+Connected to 172.17.0.22.
+Escape character is &lsquo;^]&rsquo;.
+stat ← このコマンドを打つとサーバー側でも同じ文言が表示されて通信されているのがわかる
+ERROR
+quit
+```</p>
+
+<h3>docker port</h3>
+
+<p>portのマッピングを表示する</p>
+
+<p><code>
+vagrant@ubuntu-14:~$ sudo docker port 481bf32d1fd6 11211
+0.0.0.0:49153
+vagrant@ubuntu-14:~$ telnet localhost 49153
+</code></p>
+
+<p>コンテナ側の11211ポートがlocalhostの49153ポートにマッピングされている</p>
+
+<p>次はmac側からmemcachedを触れるようにする</p>
+
+<p><code>
+$ vim Vagrantfile
+・・・
+config.vm.network "forwarded_port", guest: 49153, host: 49153
+・・・
+$ vagrant up
+$ vagrant ssh
+vagrant@ubuntu-14:~$ sudo docker run -p 11211 -it ko2ic/memcached /usr/bin/memcached -u memcache -vv
+</code></p>
+
+<p>別のターミナル（mac）で接続してみる</p>
+
+<p><code>
+$ telnet localhost 49153
+Trying ::1...
+telnet: connect to address ::1: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+stat
+ERROR
+</code></p>
+
+<p>接続成功。</p>
+
+<h3>Dockerfile</h3>
+
+<p>dockerイメージの構築をここに記述することで手動で <code>docker commit</code> などをしなくても良くなる</p>
+
+<p>```
+vagrant@ubuntu-14:~$ mkdir docker
+vagrant@ubuntu-14:~/docker$ vim Dockerfile
+FROM ubuntu</p>
+
+<p>RUN apt-get update
+RUN apt-get install -y memcached
+RUN apt-get clean</p>
+
+<p>CMD [&ldquo;/usr/bin/memcached&rdquo;, &ldquo;-vv&rdquo;]
+USER memcached</p>
+
+<p>vagrant@ubuntu-14:~/docker$ sudo docker build -t ko2ic/memcached2 ~/docker/
+```</p>
+
+<p>Dockerfileの <code>CMD</code> は <code>docker run</code> 時の起動コマンドになる         <br/>
+イメージができているか確認後、起動してみる</p>
+
+<p>```
+vagrant@ubuntu-14:~/docker$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+ko2ic/memcached2    latest              6ba44a313a00        30 seconds ago      282.8 MB</p>
+
+<p>vagrant@ubuntu-14:~/docker$ sudo docker run -p 11211 -it ko2ic/memcached2
+・・・
+&lt;29 server listening (udp)
+・・・
+```</p>
+
+<p>他のターミナルで接続してみると成功していることがわかる</p>
+
+<p><code>
+$ telnet localhost 49153
+Trying ::1...
+telnet: connect to address ::1: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+stat
+ERROR
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

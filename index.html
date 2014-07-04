@@ -9,7 +9,7 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="Spring BootとDropwizardの比較をQiitaに記述しました。 ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。 しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。 &hellip;">
+  <meta name="description" content="「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。 （この記事ではVagrant1.6からのDocker &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,102 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/04/docker/">Dockerメモ</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-04T19:00:53+09:00" pubdate data-updated="true">Jul 4<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/07/04/docker/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/07/04/docker/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
+（この記事ではVagrant1.6からのDocker Provider・boot2dockerを使わない）</p>
+
+<h2>Vagrant</h2>
+
+<p><a href="http://www.vagrantbox.es/">Vagrant Box</a>から適切なBoxを選択する。</p>
+
+<p>まずは、VirtualBox内で動作するubuntuのBoxを使ってVagrantfileを作成する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant init ubuntu-docker https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box </span></code></pre></td></tr></table></div></figure>
+
+
+<p>作成した後に、vagrant起動。            <br/>
+この時にboxをローカルに配置している。     <br/>
+boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant up</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ちなみにvagrant終了はこれ</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant halt</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ちなみに破棄はこれ</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant destroy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>再起動はこれ</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant reload</span></code></pre></td></tr></table></div></figure>
+
+
+<p>VirtualBox内で動作するubuntuにsshで接続する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant ssh
+</span><span class='line'>vagrant@ubuntu-14:~$</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Dockerインストール</h2>
+
+<p>VirtualBox内で動作するubuntuにはdockerがinstallされていないので、installする。    <br/>
+この際にインストールするのは <code>docker</code> ではなくて、 <code>docker.io</code> 。     <br/>
+全く違うものなので、間違えるとこんなエラーが出るので注意。<a href="https://gist.github.com/kjellski/6158747">参考</a>    <br/>
+ <code>Segmentation Fault or Critical Error encountered. Dumping core and aborting.</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/04/docker/">続きを読む &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -552,98 +648,6 @@ Integrating client project
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
-        
-           | <a href="/blog/2014/05/22/vim-lua/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/22/vim-lua/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール</p>
-
-<p>luaをインストール</p>
-
-<pre><code>$ brew install lua
-</code></pre>
-
-<p>+luaなvimをインストール</p>
-
-<pre><code>$ brew install vim --with-lua
-</code></pre>
-
-<p>確認してみる</p>
-
-<pre><code>$ vim --version | grep lua
--lua
-</code></pre>
-
-<p>+luaになっていない！?<br/>
-インストール時のオプションを確認</p>
-
-<pre><code>$ brew options vim
---with-lua
-        Build vim with lua support
-</code></pre>
-
-<p>ちゃんとできてるな・・・</p>
-
-<pre><code>$ which vim
-/usr/bin/vim
-</code></pre>
-
-<p>なるほど。標準のvimが使われてたのね。
-PATHを確認</p>
-
-<pre><code>$ echo $PATH
-/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-</code></pre>
-
-<p>なるほど。homebrewのvimは<code>/usr/local/bin</code>にあるので先に宣言されてる方が使われてたのね。
-PATHの順序を変える</p>
-
-<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>確認</p>
-
-<pre><code>$ vim --version | grep lua
-+lua
-</code></pre>
-
-<p>成功！</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -656,11 +660,15 @@ PATHの順序を変える</p>
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 108.57142857142857%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 108.57142857142857%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 108.57142857142857%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/04/docker/">Dockerメモ</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/06/29/springboot-dropwizard/">Spring BootとDropwizardのアプリコード比較</a>
@@ -676,10 +684,6 @@ PATHの順序を変える</p>
     
       <li class="post">
         <a href="/blog/2014/06/13/dropwizard-3/">いますぐ採用すべきJavaフレームワークDropWizard(その3)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-liquibase/">Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
       </li>
     
   </ul>

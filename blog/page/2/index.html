@@ -9,7 +9,7 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="OSのクリーンインストールをしたのでこのブログも入れ直す ソースを取得 自分の場合はbitbuketにこのブログを保存しているので、そこから取得する $ git clone git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git &hellip;">
+  <meta name="description" content="neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール luaをインストール $ brew install lua +luaなvimをインストール $ brew install vim --with-lua 確認してみる $ vim --version | grep &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,98 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
+        
+           | <a href="/blog/2014/05/22/vim-lua/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/22/vim-lua/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール</p>
+
+<p>luaをインストール</p>
+
+<pre><code>$ brew install lua
+</code></pre>
+
+<p>+luaなvimをインストール</p>
+
+<pre><code>$ brew install vim --with-lua
+</code></pre>
+
+<p>確認してみる</p>
+
+<pre><code>$ vim --version | grep lua
+-lua
+</code></pre>
+
+<p>+luaになっていない！?<br/>
+インストール時のオプションを確認</p>
+
+<pre><code>$ brew options vim
+--with-lua
+        Build vim with lua support
+</code></pre>
+
+<p>ちゃんとできてるな・・・</p>
+
+<pre><code>$ which vim
+/usr/bin/vim
+</code></pre>
+
+<p>なるほど。標準のvimが使われてたのね。
+PATHを確認</p>
+
+<pre><code>$ echo $PATH
+/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+</code></pre>
+
+<p>なるほど。homebrewのvimは<code>/usr/local/bin</code>にあるので先に宣言されてる方が使われてたのね。
+PATHの順序を変える</p>
+
+<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>確認</p>
+
+<pre><code>$ vim --version | grep lua
++lua
+</code></pre>
+
+<p>成功！</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -691,8 +783,8 @@ killall Dock
 
 <p><strong>2014/5/25追記 </strong>  <br/>
 Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった。 <br/>
-なので、技術的なことで他の人に有用なものはQiitaだけに記述します。
-このブログにはそれ以外とQiitaへのリンクを書いていきます。</p>
+なので、技術的なことであまりQiita内で書かれてないことはQiitaだけに記述します。        <br/>
+逆に技術的なものでも、Qiitaでたくさん書かれていて、でも自分でも試したいことや自分用に残しておきたいことをこのブログに書きます。</p>
 </div>
   
   
@@ -712,11 +804,15 @@ Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 108.57142857142857%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 108.57142857142857%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 108.57142857142857%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/04/docker/">Dockerメモ</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/06/29/springboot-dropwizard/">Spring BootとDropwizardのアプリコード比較</a>
@@ -732,10 +828,6 @@ Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった
     
       <li class="post">
         <a href="/blog/2014/06/13/dropwizard-3/">いますぐ採用すべきJavaフレームワークDropWizard(その3)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-liquibase/">Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
       </li>
     
   </ul>

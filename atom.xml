@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-06-30T00:45:22+09:00</updated>
+  <updated>2014-07-05T03:04:29+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,545 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dockerメモ]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/07/04/docker/"/>
+    <updated>2014-07-04T19:00:53+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/07/04/docker</id>
+    <content type="html"><![CDATA[<p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
+（この記事ではVagrant1.6からのDocker Provider・boot2dockerを使わない）</p>
+
+<h2>Vagrant</h2>
+
+<p><a href="http://www.vagrantbox.es/">Vagrant Box</a>から適切なBoxを選択する。</p>
+
+<p>まずは、VirtualBox内で動作するubuntuのBoxを使ってVagrantfileを作成する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant init ubuntu-docker https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box </span></code></pre></td></tr></table></div></figure>
+
+
+<p>作成した後に、vagrant起動。            <br/>
+この時にboxをローカルに配置している。     <br/>
+boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant up</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ちなみにvagrant終了はこれ</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant halt</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ちなみに破棄はこれ</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant destroy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>再起動はこれ</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant reload</span></code></pre></td></tr></table></div></figure>
+
+
+<p>VirtualBox内で動作するubuntuにsshで接続する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant ssh
+</span><span class='line'>vagrant@ubuntu-14:~$</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Dockerインストール</h2>
+
+<p>VirtualBox内で動作するubuntuにはdockerがinstallされていないので、installする。    <br/>
+この際にインストールするのは <code>docker</code> ではなくて、 <code>docker.io</code> 。     <br/>
+全く違うものなので、間違えるとこんなエラーが出るので注意。<a href="https://gist.github.com/kjellski/6158747">参考</a>    <br/>
+ <code>Segmentation Fault or Critical Error encountered. Dumping core and aborting.</code></p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ docker -v
+</span><span class='line'>The program 'docker' is currently not installed. You can install it by typing:
+</span><span class='line'>
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo apt-get install docker.io
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker</span></code></pre></td></tr></table></div></figure>
+
+
+<p>再度バージョンを調べる。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ docker -v
+</span><span class='line'>Docker version 0.9.1, build 3600720</span></code></pre></td></tr></table></div></figure>
+
+
+<p>バージョンが古いので最新にする。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ curl -s https://get.docker.io/ubuntu/ | sudo sh
+</span><span class='line'>vagrant@ubuntu-14:~$ docker -v
+</span><span class='line'>The program 'docker' is currently not installed.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>認識しなくなった。。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ which docker
+</span><span class='line'>/usr/bin/docker</span></code></pre></td></tr></table></div></figure>
+
+
+<p>なるほど。前作ったシンボリックリンクが邪魔なのね。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo rm /usr/local/bin/docker
+</span><span class='line'>vagrant@ubuntu-14:~$ source .bashrc
+</span><span class='line'>vagrant@ubuntu-14:~$ docker -v
+</span><span class='line'>Docker version 1.0.1, build 990021a</span></code></pre></td></tr></table></div></figure>
+
+
+<p>無事新しくなった。        <br/>
+dockerデーモンが動いている。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ ps aux | grep docker
+</span><span class='line'>root      6066  1.3  1.5 495764 15664 ?        Ssl  07:30   0:35 /usr/bin/docker -d
+</span><span class='line'>vagrant   6298  0.0  0.0  11744   920 pts/0    S+   08:13   0:00 grep --color=auto docker</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Docker使い方メモ</h2>
+
+<h3>docker run</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker run ubuntu /bin/cat /proc/version
+</span><span class='line'>Linux version 3.13.0-24-generic (buildd@panlong) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで、以下のことが起きるらしい</p>
+
+<ul>
+<li>最初はubuntuイメージを<a href="https://registry.hub.docker.com/">DockerのRepository</a>から取得</li>
+<li>ubuntuイメージを使ってdockerデーモンが新規に起動したコンテナ内で <code>cat</code> コマンドを実行</li>
+</ul>
+
+
+<p>docker内で起動しているコンテナ内で作業をしたいので、標準入力を開く <code>-i</code> と端末を割り当てる <code>-t</code> を付けて起動してみる。    <br/>
+起動後、上記と同じコマンドを叩くと確かに同じubuntu。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker run -it ubuntu /bin/bash
+</span><span class='line'>root@968e85928a5a:/# cat /proc/version
+</span><span class='line'>Linux version 3.13.0-24-generic (buildd@panlong) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014</span></code></pre></td></tr></table></div></figure>
+
+
+<p>docker内のプロセスはbashしか動いていないとのことなので確かめてみる。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>root@968e85928a5a:/# ps aux
+</span><span class='line'>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span><span class='line'>root         1  0.0  0.1  18156  1964 ?        Ss   08:17   0:00 /bin/bash
+</span><span class='line'>root        15  0.0  0.1  15568  1144 ?        R+   08:25   0:00 ps aux</span></code></pre></td></tr></table></div></figure>
+
+
+<p>確かにbashだけだった。</p>
+
+<p>バックグランドで動作させるために <code>-d</code> でデーモンモードにする</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker run -t -d ubuntu /usr/bin/perl -e 'while(1){print "Hello\n"; sleep 1}'
+</span><span class='line'>fdeecfacf4377cc7e81bf780b0f0bc197c45058c2b490174037db8a8f64b7598</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>docker ps</h3>
+
+<p>起動中のコンテナ一覧を表示する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker ps
+</span><span class='line'>CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
+</span><span class='line'>fdeecfacf437        ubuntu:latest       "/usr/bin/perl -e 'w   5 minutes ago       Up 5 minutes                            trusting_brattain</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以下からのコマンドは、CONTAINER IDを引数にとるので、aliasにしておく</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ alias cid='sudo docker ps -l -q'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>すでに終了したコンテナを含めて一覧表示する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker ps -a</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>docker logs</h3>
+
+<p>起動中のコンテナのログを出力する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker logs `cid`
+</span><span class='line'>Hello
+</span><span class='line'>Hello</span></code></pre></td></tr></table></div></figure>
+
+
+<p>コンテナのステータスの詳細をjson形式で出力する</p>
+
+<h3>docker inspect</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker inspect `cid`
+</span><span class='line'>{
+</span><span class='line'>    "Args": [
+</span><span class='line'>        "-e",
+</span><span class='line'>        "while(1){print \"Hello\\n\"; sleep 1}"
+</span><span class='line'>    ],
+</span><span class='line'>    "Config": {
+</span><span class='line'>        "AttachStderr": false,
+</span><span class='line'>        "AttachStdin": false,
+</span><span class='line'>        "AttachStdout": false,
+</span><span class='line'>        "Cmd": [
+</span><span class='line'>            "/usr/bin/perl",
+</span><span class='line'>            "-e",
+</span><span class='line'>            "while(1){print \"Hello\\n\"; sleep 1}"
+</span><span class='line'>        ],
+</span><span class='line'>        "CpuShares": 0,
+</span><span class='line'>        "Cpuset": "",
+</span><span class='line'>        "Domainname": "",
+</span><span class='line'>        "Entrypoint": null,
+</span><span class='line'>        "Env": [
+</span><span class='line'>            "HOME=/",
+</span><span class='line'>            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+</span><span class='line'>        ],
+</span><span class='line'>        "ExposedPorts": null,
+</span><span class='line'>        "Hostname": "fdeecfacf437",
+</span><span class='line'>        "Image": "ubuntu",
+</span><span class='line'>・・・
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>docker attach</h3>
+
+<p>コンテナにアタッチして端末制御を取得する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker attach `cid`
+</span><span class='line'>Hello</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>docker kill</h3>
+
+<p>起動中のコンテナを終了</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker kill `cid`
+</span><span class='line'>fdeecfacf437</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>docker images</h3>
+
+<p>dockerが管理しているイメージ一覧表示</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker images
+</span><span class='line'>REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+</span><span class='line'>ubuntu              latest              e54ca5efa2e9        2 weeks ago         276.5 MB</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>docker commit</h3>
+
+<p>自作のイメージを作るためのコマンド</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker commit `cid` ko2ic/test
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo docker images
+</span><span class='line'>REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+</span><span class='line'>ko2ic/test         latest              8a7aadadc161        11 minutes ago      276.5 MB
+</span><span class='line'>ubuntu              latest              e54ca5efa2e9        2 weeks ago         276.5 MB</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>docker rmi</h3>
+
+<p>イメージを削除するコマンド</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker rmi -f 8a7aadadc161
+</span><span class='line'>Deleted: 8a7aadadc16131a6bccdce922e64a94fe8b615091b8cfa1a01d7d4ee2b0caeb8</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>コンテナでネットワークサービスを提供</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker run -it base /bin/bash
+</span><span class='line'>root@ce1526db2356:/# apt-get install -y memcached
+</span><span class='line'>root@ce1526db2356:/# exit
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo docker commit `cid` ko2ic/memcached
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo docker images
+</span><span class='line'>REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+</span><span class='line'>ko2ic/memcached     latest              64c0c7c2dba1        34 seconds ago      224.3 MB
+</span><span class='line'>ubuntu              latest              e54ca5efa2e9        2 weeks ago         276.5 MB
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo docker run -p 11211 -it ko2ic/memcached /usr/bin/memcached -u memcache -vv
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>別のターミナルで接続確認</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant ssh
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo docker ps
+</span><span class='line'>CONTAINER ID        IMAGE                    COMMAND                CREATED             STATUS              PORTS                      NAMES
+</span><span class='line'>481bf32d1fd6        ko2ic/memcached:latest   /usr/bin/memcached -   4 seconds ago       Up 4 seconds        0.0.0.0:49153-&gt;11211/tcp   cocky_bartik
+</span><span class='line'>48b171c2c366        ubuntu:latest            /bin/bash              About an hour ago   Up About an hour                               furious_pike
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo docker inspect 481bf32d1fd6
+</span><span class='line'>・・・
+</span><span class='line'>    "NetworkSettings": {
+</span><span class='line'>        "Bridge": "docker0",
+</span><span class='line'>        "Gateway": "172.17.42.1",
+</span><span class='line'>        "IPAddress": "172.17.0.22",
+</span><span class='line'>        "IPPrefixLen": 16,
+</span><span class='line'>        "PortMapping": null,
+</span><span class='line'>        "Ports": {
+</span><span class='line'>            "11211/tcp": [
+</span><span class='line'>                {
+</span><span class='line'>                    "HostIp": "0.0.0.0",
+</span><span class='line'>                    "HostPort": "49153"
+</span><span class='line'>・・・
+</span><span class='line'>vagrant@ubuntu-14:~$ telnet 172.17.0.22 11211
+</span><span class='line'>Trying 172.17.0.22...
+</span><span class='line'>Connected to 172.17.0.22.
+</span><span class='line'>Escape character is '^]'.
+</span><span class='line'>stat ← このコマンドを打つとサーバー側でも同じ文言が表示されて通信されているのがわかる
+</span><span class='line'>ERROR
+</span><span class='line'>quit</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>docker port</h3>
+
+<p>portのマッピングを表示する</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ sudo docker port 481bf32d1fd6 11211
+</span><span class='line'>0.0.0.0:49153
+</span><span class='line'>vagrant@ubuntu-14:~$ telnet localhost 49153</span></code></pre></td></tr></table></div></figure>
+
+
+<p>コンテナ側の11211ポートがlocalhostの49153ポートにマッピングされている</p>
+
+<p>次はmac側からmemcachedを触れるようにする</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vim Vagrantfile
+</span><span class='line'>・・・
+</span><span class='line'>config.vm.network "forwarded_port", guest: 49153, host: 49153
+</span><span class='line'>・・・
+</span><span class='line'>$ vagrant up
+</span><span class='line'>$ vagrant ssh
+</span><span class='line'>vagrant@ubuntu-14:~$ sudo docker run -p 11211 -it ko2ic/memcached /usr/bin/memcached -u memcache -vv</span></code></pre></td></tr></table></div></figure>
+
+
+<p>別のターミナル（mac）で接続してみる</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ telnet localhost 49153
+</span><span class='line'>Trying ::1...
+</span><span class='line'>telnet: connect to address ::1: Connection refused
+</span><span class='line'>Trying 127.0.0.1...
+</span><span class='line'>Connected to localhost.
+</span><span class='line'>Escape character is '^]'.
+</span><span class='line'>stat
+</span><span class='line'>ERROR</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接続成功。</p>
+
+<h3>Dockerfile</h3>
+
+<p>dockerイメージの構築をここに記述することで手動で <code>docker commit</code> などをしなくても良くなる</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~$ mkdir docker
+</span><span class='line'>vagrant@ubuntu-14:~/docker$ vim Dockerfile
+</span><span class='line'>FROM ubuntu
+</span><span class='line'>
+</span><span class='line'>RUN apt-get update
+</span><span class='line'>RUN apt-get install -y memcached
+</span><span class='line'>RUN apt-get clean
+</span><span class='line'>
+</span><span class='line'>CMD ["/usr/bin/memcached", "-vv"]
+</span><span class='line'>USER memcached
+</span><span class='line'>
+</span><span class='line'>vagrant@ubuntu-14:~/docker$ sudo docker build -t ko2ic/memcached2 ~/docker/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Dockerfileの <code>CMD</code> は <code>docker run</code> 時の起動コマンドになる         <br/>
+イメージができているか確認後、起動してみる</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@ubuntu-14:~/docker$ sudo docker images
+</span><span class='line'>REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+</span><span class='line'>ko2ic/memcached2    latest              6ba44a313a00        30 seconds ago      282.8 MB
+</span><span class='line'>
+</span><span class='line'>vagrant@ubuntu-14:~/docker$ sudo docker run -p 11211 -it ko2ic/memcached2
+</span><span class='line'>・・・
+</span><span class='line'>&lt;29 server listening (udp)
+</span><span class='line'>・・・</span></code></pre></td></tr></table></div></figure>
+
+
+<p>他のターミナルで接続してみると成功していることがわかる</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ telnet localhost 49153
+</span><span class='line'>Trying ::1...
+</span><span class='line'>telnet: connect to address ::1: Connection refused
+</span><span class='line'>Trying 127.0.0.1...
+</span><span class='line'>Connected to localhost.
+</span><span class='line'>Escape character is '^]'.
+</span><span class='line'>stat
+</span><span class='line'>ERROR</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Spring BootとDropwizardのアプリコード比較]]></title>
@@ -883,8 +1422,8 @@ Spotlightを使っていないなら、下記の手順でインデックス作�
 
 <p><strong>2014/5/25追記 </strong>  <br/>
 Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった。 <br/>
-なので、技術的なことで他の人に有用なものはQiitaだけに記述します。
-このブログにはそれ以外とQiitaへのリンクを書いていきます。</p>
+なので、技術的なことであまりQiita内で書かれてないことはQiitaだけに記述します。        <br/>
+逆に技術的なものでも、Qiitaでたくさん書かれていて、でも自分でも試したいことや自分用に残しておきたいことをこのブログに書きます。</p>
 ]]></content>
   </entry>
   
