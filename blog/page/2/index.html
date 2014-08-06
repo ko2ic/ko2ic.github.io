@@ -9,7 +9,8 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール luaをインストール $ brew install lua +luaなvimをインストール $ brew install vim --with-lua 確認してみる $ vim --version | grep &hellip;">
+  <meta name="description" content="前回は、手動での作業を書いたので、今日は半自動な構築部分を記述しておきます。 Macportsからhomebrewへ ずーとmacportsを使っていました。
+しかし、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。 macportsにも利点があります &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,198 +90,6 @@ $(document).ready( function () {
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
-        
-           | <a href="/blog/2014/05/22/vim-lua/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/22/vim-lua/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール</p>
-
-<p>luaをインストール</p>
-
-<pre><code>$ brew install lua
-</code></pre>
-
-<p>+luaなvimをインストール</p>
-
-<pre><code>$ brew install vim --with-lua
-</code></pre>
-
-<p>確認してみる</p>
-
-<pre><code>$ vim --version | grep lua
--lua
-</code></pre>
-
-<p>+luaになっていない！?<br/>
-インストール時のオプションを確認</p>
-
-<pre><code>$ brew options vim
---with-lua
-        Build vim with lua support
-</code></pre>
-
-<p>ちゃんとできてるな・・・</p>
-
-<pre><code>$ which vim
-/usr/bin/vim
-</code></pre>
-
-<p>なるほど。標準のvimが使われてたのね。
-PATHを確認</p>
-
-<pre><code>$ echo $PATH
-/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-</code></pre>
-
-<p>なるほど。homebrewのvimは<code>/usr/local/bin</code>にあるので先に宣言されてる方が使われてたのね。
-PATHの順序を変える</p>
-
-<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>確認</p>
-
-<pre><code>$ vim --version | grep lua
-+lua
-</code></pre>
-
-<p>成功！</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/05/21/octopress/">Octopress構築</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-05-21T00:00:20+09:00" pubdate data-updated="true">May 21<span>st</span>, 2014</time>
-        
-           | <a href="/blog/2014/05/21/octopress/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/21/octopress/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>OSのクリーンインストールをしたのでこのブログも入れ直す</p>
-
-<h2>ソースを取得</h2>
-
-<p>自分の場合はbitbuketにこのブログを保存しているので、そこから取得する</p>
-
-<pre><code>$ git clone  git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git
-</code></pre>
-
-<p>初めての場合はoctopress本体を取得する</p>
-
-<pre><code>$ git clone git@github.com:imathis/octopress.git
-</code></pre>
-
-<h2>ruby</h2>
-
-<p>自分の環境はhomebrewでreadline,ruby-build,rbenvをインストール済みです。<br/>
-詳しくは<a href="https://github.com/ko2ic/dotfiles">こちらを参考</a></p>
-
-<pre><code>$ brew bundle
-</code></pre>
-
-<p>PATHにrbenvを通す<br/>
-古い記事だと~/.rbenv/binになっているので注意。</p>
-
-<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>/.rbenv/shims:<span class="nv">$PATH</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>rubyはrbenvでインストールする</p>
-
-<pre><code>$ rbenv install 2.1.0
-$ rbenv rehash
-</code></pre>
-
-<p>rbenvで使用するrubyバージョンを指定する。</p>
-
-<pre><code>$ rbenv global 2.1.0
-$ rbenv global
-2.1.0
-</code></pre>
-
-<p>bundlerをインストール</p>
-
-<pre><code>$ rbenv exec gem install bundler
-$ rbenv exec gem list
-bigdecimal (1.2.3)
-bundler (1.6.2)
-io-console (0.4.2)
-json (1.8.1)
-minitest (4.7.5)
-psych (2.0.2)
-rake (10.1.0)
-rdoc (4.1.0)
-test-unit (2.1.0.0)
-</code></pre>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/05/21/octopress/">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/blog/2014/05/20/mac-env-init2/">Mac環境構築手順</a></h1>
     
     
@@ -311,9 +120,11 @@ test-unit (2.1.0.0)
 
 <h2>Macportsからhomebrewへ</h2>
 
-<p>ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
+<p>ずーとmacportsを使っていました。<br>
+しかし、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
 
-<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。<br/>
+<p>macportsにも利点があります。<br>
+それは「/optにすべてがインストールされる」に集約されると思います。<br/>
 例えば</p>
 
 <ul>
@@ -323,9 +134,10 @@ test-unit (2.1.0.0)
 </ul>
 
 
-<p>こういった利点があるので変えていなかったのですが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
+<p>こういった利点があるのでmacportsでしたが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
 
-<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。（そこら中に記事があるので自分が書く必要もないので） <br/>
+<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。<br>
+（自分が書くよりもわかりやすい記事がたくさんあります）<br>
 よって完全に自分のためだけのメモになります。</p>
 
 </div>
@@ -454,9 +266,15 @@ killall Dock
   </header>
 
 
-  <div class="entry-content"><p>自作のEclipse Pluginの登録は簡単です。</p>
+  <div class="entry-content"><p>またまた、Eclipse Pluginです。<br>
+いまさら感が半端ないのですが、Jmergeを使ったサンプル的に作ったPluginを公開しました。<br></p>
 
-<p>qiitaに書きました。
+<p>Excelからenumを生成するpluginです。<br>
+サンプル的に作ったので、たいして便利ではないですが、Jmergeの良さはわかると思います。<br>
+<a href="http://marketplace.eclipse.org/content/comment-tag-gen#.U-JC_IB_uwE">Comment Tag Gen</a></p>
+
+<p>自作のEclipse Pluginの登録は簡単でした。<br>
+Qiitaに方法を記述しています。<br>
 <a href="http://qiita.com/ko2ic/items/a602deccc88d3a11e527">http://qiita.com/ko2ic/items/a602deccc88d3a11e527</a></p>
 </div>
   
@@ -496,13 +314,21 @@ killall Dock
   </header>
 
 
-  <div class="entry-content"><p>Jmergeについて記述します。        <br/>
-8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。     <br/>
-コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。        <br/>
-そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）           <br/>
-最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+  <div class="entry-content"><p>Jmergeについて記事を書きました。<br></p>
 
-<p>Qiitaに書きました。
+<p>意外と知られていないのですが、これは便利です。<br>
+Javaのソースを自動生成させるときには相当いいと思います。<br></p>
+
+<p>9年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br></p>
+
+<p>コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br>
+そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）<br></p>
+
+<p>それを実現させていたのがJmergeになります。<br></p>
+
+<p>最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+
+<p>記事はこちらになります。
 <a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
 </div>
   
@@ -542,11 +368,16 @@ killall Dock
   </header>
 
 
-  <div class="entry-content"><p>Tychoを利用するとEclipse Pluginは簡単に作れます。      <br/>
-ただ、そのまま利用するよりも、mavenのarchetypeから作成すればもっと簡単に作れます。    <br/>
-バージョンが古い状態で放置されていたのでtychoのarchetypeを公開している方にPull Requestを送って最新に変えてもらいました。</p>
+  <div class="entry-content"><p>今回もEclipse関連です。</p>
 
-<p>qiitaに書きました。
+<p>昔はEclipse Pluginを作るのが難しい（というより面倒）だったのですが、今はTychoがあります。<br>
+Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
+
+<p>ただ、そのまま利用するよりも、mavenのarchetypeから作成すればもっと簡単に作れます。</p>
+
+<p>バージョンが古い状態で放置されていたのでtychoのarchetypeを公開している方にPull Requestを送って最新に変えてもらいました。</p>
+
+<p>詳しくはこちらに記述しています。<br>
 <a href="http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943">http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943</a></p>
 </div>
   
@@ -586,7 +417,13 @@ killall Dock
   </header>
 
 
-  <div class="entry-content"><h2>方法</h2>
+  <div class="entry-content"><h2>概要</h2>
+
+<p>OctopressのサイドバーにQitaの投稿した記事を表示します。<br>
+自分はブログとは別にQiitaに記述しています。<br>
+他人にQiitaに書いていることを一見してわかってもらうことが目的です。</p>
+
+<h2>方法</h2>
 
 <p>1.Qiitaと同じアイコンを使いたいので、<a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>を使う。</p>
 
@@ -732,10 +569,13 @@ killall Dock
   </header>
 
 
-  <div class="entry-content"><p>いまさらmavenです。mavenは1の頃から利用していてますが、eclipseの設定を自動でさせることはなかったので記述しておきます。        <br/>
-書いてみたら、結構便利でもっと早くやっておけばよかったと思いました。</p>
+  <div class="entry-content"><p>いまさらですが、mavenについて記事にしました。<br></p>
 
-<p>qiitaに書きました。<br/>
+<p>eclipseの設定をmavenコマンドで作成する方法です。<br>
+mavenはバージョン1の頃から使っていましたが、この方法はやってませんでした。<br>
+結構便利でもっと早くやっておけばよかったと思いました。</p>
+
+<p>記事はこちらになります。
 <a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
 </div>
   
@@ -775,16 +615,16 @@ killall Dock
   </header>
 
 
-  <div class="entry-content"><p>初心に帰って技術ブログでも始めようかと。<br/>
-<a href="http://qiita.com/ko2ic">Qiita</a>との棲み分けはどうしよう。 <br/>
-感想とか自分の考えはこちらに書けばいいけど、技術的な内容はどうしようか。<br/>
-ブログと言えども同じ内容を書くのはDRY原則に反するから、悩み中。  <br/>
-まあ、でも試しに両方に書いて見ようかな。</p>
+  <div class="entry-content"><p>初心にかえり技術ブログでも始めてみます。</p>
 
-<p><strong>2014/5/25追記 </strong>  <br/>
-Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった。 <br/>
-なので、技術的なことであまりQiita内で書かれてないことはQiitaだけに記述します。        <br/>
-逆に技術的なものでも、Qiitaでたくさん書かれていて、でも自分でも試したいことや自分用に残しておきたいことをこのブログに書きます。</p>
+<h2>Qiitaとの棲み分けについて</h2>
+
+<p><a href="http://qiita.com/ko3ic">Qiita</a>とこのブログの両方に同じ内容を書いたところ、面倒くさかったです。<br>   <br/>
+なので、技術的なことはなるべくQiitaに記述します。<br> <br/>
+「なるべく」とするのは、Qiitaに既出の内容でも自分で試したいこともあるからです。<br>
+その場合には、こちらのブログに書いていきたいと思います。<br></p>
+
+<p>Qiitaには自分の意見を極力書かずに、こちらに記述したいと思います。</p>
 </div>
   
   
@@ -804,7 +644,7 @@ Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 108.57142857142857%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 108.57142857142857%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 108.57142857142857%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 112.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(5)</a> <a href='/blog/categories/eclipse' style='font-size: 148.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 112.0%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 112.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 112.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 112.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 124.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 136.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 136.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 112.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 112.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 112.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 112.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 112.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 148.0%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
@@ -827,7 +667,7 @@ Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった
       </li>
     
       <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-3/">いますぐ採用すべきJavaフレームワークDropWizard(その3)</a>
+        <a href="/blog/2014/06/13/dropwizard-liquibase/">Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
       </li>
     
   </ul>

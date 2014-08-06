@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dropwizard | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/dropwizard/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-07-05T03:04:29+09:00</updated>
+  <updated>2014-08-07T01:41:47+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -18,26 +18,50 @@
     <link href="http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/"/>
     <updated>2014-06-29T21:54:04+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard</id>
-    <content type="html"><![CDATA[<p>Spring BootとDropwizardの比較をQiitaに記述しました。</p>
+    <content type="html"><![CDATA[<p>Spring BootとDropwizardの比較をしてみました。<br>
+記事は<a href="http://qiita.com/ko2ic/items/742fe630246848137c20">こちら</a>です。</p>
 
-<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。  <br/>
-しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。  <br/>
-そうなったのはおそらく、Spring Bootは多機能で色々なことができるため、調べるのが大変なのとAuto Configurationがわかりづらいくさせているように思えます。(もちろんこれはこれで便利です)</p>
+<p>以下は自分の意見です。<br></p>
 
-<p>Springに関しては元々大好きなフレームワークの一つで、1.0時代から3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。
-しかし、5年くらい利用していないので忘れている部分もあるかもしれませんが、「こんなにめんどくさかったっけ？」と感じました。</p>
+<p>いまのところはDropwizardの方がいいかなぁというのが結論です。</p>
 
-<p>ただ、この感覚は単純にDropwizardの得意な分野で比較したのと、Spring自体を忘れているだけなのかもしれません。
-慣れくるとSpring Bootは機能も多く、ホットデプロイもできるので、こちらの方が良くなるかもしれません。</p>
+<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。<br>  <br/>
+しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。<br></p>
 
-<p>しかし、いま現在の率直な感想を書くと   <br/>
-RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。  <br/>
-ソースもシンプルでわかり易く拡張もしやすいように感じます。        <br/>
+<p>おそらく、<br>
+Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がする</p>
+
+<p>のだと思います。<br>
+ただ、この感覚は単純にDropwizardの得意な分野で比較したのが理由かもしれません。</p>
+
+<p>ここで、話は脱線しますが、久々のSpringについても書いておきます。<br></p>
+
+<p>Springに関しては元々大好きなフレームワークの一つです。<br>
+ソースもきれいでわかりやすく、非常に勉強になりました。<br>
+きれいなソースと言えば、Seasarプロジェクト（特に本体とSaStruts,S2JDBC）もそうでした。<br>
+反対にStruts,Myfacesなどは汚いと思いました。<br>
+(きれいなフレームワークは比較的に長生きしているので、その点Dropwizardもきれいなので長生きするかも）</p>
+
+<p>今の時代では、もう自慢にはなりませんが、おそらく日本で最初に仕事でSpringを利用したプロジェクトに参加していました。<br>
+それからバージョン3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。</p>
+
+<p>しかし、5年ぶりに実装してみて「こんなにめんどくさかったっけ？」と感じました。<br>
+Springも巨大になりすぎたのかなと思います。<br>
+一応、手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
+あれからGuiceなど軽量なDIができたこともあり、そちらで十分な気もします。<br></p>
+
+<p>話は戻して、Spring BootとDropwizardについてです。<br>
+Spring Bootは機能過多な気もしますが、それもメリットとも言えるので、慣れてくれば、Spring Bootの方が良くなるかもしれません。<br>
+ちょっとしたホットデプロイならできるので、それも少しメリットかもしれません。<br>
+(が、完全じゃないので微妙）</p>
+
+<p>ただ、今の現在の感想としては<br>
+RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。<br>
+ソースもシンプルでわかり易く拡張もしやすいように感じます。<br>        <br/>
 (いまの時代、単体テストという面だけでいうとDIである必要もあまりないと思っています。)</p>
 
-<p>Qiitaに書きました</p>
-
-<p><a href="http://qiita.com/ko2ic/items/742fe630246848137c20">http://qiita.com/ko2ic/items/742fe630246848137c20</a></p>
+<p>Spring Bootは機能過多になったSpringプロジェクトをうまいこと使い易くしてくれる可能性がありそうなので、今後に期待しています。<br>
+もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいとです。</p>
 ]]></content>
   </entry>
   
@@ -46,12 +70,15 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
     <link href="http://ko2ic.github.io/blog/2014/06/23/dropwizard-guice-ddd/"/>
     <updated>2014-06-23T23:12:24+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/06/23/dropwizard-guice-ddd</id>
-    <content type="html"><![CDATA[<p>dropwizardでDDDをやるためにguiceを使ってみました。  <br/>
-今の時代、DIコンテナを使う理由はほとんどトランザクション境界を永続化層に依存させたくないからじゃないのかなと思います。  <br/>
-昔は、単体テストをできるようにすることがDIを使う主な目的でしたが、今はテストフレームワークの充実で、簡単に単体テストができる時代になりました。  <br/>
-ということで、トランザクション境界を変えてみたことをQiitaに記述しました。</p>
+    <content type="html"><![CDATA[<p>Dropwizardで試したいことの一つとして、トランザクション境界を変えるというものがありました。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/409bfecfd806c2f903e1">http://qiita.com/ko2ic/items/409bfecfd806c2f903e1</a></p>
+<p>今回は、それをDDDでやるためにguiceを使ってみました。<br></p>
+
+<p>今の時代、DIコンテナを使う理由はほとんどトランザクション境界を永続化層に依存させたくないからじゃないのかなと思います。<br>
+昔は、単体テストをできるようにすることがDIを使う主な目的でしたが、今はJmockitなどモックフレームワークの充実で、簡単に単体テストができる時代になりました。</p>
+
+<p>ということで、トランザクション境界を変えてみたことをQiitaに記述しました。
+<a href="http://qiita.com/ko2ic/items/409bfecfd806c2f903e1">http://qiita.com/ko2ic/items/409bfecfd806c2f903e1</a></p>
 ]]></content>
   </entry>
   
@@ -60,28 +87,53 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
     <link href="http://ko2ic.github.io/blog/2014/06/19/dropwizard-test/"/>
     <updated>2014-06-19T22:41:09+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/06/19/dropwizard-test</id>
-    <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。  <br/>
-特にIntegration Testが気楽に書ける気がします。       <br/>
-この記事では、単体テストのたびにテーブルを再作成しています。     <br/>
-その際にLiquibaseのAPIを利用していて、それも便利に使えそうだと思います。</p>
+    <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。<br>
+特にIntegration Testが気楽に書けました。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>この記事では、単体テストのたびにテーブルを再作成しています。<br>     <br/>
+その際にLiquibaseのAPIを利用しています。<br>
+実際のプロジェクトでもこの機構は使えます。</p>
 
-<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">http://qiita.com/ko2ic/items/b59447a75952703e809a</a></p>
+<p>この記事は<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiita</a>では全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropWizard(その3)]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/"/>
-    <updated>2014-06-13T00:39:13+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-3</id>
-    <content type="html"><![CDATA[<p>Dropwizardについての続きです。今回はDBまわりを記述しました。
-HibernateとJDBIの両方で記述しています。</p>
+    <title type="html"><![CDATA[Dropwizard(Java)でrailsのようにDBマイグレーションをする]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/"/>
+    <updated>2014-06-13T00:33:09+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase</id>
+    <content type="html"><![CDATA[<p>DropwizardでのDBマイグレーションについて書きました。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>ほとんどLiquibaseの説明です。
+これを使うと「DBのスキーマをgitやSVNなどのソース管理システムで管理できる」のがとても良いです。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">http://qiita.com/ko2ic/items/8110f5959315d3255ae9</a></p>
+<p>これによりJavaでもアジャイルに開発しやすくなると思います。</p>
+
+<p>記事はこちらです。<br>
+<a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropwizard]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard/"/>
+    <updated>2014-06-13T00:26:18+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard</id>
+    <content type="html"><![CDATA[<p>Dropwizardを使ってみたら、思った以上によかったので紹介します。<br></p>
+
+<p>基本的なことはQiitaに三回に渡って記事にしているので参考にしてください。<br></p>
+
+<ul>
+<li><a href="http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463">いますぐ採用すべきJavaフレームワークDropwizard その１</a></li>
+<li><a href="http://qiita.com/ko2ic/items/069c5f75823fd8964bfa">いますぐ採用すべきJavaフレームワークDropwizard その２</a></li>
+<li><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">いますぐ採用すべきJavaフレームワークDropwizard その３</a></li>
+</ul>
+
+
+<p>Qitaでは、Javaの記事を書いてもあまり人気ないと思っていましたが、想像以上にストックされていてびっくりしました。<br>
+はてなブックマークされたら、一気に増えました。<br>
+Dropwizardについては、この3つの記事よりも他の記事の方が意外と有用だったりしますが、入門記事はアクセス数が多いですね。</p>
 
 <p>元々、3回くらいの記事にまとめようと思って書いたので、一つ一つの記事にあまり、関連性がありません。  <br/>
 また、説明も下手（喋るのも文章もどっちも言っている意味がわからない人）なので読みづらいかもしれません。</p>
@@ -104,21 +156,6 @@ HibernateとJDBIの両方で記述しています。</p>
 
 <p>気になる点は、ホットデプロイの機能が今のところ無さそうなところです。 <br/>
 そういう意味では、Spring Bootの勉強もやろうと思います。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Dropwizard(Java)でrailsのようにDBマイグレーションをする]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/"/>
-    <updated>2014-06-13T00:33:09+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase</id>
-    <content type="html"><![CDATA[<p>DropwizardでのDBマイグレーションについて書きました。      <br/>
-ほとんどLiquibaseの説明ですが、DBのスキーマをgitやSVNなどのソース管理システムで管理できるのがとても良いです。     <br/>
-便利なので、ぜひ色々な現場で使ってほしいと思いました。</p>
-
-<p>Qiitaに書きました。</p>
-
-<p><a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
 ]]></content>
   </entry>
   

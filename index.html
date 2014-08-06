@@ -211,26 +211,50 @@ boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
   </header>
 
 
-  <div class="entry-content"><p>Spring BootとDropwizardの比較をQiitaに記述しました。</p>
+  <div class="entry-content"><p>Spring BootとDropwizardの比較をしてみました。<br>
+記事は<a href="http://qiita.com/ko2ic/items/742fe630246848137c20">こちら</a>です。</p>
 
-<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。  <br/>
-しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。  <br/>
-そうなったのはおそらく、Spring Bootは多機能で色々なことができるため、調べるのが大変なのとAuto Configurationがわかりづらいくさせているように思えます。(もちろんこれはこれで便利です)</p>
+<p>以下は自分の意見です。<br></p>
 
-<p>Springに関しては元々大好きなフレームワークの一つで、1.0時代から3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。
-しかし、5年くらい利用していないので忘れている部分もあるかもしれませんが、「こんなにめんどくさかったっけ？」と感じました。</p>
+<p>いまのところはDropwizardの方がいいかなぁというのが結論です。</p>
 
-<p>ただ、この感覚は単純にDropwizardの得意な分野で比較したのと、Spring自体を忘れているだけなのかもしれません。
-慣れくるとSpring Bootは機能も多く、ホットデプロイもできるので、こちらの方が良くなるかもしれません。</p>
+<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。<br>  <br/>
+しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。<br></p>
 
-<p>しかし、いま現在の率直な感想を書くと   <br/>
-RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。  <br/>
-ソースもシンプルでわかり易く拡張もしやすいように感じます。        <br/>
+<p>おそらく、<br>
+Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がする</p>
+
+<p>のだと思います。<br>
+ただ、この感覚は単純にDropwizardの得意な分野で比較したのが理由かもしれません。</p>
+
+<p>ここで、話は脱線しますが、久々のSpringについても書いておきます。<br></p>
+
+<p>Springに関しては元々大好きなフレームワークの一つです。<br>
+ソースもきれいでわかりやすく、非常に勉強になりました。<br>
+きれいなソースと言えば、Seasarプロジェクト（特に本体とSaStruts,S2JDBC）もそうでした。<br>
+反対にStruts,Myfacesなどは汚いと思いました。<br>
+(きれいなフレームワークは比較的に長生きしているので、その点Dropwizardもきれいなので長生きするかも）</p>
+
+<p>今の時代では、もう自慢にはなりませんが、おそらく日本で最初に仕事でSpringを利用したプロジェクトに参加していました。<br>
+それからバージョン3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。</p>
+
+<p>しかし、5年ぶりに実装してみて「こんなにめんどくさかったっけ？」と感じました。<br>
+Springも巨大になりすぎたのかなと思います。<br>
+一応、手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
+あれからGuiceなど軽量なDIができたこともあり、そちらで十分な気もします。<br></p>
+
+<p>話は戻して、Spring BootとDropwizardについてです。<br>
+Spring Bootは機能過多な気もしますが、それもメリットとも言えるので、慣れてくれば、Spring Bootの方が良くなるかもしれません。<br>
+ちょっとしたホットデプロイならできるので、それも少しメリットかもしれません。<br>
+(が、完全じゃないので微妙）</p>
+
+<p>ただ、今の現在の感想としては<br>
+RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。<br>
+ソースもシンプルでわかり易く拡張もしやすいように感じます。<br>        <br/>
 (いまの時代、単体テストという面だけでいうとDIである必要もあまりないと思っています。)</p>
 
-<p>Qiitaに書きました</p>
-
-<p><a href="http://qiita.com/ko2ic/items/742fe630246848137c20">http://qiita.com/ko2ic/items/742fe630246848137c20</a></p>
+<p>Spring Bootは機能過多になったSpringプロジェクトをうまいこと使い易くしてくれる可能性がありそうなので、今後に期待しています。<br>
+もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいとです。</p>
 </div>
   
   
@@ -269,12 +293,15 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   </header>
 
 
-  <div class="entry-content"><p>dropwizardでDDDをやるためにguiceを使ってみました。  <br/>
-今の時代、DIコンテナを使う理由はほとんどトランザクション境界を永続化層に依存させたくないからじゃないのかなと思います。  <br/>
-昔は、単体テストをできるようにすることがDIを使う主な目的でしたが、今はテストフレームワークの充実で、簡単に単体テストができる時代になりました。  <br/>
-ということで、トランザクション境界を変えてみたことをQiitaに記述しました。</p>
+  <div class="entry-content"><p>Dropwizardで試したいことの一つとして、トランザクション境界を変えるというものがありました。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/409bfecfd806c2f903e1">http://qiita.com/ko2ic/items/409bfecfd806c2f903e1</a></p>
+<p>今回は、それをDDDでやるためにguiceを使ってみました。<br></p>
+
+<p>今の時代、DIコンテナを使う理由はほとんどトランザクション境界を永続化層に依存させたくないからじゃないのかなと思います。<br>
+昔は、単体テストをできるようにすることがDIを使う主な目的でしたが、今はJmockitなどモックフレームワークの充実で、簡単に単体テストができる時代になりました。</p>
+
+<p>ということで、トランザクション境界を変えてみたことをQiitaに記述しました。
+<a href="http://qiita.com/ko2ic/items/409bfecfd806c2f903e1">http://qiita.com/ko2ic/items/409bfecfd806c2f903e1</a></p>
 </div>
   
   
@@ -313,80 +340,14 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   </header>
 
 
-  <div class="entry-content"><p>dropwizardはテストを書くのも簡単でした。  <br/>
-特にIntegration Testが気楽に書ける気がします。       <br/>
-この記事では、単体テストのたびにテーブルを再作成しています。     <br/>
-その際にLiquibaseのAPIを利用していて、それも便利に使えそうだと思います。</p>
+  <div class="entry-content"><p>dropwizardはテストを書くのも簡単でした。<br>
+特にIntegration Testが気楽に書けました。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>この記事では、単体テストのたびにテーブルを再作成しています。<br>     <br/>
+その際にLiquibaseのAPIを利用しています。<br>
+実際のプロジェクトでもこの機構は使えます。</p>
 
-<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">http://qiita.com/ko2ic/items/b59447a75952703e809a</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/13/dropwizard-3/">いますぐ採用すべきJavaフレームワークDropWizard(その3)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-13T00:39:13+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/06/13/dropwizard-3/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Dropwizardについての続きです。今回はDBまわりを記述しました。
-HibernateとJDBIの両方で記述しています。</p>
-
-<p>Qiitaに書きました。</p>
-
-<p><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">http://qiita.com/ko2ic/items/8110f5959315d3255ae9</a></p>
-
-<p>元々、3回くらいの記事にまとめようと思って書いたので、一つ一つの記事にあまり、関連性がありません。  <br/>
-また、説明も下手（喋るのも文章もどっちも言っている意味がわからない人）なので読みづらいかもしれません。</p>
-
-<p>他の人にも有用になるように、なるべく自分の意見を記述しないで、事実のみを書くつもりでした。    <br/>
-が、今読み返してみると自分の考えを多々書いてありますね。 <br/>
-自分には客観的に書くのは難しかったです。</p>
-
-<p>今後、Dropwizardについてもっと勉強しようと思ったことは、以下になります。</p>
-
-<ul>
-<li>Guiceか、何かのDIコンテナを使って、Resourceではないクラス（例えば、Facade）をトランザクション境界にしてみる。</li>
-<li>単体テスト周り（dropwizard-testing）</li>
-<li>Hibernate・JDBIでないFWに変えてみる</li>
-<li>自作のManaged ObjectsやCommandsなどを試してみる</li>
-</ul>
-
-
-<p>です。</p>
-
-<p>気になる点は、ホットデプロイの機能が今のところ無さそうなところです。 <br/>
-そういう意味では、Spring Bootの勉強もやろうと思います。</p>
+<p>この記事は<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiita</a>では全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
 </div>
   
   
@@ -425,13 +386,15 @@ HibernateとJDBIの両方で記述しています。</p>
   </header>
 
 
-  <div class="entry-content"><p>DropwizardでのDBマイグレーションについて書きました。      <br/>
-ほとんどLiquibaseの説明ですが、DBのスキーマをgitやSVNなどのソース管理システムで管理できるのがとても良いです。     <br/>
-便利なので、ぜひ色々な現場で使ってほしいと思いました。</p>
+  <div class="entry-content"><p>DropwizardでのDBマイグレーションについて書きました。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>ほとんどLiquibaseの説明です。
+これを使うと「DBのスキーマをgitやSVNなどのソース管理システムで管理できる」のがとても良いです。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
+<p>これによりJavaでもアジャイルに開発しやすくなると思います。</p>
+
+<p>記事はこちらです。<br>
+<a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
 </div>
   
   
@@ -444,59 +407,7 @@ HibernateとJDBIの両方で記述しています。</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/06/13/dropwizard-2/">いますぐ採用すべきJavaフレームワークDropWizard(その２)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-13T00:31:18+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
-        
-           | <a href="/blog/2014/06/13/dropwizard-2/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/13/dropwizard-2/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Dropwizardについての続きです。    <br/>
-今回は、以下について記述します。</p>
-
-<ul>
-<li>静的ファイルの表示</li>
-<li>テンプレートエンジンによる動的ファイルの表示</li>
-<li>ssl通信</li>
-<li>認証</li>
-</ul>
-
-
-<p>Qiitaに書きました。</p>
-
-<p><a href="http://qiita.com/ko2ic/items/069c5f75823fd8964bfa">http://qiita.com/ko2ic/items/069c5f75823fd8964bfa</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/13/dropwizard-1/">いますぐ採用すべきJavaフレームワークDropwizard(その１)</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/06/13/dropwizard/">いますぐ採用すべきJavaフレームワークDropwizard</a></h1>
     
     
       <p class="meta">
@@ -514,21 +425,50 @@ HibernateとJDBIの両方で記述しています。</p>
 
 <time datetime="2014-06-13T00:26:18+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
         
-           | <a href="/blog/2014/06/13/dropwizard-1/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/13/dropwizard-1/">Comments</a>
+           | <a href="/blog/2014/06/13/dropwizard/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/13/dropwizard/">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Dropwizardを使ってみたら、思った以上によかったので紹介します。DropwizardはRESTfulなアプリを簡単に作れるし、jarだけというのが運用時にも良いと思いました。Dropwizardについての基本的なことを3回に渡って記述します。</p>
+  <div class="entry-content"><p>Dropwizardを使ってみたら、思った以上によかったので紹介します。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>基本的なことはQiitaに三回に渡って記事にしているので参考にしてください。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463">http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463</a></p>
+<ul>
+<li><a href="http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463">いますぐ採用すべきJavaフレームワークDropwizard その１</a></li>
+<li><a href="http://qiita.com/ko2ic/items/069c5f75823fd8964bfa">いますぐ採用すべきJavaフレームワークDropwizard その２</a></li>
+<li><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">いますぐ採用すべきJavaフレームワークDropwizard その３</a></li>
+</ul>
 
-<p>あんまりJava関連はQiitaでは流行ってないと思っていたので、たくさんストックされててびっくりしました。</p>
+
+<p>Qitaでは、Javaの記事を書いてもあまり人気ないと思っていましたが、想像以上にストックされていてびっくりしました。<br>
+はてなブックマークされたら、一気に増えました。<br>
+Dropwizardについては、この3つの記事よりも他の記事の方が意外と有用だったりしますが、入門記事はアクセス数が多いですね。</p>
+
+<p>元々、3回くらいの記事にまとめようと思って書いたので、一つ一つの記事にあまり、関連性がありません。  <br/>
+また、説明も下手（喋るのも文章もどっちも言っている意味がわからない人）なので読みづらいかもしれません。</p>
+
+<p>他の人にも有用になるように、なるべく自分の意見を記述しないで、事実のみを書くつもりでした。    <br/>
+が、今読み返してみると自分の考えを多々書いてありますね。 <br/>
+自分には客観的に書くのは難しかったです。</p>
+
+<p>今後、Dropwizardについてもっと勉強しようと思ったことは、以下になります。</p>
+
+<ul>
+<li>Guiceか、何かのDIコンテナを使って、Resourceではないクラス（例えば、Facade）をトランザクション境界にしてみる。</li>
+<li>単体テスト周り（dropwizard-testing）</li>
+<li>Hibernate・JDBIでないFWに変えてみる</li>
+<li>自作のManaged ObjectsやCommandsなどを試してみる</li>
+</ul>
+
+
+<p>です。</p>
+
+<p>気になる点は、ホットデプロイの機能が今のところ無さそうなところです。 <br/>
+そういう意味では、Spring Bootの勉強もやろうと思います。</p>
 </div>
   
   
@@ -639,10 +579,207 @@ Integrating client project
   </header>
 
 
-  <div class="entry-content"><p>qiitaに書きました。 <br/>
+  <div class="entry-content"><p>またまたEclipseです。<br></p>
+
+<p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
+Eclipseを使っている場合は役に立つことがあると思います。</p>
+
+<p>qiitaに書きました。<br>
 <a href="http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0">http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0</a></p>
 </div>
   
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
+        
+           | <a href="/blog/2014/05/22/vim-lua/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/22/vim-lua/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール</p>
+
+<p>luaをインストール</p>
+
+<pre><code>$ brew install lua
+</code></pre>
+
+<p>+luaなvimをインストール</p>
+
+<pre><code>$ brew install vim --with-lua
+</code></pre>
+
+<p>確認してみる</p>
+
+<pre><code>$ vim --version | grep lua
+-lua
+</code></pre>
+
+<p>+luaになっていない！?<br/>
+インストール時のオプションを確認</p>
+
+<pre><code>$ brew options vim
+--with-lua
+        Build vim with lua support
+</code></pre>
+
+<p>ちゃんとできてるな・・・</p>
+
+<pre><code>$ which vim
+/usr/bin/vim
+</code></pre>
+
+<p>なるほど。標準のvimが使われてたのね。
+PATHを確認</p>
+
+<pre><code>$ echo $PATH
+/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+</code></pre>
+
+<p>なるほど。homebrewのvimは<code>/usr/local/bin</code>にあるので先に宣言されてる方が使われてたのね。
+PATHの順序を変える</p>
+
+<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>確認</p>
+
+<pre><code>$ vim --version | grep lua
++lua
+</code></pre>
+
+<p>成功！</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/21/octopress/">Octopress構築</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-21T00:00:20+09:00" pubdate data-updated="true">May 21<span>st</span>, 2014</time>
+        
+           | <a href="/blog/2014/05/21/octopress/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/21/octopress/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>OSのクリーンインストールをしたのでこのブログも入れ直す</p>
+
+<h2>ソースを取得</h2>
+
+<p>自分の場合はbitbuketにこのブログを保存しているので、そこから取得する</p>
+
+<pre><code>$ git clone  git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git
+</code></pre>
+
+<p>初めての場合はoctopress本体を取得する</p>
+
+<pre><code>$ git clone git@github.com:imathis/octopress.git
+</code></pre>
+
+<h2>ruby</h2>
+
+<p>自分の環境はhomebrewでreadline,ruby-build,rbenvをインストール済みです。<br/>
+詳しくは<a href="https://github.com/ko2ic/dotfiles">こちらを参考</a></p>
+
+<pre><code>$ brew bundle
+</code></pre>
+
+<p>PATHにrbenvを通す<br/>
+古い記事だと~/.rbenv/binになっているので注意。</p>
+
+<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>/.rbenv/shims:<span class="nv">$PATH</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>rubyはrbenvでインストールする</p>
+
+<pre><code>$ rbenv install 2.1.0
+$ rbenv rehash
+</code></pre>
+
+<p>rbenvで使用するrubyバージョンを指定する。</p>
+
+<pre><code>$ rbenv global 2.1.0
+$ rbenv global
+2.1.0
+</code></pre>
+
+<p>bundlerをインストール</p>
+
+<pre><code>$ rbenv exec gem install bundler
+$ rbenv exec gem list
+bigdecimal (1.2.3)
+bundler (1.6.2)
+io-console (0.4.2)
+json (1.8.1)
+minitest (4.7.5)
+psych (2.0.2)
+rake (10.1.0)
+rdoc (4.1.0)
+test-unit (2.1.0.0)
+</code></pre>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/05/21/octopress/">続きを読む &rarr;</a>
+    </footer>
   
 
 
@@ -660,7 +797,7 @@ Integrating client project
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 108.57142857142857%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 108.57142857142857%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 108.57142857142857%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 112.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(5)</a> <a href='/blog/categories/eclipse' style='font-size: 148.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 112.0%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 112.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 112.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 112.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 124.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 136.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 136.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 112.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 112.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 112.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 112.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 112.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 148.0%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
@@ -683,7 +820,7 @@ Integrating client project
       </li>
     
       <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-3/">いますぐ採用すべきJavaフレームワークDropWizard(その3)</a>
+        <a href="/blog/2014/06/13/dropwizard-liquibase/">Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
       </li>
     
   </ul>

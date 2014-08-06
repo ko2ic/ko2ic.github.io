@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Liquibase | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/liquibase/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-07-05T03:04:29+09:00</updated>
+  <updated>2014-08-07T01:41:47+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -18,14 +18,14 @@
     <link href="http://ko2ic.github.io/blog/2014/06/19/dropwizard-test/"/>
     <updated>2014-06-19T22:41:09+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/06/19/dropwizard-test</id>
-    <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。  <br/>
-特にIntegration Testが気楽に書ける気がします。       <br/>
-この記事では、単体テストのたびにテーブルを再作成しています。     <br/>
-その際にLiquibaseのAPIを利用していて、それも便利に使えそうだと思います。</p>
+    <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。<br>
+特にIntegration Testが気楽に書けました。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>この記事では、単体テストのたびにテーブルを再作成しています。<br>     <br/>
+その際にLiquibaseのAPIを利用しています。<br>
+実際のプロジェクトでもこの機構は使えます。</p>
 
-<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">http://qiita.com/ko2ic/items/b59447a75952703e809a</a></p>
+<p>この記事は<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiita</a>では全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
 ]]></content>
   </entry>
   
@@ -34,13 +34,15 @@
     <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/"/>
     <updated>2014-06-13T00:33:09+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase</id>
-    <content type="html"><![CDATA[<p>DropwizardでのDBマイグレーションについて書きました。      <br/>
-ほとんどLiquibaseの説明ですが、DBのスキーマをgitやSVNなどのソース管理システムで管理できるのがとても良いです。     <br/>
-便利なので、ぜひ色々な現場で使ってほしいと思いました。</p>
+    <content type="html"><![CDATA[<p>DropwizardでのDBマイグレーションについて書きました。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>ほとんどLiquibaseの説明です。
+これを使うと「DBのスキーマをgitやSVNなどのソース管理システムで管理できる」のがとても良いです。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
+<p>これによりJavaでもアジャイルに開発しやすくなると思います。</p>
+
+<p>記事はこちらです。<br>
+<a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
 ]]></content>
   </entry>
   

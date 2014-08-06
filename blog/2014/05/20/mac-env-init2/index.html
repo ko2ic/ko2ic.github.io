@@ -9,7 +9,8 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="前回は、手動での作業を書いたので、今日は半自動な構築部分を記述しておきます。 Macportsからhomebrewへ ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。 macportsにも利点があって、それは &hellip;">
+  <meta name="description" content="前回は、手動での作業を書いたので、今日は半自動な構築部分を記述しておきます。 Macportsからhomebrewへ ずーとmacportsを使っていました。
+しかし、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。 macportsにも利点があります &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -116,9 +117,11 @@ $(document).ready( function () {
 
 <h2>Macportsからhomebrewへ</h2>
 
-<p>ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
+<p>ずーとmacportsを使っていました。<br>
+しかし、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
 
-<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。<br/>
+<p>macportsにも利点があります。<br>
+それは「/optにすべてがインストールされる」に集約されると思います。<br/>
 例えば</p>
 
 <ul>
@@ -128,9 +131,10 @@ $(document).ready( function () {
 </ul>
 
 
-<p>こういった利点があるので変えていなかったのですが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
+<p>こういった利点があるのでmacportsでしたが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
 
-<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。（そこら中に記事があるので自分が書く必要もないので） <br/>
+<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。<br>
+（自分が書くよりもわかりやすい記事がたくさんあります）<br>
 よって完全に自分のためだけのメモになります。</p>
 
 <!-- more -->
@@ -273,7 +277,7 @@ $ git config --global core.editor "/usr/local/bin/vim"
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 108.57142857142857%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 108.57142857142857%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 108.57142857142857%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 112.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(5)</a> <a href='/blog/categories/eclipse' style='font-size: 148.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 112.0%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 112.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 112.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 112.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 124.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 136.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 136.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 112.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 112.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 112.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 112.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 112.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 148.0%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
@@ -296,7 +300,7 @@ $ git config --global core.editor "/usr/local/bin/vim"
       </li>
     
       <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-3/">いますぐ採用すべきJavaフレームワークDropWizard(その3)</a>
+        <a href="/blog/2014/06/13/dropwizard-liquibase/">Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
       </li>
     
   </ul>

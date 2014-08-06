@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gradle | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/gradle/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-07-05T03:04:29+09:00</updated>
+  <updated>2014-08-07T01:41:47+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -18,7 +18,12 @@
     <link href="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/"/>
     <updated>2014-05-25T20:20:30+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/05/25/eclipse-settings</id>
-    <content type="html"><![CDATA[<p>qiitaに書きました。 <br/>
+    <content type="html"><![CDATA[<p>またまたEclipseです。<br></p>
+
+<p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
+Eclipseを使っている場合は役に立つことがあると思います。</p>
+
+<p>qiitaに書きました。<br>
 <a href="http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0">http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0</a></p>
 ]]></content>
   </entry>

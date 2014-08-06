@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Maven | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/maven/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-07-05T03:04:29+09:00</updated>
+  <updated>2014-08-07T01:41:47+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -18,7 +18,12 @@
     <link href="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/"/>
     <updated>2014-05-25T20:20:30+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/05/25/eclipse-settings</id>
-    <content type="html"><![CDATA[<p>qiitaに書きました。 <br/>
+    <content type="html"><![CDATA[<p>またまたEclipseです。<br></p>
+
+<p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
+Eclipseを使っている場合は役に立つことがあると思います。</p>
+
+<p>qiitaに書きました。<br>
 <a href="http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0">http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0</a></p>
 ]]></content>
   </entry>
@@ -28,11 +33,16 @@
     <link href="http://ko2ic.github.io/blog/2014/04/23/tycho/"/>
     <updated>2014-04-23T03:35:07+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/23/tycho</id>
-    <content type="html"><![CDATA[<p>Tychoを利用するとEclipse Pluginは簡単に作れます。      <br/>
-ただ、そのまま利用するよりも、mavenのarchetypeから作成すればもっと簡単に作れます。    <br/>
-バージョンが古い状態で放置されていたのでtychoのarchetypeを公開している方にPull Requestを送って最新に変えてもらいました。</p>
+    <content type="html"><![CDATA[<p>今回もEclipse関連です。</p>
 
-<p>qiitaに書きました。
+<p>昔はEclipse Pluginを作るのが難しい（というより面倒）だったのですが、今はTychoがあります。<br>
+Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
+
+<p>ただ、そのまま利用するよりも、mavenのarchetypeから作成すればもっと簡単に作れます。</p>
+
+<p>バージョンが古い状態で放置されていたのでtychoのarchetypeを公開している方にPull Requestを送って最新に変えてもらいました。</p>
+
+<p>詳しくはこちらに記述しています。<br>
 <a href="http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943">http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943</a></p>
 ]]></content>
   </entry>
@@ -42,10 +52,13 @@
     <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
     <updated>2014-04-19T20:24:48+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
-    <content type="html"><![CDATA[<p>いまさらmavenです。mavenは1の頃から利用していてますが、eclipseの設定を自動でさせることはなかったので記述しておきます。        <br/>
-書いてみたら、結構便利でもっと早くやっておけばよかったと思いました。</p>
+    <content type="html"><![CDATA[<p>いまさらですが、mavenについて記事にしました。<br></p>
 
-<p>qiitaに書きました。<br/>
+<p>eclipseの設定をmavenコマンドで作成する方法です。<br>
+mavenはバージョン1の頃から使っていましたが、この方法はやってませんでした。<br>
+結構便利でもっと早くやっておけばよかったと思いました。</p>
+
+<p>記事はこちらになります。
 <a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
 ]]></content>
   </entry>

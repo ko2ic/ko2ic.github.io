@@ -2,39 +2,39 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/04/15/first-octopress/</loc>
-        <lastmod>2014-07-05T02:58:04+09:00</lastmod>
+        <lastmod>2014-08-06T23:30:07+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/</loc>
-        <lastmod>2014-06-29T22:50:44+09:00</lastmod>
+        <lastmod>2014-08-06T23:35:06+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside/</loc>
-        <lastmod>2014-05-19T23:31:31+09:00</lastmod>
+        <lastmod>2014-08-06T23:46:32+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/04/23/tycho/</loc>
-        <lastmod>2014-06-29T22:58:47+09:00</lastmod>
+        <lastmod>2014-08-06T23:54:26+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/04/23/jmerge/</loc>
-        <lastmod>2014-06-29T22:58:03+09:00</lastmod>
+        <lastmod>2014-08-06T23:55:14+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/04/24/eclipse-marketplace/</loc>
-        <lastmod>2014-05-25T20:19:05+09:00</lastmod>
+        <lastmod>2014-08-07T00:02:22+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/05/18/mac-env-init/</loc>
-        <lastmod>2014-06-13T00:21:23+09:00</lastmod>
+        <lastmod>2014-08-07T00:06:36+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/05/20/mac-env-init2/</loc>
-        <lastmod>2014-06-13T00:22:01+09:00</lastmod>
+        <lastmod>2014-08-07T00:05:22+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/05/21/octopress/</loc>
-        <lastmod>2014-06-13T00:52:45+09:00</lastmod>
+        <lastmod>2014-08-07T00:07:24+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/05/22/vim-lua/</loc>
@@ -42,39 +42,31 @@
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/</loc>
-        <lastmod>2014-05-30T02:11:03+09:00</lastmod>
+        <lastmod>2014-08-07T00:09:28+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/05/27/cocoapods/</loc>
         <lastmod>2014-06-29T23:02:08+09:00</lastmod>
     </url>
     <url>
-        <loc>http://ko2ic.github.io/blog/2014/06/13/dropwizard-1/</loc>
-        <lastmod>2014-06-29T23:06:20+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://ko2ic.github.io/blog/2014/06/13/dropwizard-2/</loc>
-        <lastmod>2014-06-29T23:07:55+09:00</lastmod>
+        <loc>http://ko2ic.github.io/blog/2014/06/13/dropwizard/</loc>
+        <lastmod>2014-08-07T00:31:34+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/</loc>
-        <lastmod>2014-06-29T23:14:54+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/</loc>
-        <lastmod>2014-06-29T23:10:28+09:00</lastmod>
+        <lastmod>2014-08-07T00:14:05+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/06/19/dropwizard-test/</loc>
-        <lastmod>2014-06-29T23:16:38+09:00</lastmod>
+        <lastmod>2014-08-07T00:39:31+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/06/23/dropwizard-guice-ddd/</loc>
-        <lastmod>2014-06-23T23:20:04+09:00</lastmod>
+        <lastmod>2014-08-07T00:42:53+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/</loc>
-        <lastmod>2014-06-30T00:45:09+09:00</lastmod>
+        <lastmod>2014-08-07T01:41:46+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/2014/07/04/docker/</loc>
@@ -86,11 +78,11 @@
     </url>
     <url>
         <loc>http://ko2ic.github.io/blog/archives/</loc>
-        <lastmod>2014-07-05T03:04:08+09:00</lastmod>
+        <lastmod>2014-08-07T01:41:46+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/</loc>
-        <lastmod>2014-07-05T03:04:08+09:00</lastmod>
+        <lastmod>2014-08-07T01:41:46+09:00</lastmod>
     </url>
     <url>
         <loc>http://ko2ic.github.io/robots.txt</loc>

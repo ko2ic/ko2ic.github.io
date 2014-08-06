@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Homebrew | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/homebrew/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-07-05T03:04:29+09:00</updated>
+  <updated>2014-08-07T01:41:47+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -22,9 +22,11 @@
 
 <h2>Macportsからhomebrewへ</h2>
 
-<p>ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
+<p>ずーとmacportsを使っていました。<br>
+しかし、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
 
-<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。<br/>
+<p>macportsにも利点があります。<br>
+それは「/optにすべてがインストールされる」に集約されると思います。<br/>
 例えば</p>
 
 <ul>
@@ -34,9 +36,10 @@
 </ul>
 
 
-<p>こういった利点があるので変えていなかったのですが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
+<p>こういった利点があるのでmacportsでしたが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
 
-<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。（そこら中に記事があるので自分が書く必要もないので） <br/>
+<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。<br>
+（自分が書くよりもわかりやすい記事がたくさんあります）<br>
 よって完全に自分のためだけのメモになります。</p>
 
 <!-- more -->

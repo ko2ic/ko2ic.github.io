@@ -9,7 +9,8 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="Spring BootとDropwizardの比較をQiitaに記述しました。 ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。 しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。 &hellip;">
+  <meta name="description" content="Spring BootとDropwizardの比較をしてみました。
+記事はこちらです。 以下は自分の意見です。 いまのところはDropwizardの方がいいかなぁというのが結論です。 ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。 しかし、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -112,26 +113,50 @@ $(document).ready( function () {
   </header>
 
 
-<div class="entry-content"><p>Spring BootとDropwizardの比較をQiitaに記述しました。</p>
+<div class="entry-content"><p>Spring BootとDropwizardの比較をしてみました。<br>
+記事は<a href="http://qiita.com/ko2ic/items/742fe630246848137c20">こちら</a>です。</p>
 
-<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。  <br/>
-しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。  <br/>
-そうなったのはおそらく、Spring Bootは多機能で色々なことができるため、調べるのが大変なのとAuto Configurationがわかりづらいくさせているように思えます。(もちろんこれはこれで便利です)</p>
+<p>以下は自分の意見です。<br></p>
 
-<p>Springに関しては元々大好きなフレームワークの一つで、1.0時代から3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。
-しかし、5年くらい利用していないので忘れている部分もあるかもしれませんが、「こんなにめんどくさかったっけ？」と感じました。</p>
+<p>いまのところはDropwizardの方がいいかなぁというのが結論です。</p>
 
-<p>ただ、この感覚は単純にDropwizardの得意な分野で比較したのと、Spring自体を忘れているだけなのかもしれません。
-慣れくるとSpring Bootは機能も多く、ホットデプロイもできるので、こちらの方が良くなるかもしれません。</p>
+<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。<br>  <br/>
+しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。<br></p>
 
-<p>しかし、いま現在の率直な感想を書くと   <br/>
-RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。  <br/>
-ソースもシンプルでわかり易く拡張もしやすいように感じます。        <br/>
+<p>おそらく、<br>
+Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がする</p>
+
+<p>のだと思います。<br>
+ただ、この感覚は単純にDropwizardの得意な分野で比較したのが理由かもしれません。</p>
+
+<p>ここで、話は脱線しますが、久々のSpringについても書いておきます。<br></p>
+
+<p>Springに関しては元々大好きなフレームワークの一つです。<br>
+ソースもきれいでわかりやすく、非常に勉強になりました。<br>
+きれいなソースと言えば、Seasarプロジェクト（特に本体とSaStruts,S2JDBC）もそうでした。<br>
+反対にStruts,Myfacesなどは汚いと思いました。<br>
+(きれいなフレームワークは比較的に長生きしているので、その点Dropwizardもきれいなので長生きするかも）</p>
+
+<p>今の時代では、もう自慢にはなりませんが、おそらく日本で最初に仕事でSpringを利用したプロジェクトに参加していました。<br>
+それからバージョン3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。</p>
+
+<p>しかし、5年ぶりに実装してみて「こんなにめんどくさかったっけ？」と感じました。<br>
+Springも巨大になりすぎたのかなと思います。<br>
+一応、手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
+あれからGuiceなど軽量なDIができたこともあり、そちらで十分な気もします。<br></p>
+
+<p>話は戻して、Spring BootとDropwizardについてです。<br>
+Spring Bootは機能過多な気もしますが、それもメリットとも言えるので、慣れてくれば、Spring Bootの方が良くなるかもしれません。<br>
+ちょっとしたホットデプロイならできるので、それも少しメリットかもしれません。<br>
+(が、完全じゃないので微妙）</p>
+
+<p>ただ、今の現在の感想としては<br>
+RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。<br>
+ソースもシンプルでわかり易く拡張もしやすいように感じます。<br>        <br/>
 (いまの時代、単体テストという面だけでいうとDIである必要もあまりないと思っています。)</p>
 
-<p>Qiitaに書きました</p>
-
-<p><a href="http://qiita.com/ko2ic/items/742fe630246848137c20">http://qiita.com/ko2ic/items/742fe630246848137c20</a></p>
+<p>Spring Bootは機能過多になったSpringプロジェクトをうまいこと使い易くしてくれる可能性がありそうなので、今後に期待しています。<br>
+もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいとです。</p>
 </div>
 
 
@@ -206,7 +231,7 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 108.57142857142857%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 108.57142857142857%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 108.57142857142857%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 112.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(5)</a> <a href='/blog/categories/eclipse' style='font-size: 148.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 112.0%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 112.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 112.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 112.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 124.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 136.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 136.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 112.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 112.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 112.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 112.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 112.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 148.0%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
@@ -229,7 +254,7 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
       </li>
     
       <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-3/">いますぐ採用すべきJavaフレームワークDropWizard(その3)</a>
+        <a href="/blog/2014/06/13/dropwizard-liquibase/">Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-07-05T03:04:29+09:00</updated>
+  <updated>2014-08-07T01:41:47+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -557,26 +557,50 @@ dockerデーモンが動いている。</p>
     <link href="http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/"/>
     <updated>2014-06-29T21:54:04+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard</id>
-    <content type="html"><![CDATA[<p>Spring BootとDropwizardの比較をQiitaに記述しました。</p>
+    <content type="html"><![CDATA[<p>Spring BootとDropwizardの比較をしてみました。<br>
+記事は<a href="http://qiita.com/ko2ic/items/742fe630246848137c20">こちら</a>です。</p>
 
-<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。  <br/>
-しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。  <br/>
-そうなったのはおそらく、Spring Bootは多機能で色々なことができるため、調べるのが大変なのとAuto Configurationがわかりづらいくさせているように思えます。(もちろんこれはこれで便利です)</p>
+<p>以下は自分の意見です。<br></p>
 
-<p>Springに関しては元々大好きなフレームワークの一つで、1.0時代から3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。
-しかし、5年くらい利用していないので忘れている部分もあるかもしれませんが、「こんなにめんどくさかったっけ？」と感じました。</p>
+<p>いまのところはDropwizardの方がいいかなぁというのが結論です。</p>
 
-<p>ただ、この感覚は単純にDropwizardの得意な分野で比較したのと、Spring自体を忘れているだけなのかもしれません。
-慣れくるとSpring Bootは機能も多く、ホットデプロイもできるので、こちらの方が良くなるかもしれません。</p>
+<p>ソースの比較をするとSpring Bootの方が記述量も少なくて優れているように思えます。<br>  <br/>
+しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。<br></p>
 
-<p>しかし、いま現在の率直な感想を書くと   <br/>
-RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。  <br/>
-ソースもシンプルでわかり易く拡張もしやすいように感じます。        <br/>
+<p>おそらく、<br>
+Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がする</p>
+
+<p>のだと思います。<br>
+ただ、この感覚は単純にDropwizardの得意な分野で比較したのが理由かもしれません。</p>
+
+<p>ここで、話は脱線しますが、久々のSpringについても書いておきます。<br></p>
+
+<p>Springに関しては元々大好きなフレームワークの一つです。<br>
+ソースもきれいでわかりやすく、非常に勉強になりました。<br>
+きれいなソースと言えば、Seasarプロジェクト（特に本体とSaStruts,S2JDBC）もそうでした。<br>
+反対にStruts,Myfacesなどは汚いと思いました。<br>
+(きれいなフレームワークは比較的に長生きしているので、その点Dropwizardもきれいなので長生きするかも）</p>
+
+<p>今の時代では、もう自慢にはなりませんが、おそらく日本で最初に仕事でSpringを利用したプロジェクトに参加していました。<br>
+それからバージョン3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。</p>
+
+<p>しかし、5年ぶりに実装してみて「こんなにめんどくさかったっけ？」と感じました。<br>
+Springも巨大になりすぎたのかなと思います。<br>
+一応、手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
+あれからGuiceなど軽量なDIができたこともあり、そちらで十分な気もします。<br></p>
+
+<p>話は戻して、Spring BootとDropwizardについてです。<br>
+Spring Bootは機能過多な気もしますが、それもメリットとも言えるので、慣れてくれば、Spring Bootの方が良くなるかもしれません。<br>
+ちょっとしたホットデプロイならできるので、それも少しメリットかもしれません。<br>
+(が、完全じゃないので微妙）</p>
+
+<p>ただ、今の現在の感想としては<br>
+RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。<br>
+ソースもシンプルでわかり易く拡張もしやすいように感じます。<br>        <br/>
 (いまの時代、単体テストという面だけでいうとDIである必要もあまりないと思っています。)</p>
 
-<p>Qiitaに書きました</p>
-
-<p><a href="http://qiita.com/ko2ic/items/742fe630246848137c20">http://qiita.com/ko2ic/items/742fe630246848137c20</a></p>
+<p>Spring Bootは機能過多になったSpringプロジェクトをうまいこと使い易くしてくれる可能性がありそうなので、今後に期待しています。<br>
+もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいとです。</p>
 ]]></content>
   </entry>
   
@@ -585,12 +609,15 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
     <link href="http://ko2ic.github.io/blog/2014/06/23/dropwizard-guice-ddd/"/>
     <updated>2014-06-23T23:12:24+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/06/23/dropwizard-guice-ddd</id>
-    <content type="html"><![CDATA[<p>dropwizardでDDDをやるためにguiceを使ってみました。  <br/>
-今の時代、DIコンテナを使う理由はほとんどトランザクション境界を永続化層に依存させたくないからじゃないのかなと思います。  <br/>
-昔は、単体テストをできるようにすることがDIを使う主な目的でしたが、今はテストフレームワークの充実で、簡単に単体テストができる時代になりました。  <br/>
-ということで、トランザクション境界を変えてみたことをQiitaに記述しました。</p>
+    <content type="html"><![CDATA[<p>Dropwizardで試したいことの一つとして、トランザクション境界を変えるというものがありました。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/409bfecfd806c2f903e1">http://qiita.com/ko2ic/items/409bfecfd806c2f903e1</a></p>
+<p>今回は、それをDDDでやるためにguiceを使ってみました。<br></p>
+
+<p>今の時代、DIコンテナを使う理由はほとんどトランザクション境界を永続化層に依存させたくないからじゃないのかなと思います。<br>
+昔は、単体テストをできるようにすることがDIを使う主な目的でしたが、今はJmockitなどモックフレームワークの充実で、簡単に単体テストができる時代になりました。</p>
+
+<p>ということで、トランザクション境界を変えてみたことをQiitaに記述しました。
+<a href="http://qiita.com/ko2ic/items/409bfecfd806c2f903e1">http://qiita.com/ko2ic/items/409bfecfd806c2f903e1</a></p>
 ]]></content>
   </entry>
   
@@ -599,28 +626,53 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
     <link href="http://ko2ic.github.io/blog/2014/06/19/dropwizard-test/"/>
     <updated>2014-06-19T22:41:09+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/06/19/dropwizard-test</id>
-    <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。  <br/>
-特にIntegration Testが気楽に書ける気がします。       <br/>
-この記事では、単体テストのたびにテーブルを再作成しています。     <br/>
-その際にLiquibaseのAPIを利用していて、それも便利に使えそうだと思います。</p>
+    <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。<br>
+特にIntegration Testが気楽に書けました。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>この記事では、単体テストのたびにテーブルを再作成しています。<br>     <br/>
+その際にLiquibaseのAPIを利用しています。<br>
+実際のプロジェクトでもこの機構は使えます。</p>
 
-<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">http://qiita.com/ko2ic/items/b59447a75952703e809a</a></p>
+<p>この記事は<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiita</a>では全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropWizard(その3)]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/"/>
-    <updated>2014-06-13T00:39:13+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-3</id>
-    <content type="html"><![CDATA[<p>Dropwizardについての続きです。今回はDBまわりを記述しました。
-HibernateとJDBIの両方で記述しています。</p>
+    <title type="html"><![CDATA[Dropwizard(Java)でrailsのようにDBマイグレーションをする]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/"/>
+    <updated>2014-06-13T00:33:09+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase</id>
+    <content type="html"><![CDATA[<p>DropwizardでのDBマイグレーションについて書きました。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>ほとんどLiquibaseの説明です。
+これを使うと「DBのスキーマをgitやSVNなどのソース管理システムで管理できる」のがとても良いです。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">http://qiita.com/ko2ic/items/8110f5959315d3255ae9</a></p>
+<p>これによりJavaでもアジャイルに開発しやすくなると思います。</p>
+
+<p>記事はこちらです。<br>
+<a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropwizard]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard/"/>
+    <updated>2014-06-13T00:26:18+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard</id>
+    <content type="html"><![CDATA[<p>Dropwizardを使ってみたら、思った以上によかったので紹介します。<br></p>
+
+<p>基本的なことはQiitaに三回に渡って記事にしているので参考にしてください。<br></p>
+
+<ul>
+<li><a href="http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463">いますぐ採用すべきJavaフレームワークDropwizard その１</a></li>
+<li><a href="http://qiita.com/ko2ic/items/069c5f75823fd8964bfa">いますぐ採用すべきJavaフレームワークDropwizard その２</a></li>
+<li><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">いますぐ採用すべきJavaフレームワークDropwizard その３</a></li>
+</ul>
+
+
+<p>Qitaでは、Javaの記事を書いてもあまり人気ないと思っていましたが、想像以上にストックされていてびっくりしました。<br>
+はてなブックマークされたら、一気に増えました。<br>
+Dropwizardについては、この3つの記事よりも他の記事の方が意外と有用だったりしますが、入門記事はアクセス数が多いですね。</p>
 
 <p>元々、3回くらいの記事にまとめようと思って書いたので、一つ一つの記事にあまり、関連性がありません。  <br/>
 また、説明も下手（喋るのも文章もどっちも言っている意味がわからない人）なので読みづらいかもしれません。</p>
@@ -643,58 +695,6 @@ HibernateとJDBIの両方で記述しています。</p>
 
 <p>気になる点は、ホットデプロイの機能が今のところ無さそうなところです。 <br/>
 そういう意味では、Spring Bootの勉強もやろうと思います。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Dropwizard(Java)でrailsのようにDBマイグレーションをする]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/"/>
-    <updated>2014-06-13T00:33:09+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase</id>
-    <content type="html"><![CDATA[<p>DropwizardでのDBマイグレーションについて書きました。      <br/>
-ほとんどLiquibaseの説明ですが、DBのスキーマをgitやSVNなどのソース管理システムで管理できるのがとても良いです。     <br/>
-便利なので、ぜひ色々な現場で使ってほしいと思いました。</p>
-
-<p>Qiitaに書きました。</p>
-
-<p><a href="http://qiita.com/ko2ic/items/02da56fd64ec39562bec">http://qiita.com/ko2ic/items/02da56fd64ec39562bec</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropWizard(その２)]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-2/"/>
-    <updated>2014-06-13T00:31:18+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-2</id>
-    <content type="html"><![CDATA[<p>Dropwizardについての続きです。    <br/>
-今回は、以下について記述します。</p>
-
-<ul>
-<li>静的ファイルの表示</li>
-<li>テンプレートエンジンによる動的ファイルの表示</li>
-<li>ssl通信</li>
-<li>認証</li>
-</ul>
-
-
-<p>Qiitaに書きました。</p>
-
-<p><a href="http://qiita.com/ko2ic/items/069c5f75823fd8964bfa">http://qiita.com/ko2ic/items/069c5f75823fd8964bfa</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[いますぐ採用すべきJavaフレームワークDropwizard(その１)]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-1/"/>
-    <updated>2014-06-13T00:26:18+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/06/13/dropwizard-1</id>
-    <content type="html"><![CDATA[<p>Dropwizardを使ってみたら、思った以上によかったので紹介します。DropwizardはRESTfulなアプリを簡単に作れるし、jarだけというのが運用時にも良いと思いました。Dropwizardについての基本的なことを3回に渡って記述します。</p>
-
-<p>Qiitaに書きました。</p>
-
-<p><a href="http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463">http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463</a></p>
-
-<p>あんまりJava関連はQiitaでは流行ってないと思っていたので、たくさんストックされててびっくりしました。</p>
 ]]></content>
   </entry>
   
@@ -745,7 +745,12 @@ Integrating client project
     <link href="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/"/>
     <updated>2014-05-25T20:20:30+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/05/25/eclipse-settings</id>
-    <content type="html"><![CDATA[<p>qiitaに書きました。 <br/>
+    <content type="html"><![CDATA[<p>またまたEclipseです。<br></p>
+
+<p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
+Eclipseを使っている場合は役に立つことがあると思います。</p>
+
+<p>qiitaに書きました。<br>
 <a href="http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0">http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0</a></p>
 ]]></content>
   </entry>
@@ -946,9 +951,11 @@ $ git push origin source
 
 <h2>Macportsからhomebrewへ</h2>
 
-<p>ずーとmacportsを使っていたのですが、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
+<p>ずーとmacportsを使っていました。<br>
+しかし、homebrew-caskで.dmgなアプリも自動で入れたいので、今更ですが乗り換えました。</p>
 
-<p>macportsにも利点があって、それは「/optにすべてがインストールされる」に集約されると思います。<br/>
+<p>macportsにも利点があります。<br>
+それは「/optにすべてがインストールされる」に集約されると思います。<br/>
 例えば</p>
 
 <ul>
@@ -958,9 +965,10 @@ $ git push origin source
 </ul>
 
 
-<p>こういった利点があるので変えていなかったのですが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
+<p>こういった利点があるのでmacportsでしたが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
 
-<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。（そこら中に記事があるので自分が書く必要もないので） <br/>
+<p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。<br>
+（自分が書くよりもわかりやすい記事がたくさんあります）<br>
 よって完全に自分のためだけのメモになります。</p>
 
 <!-- more -->
@@ -1207,12 +1215,6 @@ Caps Lock を Commandに変更</p>
 <h4>残バッテリーを表示する</h4>
 
 <p><img src="http://ko2ic.github.io/images/mac-env-init/percent.png" alt="battery" /></p>
-
-<h4>HardDiskが遅いので早くしたい</h4>
-
-<p>Spotlightのインデックス作成が、頻繁に行われているため、HDDが一杯になってくると、かなり遅くなります。<br>
-Spotlightを使っていないなら、下記の手順でインデックス作成をしないようにすれば、緩和されます。<br>
-「システム環境設定」→「Spotlight」→「プライバシー」で、除するパスを指定すると、インデックスの作成はされなくなりますが、Alfredはこのインデックスを利用しているので考えて設定しましょう。</p>
 ]]></content>
   </entry>
   
@@ -1221,9 +1223,15 @@ Spotlightを使っていないなら、下記の手順でインデックス作�
     <link href="http://ko2ic.github.io/blog/2014/04/24/eclipse-marketplace/"/>
     <updated>2014-04-24T02:45:41+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/24/eclipse-marketplace</id>
-    <content type="html"><![CDATA[<p>自作のEclipse Pluginの登録は簡単です。</p>
+    <content type="html"><![CDATA[<p>またまた、Eclipse Pluginです。<br>
+いまさら感が半端ないのですが、Jmergeを使ったサンプル的に作ったPluginを公開しました。<br></p>
 
-<p>qiitaに書きました。
+<p>Excelからenumを生成するpluginです。<br>
+サンプル的に作ったので、たいして便利ではないですが、Jmergeの良さはわかると思います。<br>
+<a href="http://marketplace.eclipse.org/content/comment-tag-gen#.U-JC_IB_uwE">Comment Tag Gen</a></p>
+
+<p>自作のEclipse Pluginの登録は簡単でした。<br>
+Qiitaに方法を記述しています。<br>
 <a href="http://qiita.com/ko2ic/items/a602deccc88d3a11e527">http://qiita.com/ko2ic/items/a602deccc88d3a11e527</a></p>
 ]]></content>
   </entry>
@@ -1233,13 +1241,21 @@ Spotlightを使っていないなら、下記の手順でインデックス作�
     <link href="http://ko2ic.github.io/blog/2014/04/23/jmerge/"/>
     <updated>2014-04-23T22:25:51+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/23/jmerge</id>
-    <content type="html"><![CDATA[<p>Jmergeについて記述します。        <br/>
-8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。     <br/>
-コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。        <br/>
-そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）           <br/>
-最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+    <content type="html"><![CDATA[<p>Jmergeについて記事を書きました。<br></p>
 
-<p>Qiitaに書きました。
+<p>意外と知られていないのですが、これは便利です。<br>
+Javaのソースを自動生成させるときには相当いいと思います。<br></p>
+
+<p>9年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br></p>
+
+<p>コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br>
+そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）<br></p>
+
+<p>それを実現させていたのがJmergeになります。<br></p>
+
+<p>最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+
+<p>記事はこちらになります。
 <a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
 ]]></content>
   </entry>
@@ -1249,11 +1265,16 @@ Spotlightを使っていないなら、下記の手順でインデックス作�
     <link href="http://ko2ic.github.io/blog/2014/04/23/tycho/"/>
     <updated>2014-04-23T03:35:07+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/23/tycho</id>
-    <content type="html"><![CDATA[<p>Tychoを利用するとEclipse Pluginは簡単に作れます。      <br/>
-ただ、そのまま利用するよりも、mavenのarchetypeから作成すればもっと簡単に作れます。    <br/>
-バージョンが古い状態で放置されていたのでtychoのarchetypeを公開している方にPull Requestを送って最新に変えてもらいました。</p>
+    <content type="html"><![CDATA[<p>今回もEclipse関連です。</p>
 
-<p>qiitaに書きました。
+<p>昔はEclipse Pluginを作るのが難しい（というより面倒）だったのですが、今はTychoがあります。<br>
+Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
+
+<p>ただ、そのまま利用するよりも、mavenのarchetypeから作成すればもっと簡単に作れます。</p>
+
+<p>バージョンが古い状態で放置されていたのでtychoのarchetypeを公開している方にPull Requestを送って最新に変えてもらいました。</p>
+
+<p>詳しくはこちらに記述しています。<br>
 <a href="http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943">http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943</a></p>
 ]]></content>
   </entry>
@@ -1263,7 +1284,13 @@ Spotlightを使っていないなら、下記の手順でインデックス作�
     <link href="http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside/"/>
     <updated>2014-04-21T21:19:01+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside</id>
-    <content type="html"><![CDATA[<h2>方法</h2>
+    <content type="html"><![CDATA[<h2>概要</h2>
+
+<p>OctopressのサイドバーにQitaの投稿した記事を表示します。<br>
+自分はブログとは別にQiitaに記述しています。<br>
+他人にQiitaに書いていることを一見してわかってもらうことが目的です。</p>
+
+<h2>方法</h2>
 
 <p>1.Qiitaと同じアイコンを使いたいので、<a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>を使う。</p>
 
@@ -1388,11 +1415,12 @@ Spotlightを使っていないなら、下記の手順でインデックス作�
 
 <h2>まとめ</h2>
 
-<p>全記事を取得しているので、投稿数が多い場合はパフォーマンスが悪くなると思います。<br/>
-その場合は、最近の記事を表示するのものいいでしょう。
-両方に対応したソースは、githubにあります。
-<a href="https://github.com/ko2ic/octopress-qiita-aside">https://github.com/ko2ic/octopress-qiita-aside</a>
-なにかあれば、pull requestでもお願いします。</p>
+<p>全記事を取得しているので、投稿数が多い場合はパフォーマンスが悪くなると思います。<br>
+その場合は、最近の記事を表示するのものいいでしょう。<br>
+両方に対応したソースは、githubにあります。<br>
+<a href="https://github.com/ko2ic/octopress-qiita-aside">https://github.com/ko2ic/octopress-qiita-aside</a></p>
+
+<p>なにかあれば、pull requestでもお願いします。</p>
 ]]></content>
   </entry>
   
@@ -1401,10 +1429,13 @@ Spotlightを使っていないなら、下記の手順でインデックス作�
     <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
     <updated>2014-04-19T20:24:48+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
-    <content type="html"><![CDATA[<p>いまさらmavenです。mavenは1の頃から利用していてますが、eclipseの設定を自動でさせることはなかったので記述しておきます。        <br/>
-書いてみたら、結構便利でもっと早くやっておけばよかったと思いました。</p>
+    <content type="html"><![CDATA[<p>いまさらですが、mavenについて記事にしました。<br></p>
 
-<p>qiitaに書きました。<br/>
+<p>eclipseの設定をmavenコマンドで作成する方法です。<br>
+mavenはバージョン1の頃から使っていましたが、この方法はやってませんでした。<br>
+結構便利でもっと早くやっておけばよかったと思いました。</p>
+
+<p>記事はこちらになります。
 <a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
 ]]></content>
   </entry>
@@ -1414,16 +1445,16 @@ Spotlightを使っていないなら、下記の手順でインデックス作�
     <link href="http://ko2ic.github.io/blog/2014/04/15/first-octopress/"/>
     <updated>2014-04-15T19:58:32+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/15/first-octopress</id>
-    <content type="html"><![CDATA[<p>初心に帰って技術ブログでも始めようかと。<br/>
-<a href="http://qiita.com/ko2ic">Qiita</a>との棲み分けはどうしよう。 <br/>
-感想とか自分の考えはこちらに書けばいいけど、技術的な内容はどうしようか。<br/>
-ブログと言えども同じ内容を書くのはDRY原則に反するから、悩み中。  <br/>
-まあ、でも試しに両方に書いて見ようかな。</p>
+    <content type="html"><![CDATA[<p>初心にかえり技術ブログでも始めてみます。</p>
 
-<p><strong>2014/5/25追記 </strong>  <br/>
-Qiitaと両方に書いてみたけど、両方書くのは面倒くさかった。 <br/>
-なので、技術的なことであまりQiita内で書かれてないことはQiitaだけに記述します。        <br/>
-逆に技術的なものでも、Qiitaでたくさん書かれていて、でも自分でも試したいことや自分用に残しておきたいことをこのブログに書きます。</p>
+<h2>Qiitaとの棲み分けについて</h2>
+
+<p><a href="http://qiita.com/ko3ic">Qiita</a>とこのブログの両方に同じ内容を書いたところ、面倒くさかったです。<br>   <br/>
+なので、技術的なことはなるべくQiitaに記述します。<br> <br/>
+「なるべく」とするのは、Qiitaに既出の内容でも自分で試したいこともあるからです。<br>
+その場合には、こちらのブログに書いていきたいと思います。<br></p>
+
+<p>Qiitaには自分の意見を極力書かずに、こちらに記述したいと思います。</p>
 ]]></content>
   </entry>
   

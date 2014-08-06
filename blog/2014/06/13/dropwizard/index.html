@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>いますぐ採用すべきJavaフレームワークDropWizard(その3) - ko2ic Blog</title>
+  <title>いますぐ採用すべきJavaフレームワークDropwizard - ko2ic Blog</title>
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="Dropwizardについての続きです。今回はDBまわりを記述しました。
-HibernateとJDBIの両方で記述しています。 Qiitaに書きました。 http://qiita.com/ko2ic/items/8110f5959315d3255ae9 元々、 &hellip;">
+  <meta name="description" content="Dropwizardを使ってみたら、思った以上によかったので紹介します。 基本的なことはQiitaに三回に渡って記事にしているので参考にしてください。 いますぐ採用すべきJavaフレームワークDropwizard その１
+いますぐ採用すべきJavaフレームワークDropwizard その２ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ HibernateとJDBIの両方で記述しています。 Qiitaに書きました。 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/06/13/dropwizard-3">
+  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/06/13/dropwizard">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="ko2ic Blog" type="application/atom+xml">
@@ -87,7 +87,7 @@ $(document).ready( function () {
   
   <header>
     
-      <h1 class="entry-title">いますぐ採用すべきJavaフレームワークDropWizard(その3)</h1>
+      <h1 class="entry-title">いますぐ採用すべきJavaフレームワークDropwizard</h1>
     
     
       <p class="meta">
@@ -103,7 +103,7 @@ $(document).ready( function () {
   
 
 
-<time datetime="2014-06-13T00:39:13+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
+<time datetime="2014-06-13T00:26:18+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io">Comments</a>
@@ -113,12 +113,20 @@ $(document).ready( function () {
   </header>
 
 
-<div class="entry-content"><p>Dropwizardについての続きです。今回はDBまわりを記述しました。
-HibernateとJDBIの両方で記述しています。</p>
+<div class="entry-content"><p>Dropwizardを使ってみたら、思った以上によかったので紹介します。<br></p>
 
-<p>Qiitaに書きました。</p>
+<p>基本的なことはQiitaに三回に渡って記事にしているので参考にしてください。<br></p>
 
-<p><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">http://qiita.com/ko2ic/items/8110f5959315d3255ae9</a></p>
+<ul>
+<li><a href="http://qiita.com/ko2ic/items/cfe5b2f4593b705f9463">いますぐ採用すべきJavaフレームワークDropwizard その１</a></li>
+<li><a href="http://qiita.com/ko2ic/items/069c5f75823fd8964bfa">いますぐ採用すべきJavaフレームワークDropwizard その２</a></li>
+<li><a href="http://qiita.com/ko2ic/items/8110f5959315d3255ae9">いますぐ採用すべきJavaフレームワークDropwizard その３</a></li>
+</ul>
+
+
+<p>Qitaでは、Javaの記事を書いてもあまり人気ないと思っていましたが、想像以上にストックされていてびっくりしました。<br>
+はてなブックマークされたら、一気に増えました。<br>
+Dropwizardについては、この3つの記事よりも他の記事の方が意外と有用だったりしますが、入門記事はアクセス数が多いですね。</p>
 
 <p>元々、3回くらいの記事にまとめようと思って書いたので、一つ一つの記事にあまり、関連性がありません。  <br/>
 また、説明も下手（喋るのも文章もどっちも言っている意味がわからない人）なので読みづらいかもしれません。</p>
@@ -163,7 +171,7 @@ HibernateとJDBIの両方で記述しています。</p>
   
 
 
-<time datetime="2014-06-13T00:39:13+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
+<time datetime="2014-06-13T00:26:18+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
       
 
 <span class="categories">
@@ -177,12 +185,12 @@ HibernateとJDBIの両方で記述しています。</p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/06/13/dropwizard/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/06/13/dropwizard/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
   
-  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/">
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/06/13/dropwizard/">
 <img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none"/>
 
 <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
@@ -194,10 +202,10 @@ HibernateとJDBIの両方で記述しています。</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/06/13/dropwizard-liquibase/" title="Previous Post: Dropwizard(Java)でrailsのようにDBマイグレーションをする">&laquo; Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
+        <a class="basic-alignment left" href="/blog/2014/05/27/cocoapods/" title="Previous Post: Mac環境構築（CocoaPods）">&laquo; Mac環境構築（CocoaPods）</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/06/19/dropwizard-test/" title="Next Post: dropwizard-testingが便利でした">dropwizard-testingが便利でした &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/06/13/dropwizard-liquibase/" title="Next Post: Dropwizard(Java)でrailsのようにDBマイグレーションをする">Dropwizard(Java)でrailsのようにDBマイグレーションをする &raquo;</a>
       
     </p>
   </footer>
@@ -215,7 +223,7 @@ HibernateとJDBIの両方で記述しています。</p>
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 108.57142857142857%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(7)</a> <a href='/blog/categories/eclipse' style='font-size: 134.28571428571428%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 108.57142857142857%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 108.57142857142857%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 108.57142857142857%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 117.14285714285714%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 125.71428571428572%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 125.71428571428572%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 108.57142857142857%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 108.57142857142857%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 108.57142857142857%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 108.57142857142857%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 108.57142857142857%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 134.28571428571428%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 112.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(5)</a> <a href='/blog/categories/eclipse' style='font-size: 148.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 112.0%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 112.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 112.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 112.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 124.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 136.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 136.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 112.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 112.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 112.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 112.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 112.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 148.0%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
@@ -238,7 +246,7 @@ HibernateとJDBIの両方で記述しています。</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-3/">いますぐ採用すべきJavaフレームワークDropWizard(その3)</a>
+        <a href="/blog/2014/06/13/dropwizard-liquibase/">Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
       </li>
     
   </ul>
@@ -380,8 +388,8 @@ HibernateとJDBIの両方で記述しています。</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/';
-        var disqus_url = 'http://ko2ic.github.io/blog/2014/06/13/dropwizard-3/';
+        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/06/13/dropwizard/';
+        var disqus_url = 'http://ko2ic.github.io/blog/2014/06/13/dropwizard/';
         var disqus_script = 'embed.js';
       
     (function () {

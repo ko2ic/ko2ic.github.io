@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-07-05T03:04:29+09:00</updated>
+  <updated>2014-08-07T01:41:47+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -18,13 +18,21 @@
     <link href="http://ko2ic.github.io/blog/2014/04/23/jmerge/"/>
     <updated>2014-04-23T22:25:51+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/23/jmerge</id>
-    <content type="html"><![CDATA[<p>Jmergeについて記述します。        <br/>
-8年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。     <br/>
-コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。        <br/>
-そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）           <br/>
-最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+    <content type="html"><![CDATA[<p>Jmergeについて記事を書きました。<br></p>
 
-<p>Qiitaに書きました。
+<p>意外と知られていないのですが、これは便利です。<br>
+Javaのソースを自動生成させるときには相当いいと思います。<br></p>
+
+<p>9年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br></p>
+
+<p>コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br>
+そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）<br></p>
+
+<p>それを実現させていたのがJmergeになります。<br></p>
+
+<p>最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+
+<p>記事はこちらになります。
 <a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
 ]]></content>
   </entry>
