@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge - ko2ic Blog</title>
+  <title>ツールとして利用できるDropwizard - ko2ic Blog</title>
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="Jmergeについて記事を書きました。 意外と知られていないのですが、これは便利です。
-Javaのソースを自動生成させるときには相当いいと思います。 9年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。 &hellip;">
+  <meta name="description" content="Dropwizardはwebアプリとしてではなく、ユーザに配布するツールを作成するときにも役に立ちます。 どういうことかというと、dropwizard-configurationというjarだけを利用しましょうということです。 詳しくは、Dropwizardで気軽にユーザ向けのツールを作成する &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ Javaのソースを自動生成させるときには相当いいと思います�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/04/23/jmerge">
+  <link rel="canonical" href="http://ko2ic.github.io/blog/2014/08/07/dropwizard-as-tool">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="ko2ic Blog" type="application/atom+xml">
@@ -87,7 +86,7 @@ $(document).ready( function () {
   
   <header>
     
-      <h1 class="entry-title">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</h1>
+      <h1 class="entry-title">ツールとして利用できるDropwizard</h1>
     
     
       <p class="meta">
@@ -103,7 +102,7 @@ $(document).ready( function () {
   
 
 
-<time datetime="2014-04-23T22:25:51+09:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
+<time datetime="2014-08-07T01:47:37+09:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io">Comments</a>
@@ -113,22 +112,22 @@ $(document).ready( function () {
   </header>
 
 
-<div class="entry-content"><p>Jmergeについて記事を書きました。<br></p>
+<div class="entry-content"><p>Dropwizardはwebアプリとしてではなく、ユーザに配布するツールを作成するときにも役に立ちます。</p>
 
-<p>意外と知られていないのですが、これは便利です。<br>
-Javaのソースを自動生成させるときには相当いいと思います。<br></p>
+<p>どういうことかというと、dropwizard-configurationというjarだけを利用しましょうということです。<br></p>
 
-<p>9年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br></p>
+<p>詳しくは、<a href="http://qiita.com/ko2ic/items/7cefba83be29f8129595">Dropwizardで気軽にユーザ向けのツールを作成する </a>に記述しています。</p>
 
-<p>コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br>
-そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）<br></p>
+<p>自分の場合で恐縮なのですが、ソフトアーキテクチャで意識するのは、プロジェクト間の依存関係を疎結合にすることです。<br>
+そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に変更できるからです。<br></p>
 
-<p>それを実現させていたのがJmergeになります。<br></p>
+<p>Dropwizardではまさにそれを高いレベルでやってのけています。<br>
+なので、RESTフレームワークであるはずのDropwizardをwebとは関係のないツールで便利に利用できるわけです。</p>
 
-<p>最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+<p>この記事も<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
 
-<p>記事はこちらになります。
-<a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
+<p>サンプルソースはこちらです。<br>
+<a href="https://github.com/ko2ic/spike-groovy-executable-jar">https://github.com/ko2ic/spike-groovy-executable-jar</a></p>
 </div>
 
 
@@ -151,12 +150,12 @@ Javaのソースを自動生成させるときには相当いいと思います�
   
 
 
-<time datetime="2014-04-23T22:25:51+09:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
+<time datetime="2014-08-07T01:47:37+09:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/eclipse/'>eclipse</a>, <a class='category' href='/blog/categories/java/'>java</a>
+    <a class='category' href='/blog/categories/dropwizard/'>dropwizard</a>, <a class='category' href='/blog/categories/gradle/'>gradle</a>, <a class='category' href='/blog/categories/groovy/'>groovy</a>
   
 </span>
 
@@ -165,12 +164,12 @@ Javaのソースを自動生成させるときには相当いいと思います�
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/04/23/jmerge/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/04/23/jmerge/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ko2ic.github.io/blog/2014/08/07/dropwizard-as-tool/" data-via="" data-counturl="http://ko2ic.github.io/blog/2014/08/07/dropwizard-as-tool/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
   
-  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/04/23/jmerge/">
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-url="http://ko2ic.github.io/blog/2014/08/07/dropwizard-as-tool/">
 <img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none"/>
 
 <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
@@ -182,10 +181,8 @@ Javaのソースを自動生成させるときには相当いいと思います�
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/04/23/tycho/" title="Previous Post: Eclipseプラグインを簡単に作成する">&laquo; Eclipseプラグインを簡単に作成する</a>
+        <a class="basic-alignment left" href="/blog/2014/07/04/docker/" title="Previous Post: Dockerメモ">&laquo; Dockerメモ</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/04/24/eclipse-marketplace/" title="Next Post: Eclipse MarketPlaceに自作のPluginを登録する">Eclipse MarketPlaceに自作のPluginを登録する &raquo;</a>
       
     </p>
   </footer>
@@ -368,8 +365,8 @@ Javaのソースを自動生成させるときには相当いいと思います�
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/04/23/jmerge/';
-        var disqus_url = 'http://ko2ic.github.io/blog/2014/04/23/jmerge/';
+        var disqus_identifier = 'http://ko2ic.github.io/blog/2014/08/07/dropwizard-as-tool/';
+        var disqus_url = 'http://ko2ic.github.io/blog/2014/08/07/dropwizard-as-tool/';
         var disqus_script = 'embed.js';
       
     (function () {

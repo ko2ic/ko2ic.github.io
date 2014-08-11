@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Gradle | ko2ic Blog]]></title>
-  <link href="http://ko2ic.github.io/blog/categories/gradle/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Groovy | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/groovy/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
   <updated>2014-08-12T01:45:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
@@ -34,21 +34,6 @@
 
 <p>サンプルソースはこちらです。<br>
 <a href="https://github.com/ko2ic/spike-groovy-executable-jar">https://github.com/ko2ic/spike-groovy-executable-jar</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Eclipseの設定ファイルの場所]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/"/>
-    <updated>2014-05-25T20:20:30+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/05/25/eclipse-settings</id>
-    <content type="html"><![CDATA[<p>またまたEclipseです。<br></p>
-
-<p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
-Eclipseを使っている場合は役に立つことがあると思います。</p>
-
-<p>qiitaに書きました。<br>
-<a href="http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0">http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0</a></p>
 ]]></content>
   </entry>
   

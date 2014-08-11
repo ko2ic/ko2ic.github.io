@@ -9,7 +9,7 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。 （この記事ではVagrant1.6からのDocker &hellip;">
+  <meta name="description" content="Dropwizardはwebアプリとしてではなく、ユーザに配布するツールを作成するときにも役に立ちます。 どういうことかというと、dropwizard-configurationというjarだけを利用しましょうということです。 詳しくは、Dropwizardで気軽にユーザ向けのツールを作成する &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,60 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/07/dropwizard-as-tool/">ツールとして利用できるDropwizard</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-07T01:47:37+09:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/08/07/dropwizard-as-tool/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/08/07/dropwizard-as-tool/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Dropwizardはwebアプリとしてではなく、ユーザに配布するツールを作成するときにも役に立ちます。</p>
+
+<p>どういうことかというと、dropwizard-configurationというjarだけを利用しましょうということです。<br></p>
+
+<p>詳しくは、<a href="http://qiita.com/ko2ic/items/7cefba83be29f8129595">Dropwizardで気軽にユーザ向けのツールを作成する </a>に記述しています。</p>
+
+<p>自分の場合で恐縮なのですが、ソフトアーキテクチャで意識するのは、プロジェクト間の依存関係を疎結合にすることです。<br>
+そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に変更できるからです。<br></p>
+
+<p>Dropwizardではまさにそれを高いレベルでやってのけています。<br>
+なので、RESTフレームワークであるはずのDropwizardをwebとは関係のないツールで便利に利用できるわけです。</p>
+
+<p>この記事も<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
+
+<p>サンプルソースはこちらです。<br>
+<a href="https://github.com/ko2ic/spike-groovy-executable-jar">https://github.com/ko2ic/spike-groovy-executable-jar</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -685,106 +739,6 @@ PATHの順序を変える</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/05/21/octopress/">Octopress構築</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-05-21T00:00:20+09:00" pubdate data-updated="true">May 21<span>st</span>, 2014</time>
-        
-           | <a href="/blog/2014/05/21/octopress/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/21/octopress/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>OSのクリーンインストールをしたのでこのブログも入れ直す</p>
-
-<h2>ソースを取得</h2>
-
-<p>自分の場合はbitbuketにこのブログを保存しているので、そこから取得する</p>
-
-<pre><code>$ git clone  git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git
-</code></pre>
-
-<p>初めての場合はoctopress本体を取得する</p>
-
-<pre><code>$ git clone git@github.com:imathis/octopress.git
-</code></pre>
-
-<h2>ruby</h2>
-
-<p>自分の環境はhomebrewでreadline,ruby-build,rbenvをインストール済みです。<br/>
-詳しくは<a href="https://github.com/ko2ic/dotfiles">こちらを参考</a></p>
-
-<pre><code>$ brew bundle
-</code></pre>
-
-<p>PATHにrbenvを通す<br/>
-古い記事だと~/.rbenv/binになっているので注意。</p>
-
-<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>/.rbenv/shims:<span class="nv">$PATH</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>rubyはrbenvでインストールする</p>
-
-<pre><code>$ rbenv install 2.1.0
-$ rbenv rehash
-</code></pre>
-
-<p>rbenvで使用するrubyバージョンを指定する。</p>
-
-<pre><code>$ rbenv global 2.1.0
-$ rbenv global
-2.1.0
-</code></pre>
-
-<p>bundlerをインストール</p>
-
-<pre><code>$ rbenv exec gem install bundler
-$ rbenv exec gem list
-bigdecimal (1.2.3)
-bundler (1.6.2)
-io-console (0.4.2)
-json (1.8.1)
-minitest (4.7.5)
-psych (2.0.2)
-rake (10.1.0)
-rdoc (4.1.0)
-test-unit (2.1.0.0)
-</code></pre>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/05/21/octopress/">続きを読む &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -797,11 +751,15 @@ test-unit (2.1.0.0)
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 112.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(5)</a> <a href='/blog/categories/eclipse' style='font-size: 148.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 112.0%'>gradle(1)</a> <a href='/blog/categories/guice' style='font-size: 112.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 112.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 112.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 124.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 136.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 136.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 112.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 112.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 112.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 112.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 112.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 148.0%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 110.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 140.0%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/07/dropwizard-as-tool/">ツールとして利用できるDropwizard</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/04/docker/">Dockerメモ</a>
@@ -817,10 +775,6 @@ test-unit (2.1.0.0)
     
       <li class="post">
         <a href="/blog/2014/06/19/dropwizard-test/">Dropwizard-testingが便利でした</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/13/dropwizard-liquibase/">Dropwizard(Java)でrailsのようにDBマイグレーションをする</a>
       </li>
     
   </ul>
