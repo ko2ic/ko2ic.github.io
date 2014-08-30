@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dropwizard | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/dropwizard/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -25,12 +25,12 @@
 <p>詳しくは、<a href="http://qiita.com/ko2ic/items/7cefba83be29f8129595">Dropwizardで気軽にユーザ向けのツールを作成する </a>に記述しています。</p>
 
 <p>自分の場合で恐縮なのですが、ソフトアーキテクチャで意識するのは、プロジェクト間の依存関係を疎結合にすることです。<br>
-そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に変更できるからです。<br></p>
+そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に交換できるからです。<br></p>
 
 <p>Dropwizardではまさにそれを高いレベルでやってのけています。<br>
 なので、RESTフレームワークであるはずのDropwizardをwebとは関係のないツールで便利に利用できるわけです。</p>
 
-<p>この記事も<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
+<p>この記事も以前書いた「<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>」と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
 
 <p>サンプルソースはこちらです。<br>
 <a href="https://github.com/ko2ic/spike-groovy-executable-jar">https://github.com/ko2ic/spike-groovy-executable-jar</a></p>
@@ -53,9 +53,7 @@
 しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。<br></p>
 
 <p>おそらく、<br>
-Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がする</p>
-
-<p>のだと思います。<br>
+Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がするのだと思います。<br>
 ただ、この感覚は単純にDropwizardの得意な分野で比較したのが理由かもしれません。</p>
 
 <p>ここで、話は脱線しますが、久々のSpringについても書いておきます。<br></p>
@@ -66,12 +64,12 @@ Spring Bootは多機能で色々なことができるためソースも多く、
 反対にStruts,Myfacesなどは汚いと思いました。<br>
 (きれいなフレームワークは比較的に長生きしているので、その点Dropwizardもきれいなので長生きするかも）</p>
 
-<p>今の時代では、もう自慢にはなりませんが、おそらく日本で最初に仕事でSpringを利用したプロジェクトに参加していました。<br>
+<p>今の時代では、当たり前に利用されているSpringですが、おそらく日本では業務で最も早く利用したプロジェクトに運良く参加していました。<br>
 それからバージョン3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。</p>
 
 <p>しかし、5年ぶりに実装してみて「こんなにめんどくさかったっけ？」と感じました。<br>
 Springも巨大になりすぎたのかなと思います。<br>
-一応、手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
+手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
 あれからGuiceなど軽量なDIができたこともあり、そちらで十分な気もします。<br></p>
 
 <p>話は戻して、Spring BootとDropwizardについてです。<br>
@@ -79,13 +77,13 @@ Spring Bootは機能過多な気もしますが、それもメリットとも言
 ちょっとしたホットデプロイならできるので、それも少しメリットかもしれません。<br>
 (が、完全じゃないので微妙）</p>
 
-<p>ただ、今の現在の感想としては<br>
+<p>ただ、現在の感想としては<br>
 RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。<br>
 ソースもシンプルでわかり易く拡張もしやすいように感じます。<br>        <br/>
 (いまの時代、単体テストという面だけでいうとDIである必要もあまりないと思っています。)</p>
 
 <p>Spring Bootは機能過多になったSpringプロジェクトをうまいこと使い易くしてくれる可能性がありそうなので、今後に期待しています。<br>
-もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいとです。</p>
+もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいです。</p>
 ]]></content>
   </entry>
   
@@ -114,11 +112,12 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
     <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。<br>
 特にIntegration Testが気楽に書けました。<br></p>
 
-<p>この記事では、単体テストのたびにテーブルを再作成しています。<br>     <br/>
-その際にLiquibaseのAPIを利用しています。<br>
+<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiitaに書いた記事</a>では、単体テストのたびにテーブルを再作成しています。<br></p>
+
+<p>その際にLiquibaseのAPIを利用しています。<br>
 実際のプロジェクトでもこの機構は使えます。</p>
 
-<p>この記事は<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiita</a>では全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
+<p>この記事はQitaやアクセス数を見ると全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
 ]]></content>
   </entry>
   

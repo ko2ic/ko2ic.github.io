@@ -105,7 +105,7 @@ $(document).ready( function () {
   
 
 
-<time datetime="2014-08-07T01:47:37+09:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time>
+<time datetime="2014-08-07T01:47:37+09:00" pubdate data-updated="true">2014年08月07日</time>
         
            | <a href="/blog/2014/08/07/dropwizard-as-tool/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/08/07/dropwizard-as-tool/">Comments</a>
@@ -122,12 +122,12 @@ $(document).ready( function () {
 <p>詳しくは、<a href="http://qiita.com/ko2ic/items/7cefba83be29f8129595">Dropwizardで気軽にユーザ向けのツールを作成する </a>に記述しています。</p>
 
 <p>自分の場合で恐縮なのですが、ソフトアーキテクチャで意識するのは、プロジェクト間の依存関係を疎結合にすることです。<br>
-そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に変更できるからです。<br></p>
+そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に交換できるからです。<br></p>
 
 <p>Dropwizardではまさにそれを高いレベルでやってのけています。<br>
 なので、RESTフレームワークであるはずのDropwizardをwebとは関係のないツールで便利に利用できるわけです。</p>
 
-<p>この記事も<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
+<p>この記事も以前書いた「<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>」と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
 
 <p>サンプルソースはこちらです。<br>
 <a href="https://github.com/ko2ic/spike-groovy-executable-jar">https://github.com/ko2ic/spike-groovy-executable-jar</a></p>
@@ -159,7 +159,7 @@ $(document).ready( function () {
   
 
 
-<time datetime="2014-07-04T19:00:53+09:00" pubdate data-updated="true">Jul 4<span>th</span>, 2014</time>
+<time datetime="2014-07-04T19:00:53+09:00" pubdate data-updated="true">2014年07月04日</time>
         
            | <a href="/blog/2014/07/04/docker/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/07/04/docker/">Comments</a>
@@ -169,7 +169,8 @@ $(document).ready( function () {
   </header>
 
 
-  <div class="entry-content"><p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
+  <div class="entry-content"><p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」<br>
+という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
 （この記事ではVagrant1.6からのDocker Provider・boot2dockerを使わない）</p>
 
 <h2>Vagrant</h2>
@@ -220,7 +221,8 @@ boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
 
 <p>VirtualBox内で動作するubuntuにはdockerがinstallされていないので、installする。    <br/>
 この際にインストールするのは <code>docker</code> ではなくて、 <code>docker.io</code> 。     <br/>
-全く違うものなので、間違えるとこんなエラーが出るので注意。<a href="https://gist.github.com/kjellski/6158747">参考</a>    <br/>
+全く違うものなので、間違えるとこんなエラーが出るので注意。<br>
+<a href="https://gist.github.com/kjellski/6158747">参考記事</a>    <br/>
  <code>Segmentation Fault or Critical Error encountered. Dumping core and aborting.</code></p>
 
 </div>
@@ -255,7 +257,7 @@ boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
   
 
 
-<time datetime="2014-06-29T21:54:04+09:00" pubdate data-updated="true">Jun 29<span>th</span>, 2014</time>
+<time datetime="2014-06-29T21:54:04+09:00" pubdate data-updated="true">2014年06月29日</time>
         
            | <a href="/blog/2014/06/29/springboot-dropwizard/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/29/springboot-dropwizard/">Comments</a>
@@ -276,9 +278,7 @@ boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
 しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。<br></p>
 
 <p>おそらく、<br>
-Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がする</p>
-
-<p>のだと思います。<br>
+Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がするのだと思います。<br>
 ただ、この感覚は単純にDropwizardの得意な分野で比較したのが理由かもしれません。</p>
 
 <p>ここで、話は脱線しますが、久々のSpringについても書いておきます。<br></p>
@@ -289,12 +289,12 @@ Spring Bootは多機能で色々なことができるためソースも多く、
 反対にStruts,Myfacesなどは汚いと思いました。<br>
 (きれいなフレームワークは比較的に長生きしているので、その点Dropwizardもきれいなので長生きするかも）</p>
 
-<p>今の時代では、もう自慢にはなりませんが、おそらく日本で最初に仕事でSpringを利用したプロジェクトに参加していました。<br>
+<p>今の時代では、当たり前に利用されているSpringですが、おそらく日本では業務で最も早く利用したプロジェクトに運良く参加していました。<br>
 それからバージョン3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。</p>
 
 <p>しかし、5年ぶりに実装してみて「こんなにめんどくさかったっけ？」と感じました。<br>
 Springも巨大になりすぎたのかなと思います。<br>
-一応、手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
+手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
 あれからGuiceなど軽量なDIができたこともあり、そちらで十分な気もします。<br></p>
 
 <p>話は戻して、Spring BootとDropwizardについてです。<br>
@@ -302,13 +302,13 @@ Spring Bootは機能過多な気もしますが、それもメリットとも言
 ちょっとしたホットデプロイならできるので、それも少しメリットかもしれません。<br>
 (が、完全じゃないので微妙）</p>
 
-<p>ただ、今の現在の感想としては<br>
+<p>ただ、現在の感想としては<br>
 RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。<br>
 ソースもシンプルでわかり易く拡張もしやすいように感じます。<br>        <br/>
 (いまの時代、単体テストという面だけでいうとDIである必要もあまりないと思っています。)</p>
 
 <p>Spring Bootは機能過多になったSpringプロジェクトをうまいこと使い易くしてくれる可能性がありそうなので、今後に期待しています。<br>
-もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいとです。</p>
+もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいです。</p>
 </div>
   
   
@@ -337,7 +337,7 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   
 
 
-<time datetime="2014-06-23T23:12:24+09:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
+<time datetime="2014-06-23T23:12:24+09:00" pubdate data-updated="true">2014年06月23日</time>
         
            | <a href="/blog/2014/06/23/dropwizard-guice-ddd/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/23/dropwizard-guice-ddd/">Comments</a>
@@ -384,7 +384,7 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   
 
 
-<time datetime="2014-06-19T22:41:09+09:00" pubdate data-updated="true">Jun 19<span>th</span>, 2014</time>
+<time datetime="2014-06-19T22:41:09+09:00" pubdate data-updated="true">2014年06月19日</time>
         
            | <a href="/blog/2014/06/19/dropwizard-test/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/19/dropwizard-test/">Comments</a>
@@ -397,11 +397,12 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   <div class="entry-content"><p>dropwizardはテストを書くのも簡単でした。<br>
 特にIntegration Testが気楽に書けました。<br></p>
 
-<p>この記事では、単体テストのたびにテーブルを再作成しています。<br>     <br/>
-その際にLiquibaseのAPIを利用しています。<br>
+<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiitaに書いた記事</a>では、単体テストのたびにテーブルを再作成しています。<br></p>
+
+<p>その際にLiquibaseのAPIを利用しています。<br>
 実際のプロジェクトでもこの機構は使えます。</p>
 
-<p>この記事は<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiita</a>では全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
+<p>この記事はQitaやアクセス数を見ると全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
 </div>
   
   
@@ -430,7 +431,7 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   
 
 
-<time datetime="2014-06-13T00:33:09+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
+<time datetime="2014-06-13T00:33:09+09:00" pubdate data-updated="true">2014年06月13日</time>
         
            | <a href="/blog/2014/06/13/dropwizard-liquibase/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/13/dropwizard-liquibase/">Comments</a>
@@ -477,7 +478,7 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   
 
 
-<time datetime="2014-06-13T00:26:18+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
+<time datetime="2014-06-13T00:26:18+09:00" pubdate data-updated="true">2014年06月13日</time>
         
            | <a href="/blog/2014/06/13/dropwizard/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/13/dropwizard/">Comments</a>
@@ -551,7 +552,7 @@ Dropwizardについては、この3つの記事よりも他の記事の方が意
   
 
 
-<time datetime="2014-05-27T20:17:09+09:00" pubdate data-updated="true">May 27<span>th</span>, 2014</time>
+<time datetime="2014-05-27T20:17:09+09:00" pubdate data-updated="true">2014年05月27日</time>
         
            | <a href="/blog/2014/05/27/cocoapods/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/27/cocoapods/">Comments</a>
@@ -565,7 +566,7 @@ Dropwizardについては、この3つの記事よりも他の記事の方が意
 
 <h2>CocoaPods</h2>
 
-<p><a href="http://ko2ic.github.io/blog/2014/05/21/octopress/" title="Octopress構築">Ruby</a>でruby環境は整っているので、CocoaPodsをインストールする.</p>
+<p><a href="http://ko2ic.github.io/blog/2014/05/21/octopress/" title="Octopress構築">Octopress環境構築</a>でruby環境は整っているので、CocoaPodsをインストールする.</p>
 
 <pre><code>$ gem install -V cocoapods
 $ rbenv rehash
@@ -623,7 +624,7 @@ Integrating client project
   
 
 
-<time datetime="2014-05-25T20:20:30+09:00" pubdate data-updated="true">May 25<span>th</span>, 2014</time>
+<time datetime="2014-05-25T20:20:30+09:00" pubdate data-updated="true">2014年05月25日</time>
         
            | <a href="/blog/2014/05/25/eclipse-settings/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/">Comments</a>
@@ -633,7 +634,7 @@ Integrating client project
   </header>
 
 
-  <div class="entry-content"><p>またまたEclipseです。<br></p>
+  <div class="entry-content"><p>Eclipseの記事です。<br></p>
 
 <p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
 Eclipseを使っている場合は役に立つことがあると思います。</p>
@@ -668,7 +669,7 @@ Eclipseを使っている場合は役に立つことがあると思います。<
   
 
 
-<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
+<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">2014年05月22日</time>
         
            | <a href="/blog/2014/05/22/vim-lua/#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/22/vim-lua/">Comments</a>

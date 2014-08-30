@@ -9,7 +9,8 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。 （この記事ではVagrant1.6からのDocker &hellip;">
+  <meta name="description" content="「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」
+という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。 （この記事ではVagrant1.6からのDocker &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,7 +103,7 @@ $(document).ready( function () {
   
 
 
-<time datetime="2014-07-04T19:00:53+09:00" pubdate data-updated="true">Jul 4<span>th</span>, 2014</time>
+<time datetime="2014-07-04T19:00:53+09:00" pubdate data-updated="true">2014年07月04日</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ko2ic.github.io">Comments</a>
@@ -112,7 +113,8 @@ $(document).ready( function () {
   </header>
 
 
-<div class="entry-content"><p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
+<div class="entry-content"><p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」<br>
+という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
 （この記事ではVagrant1.6からのDocker Provider・boot2dockerを使わない）</p>
 
 <h2>Vagrant</h2>
@@ -163,7 +165,8 @@ boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
 
 <p>VirtualBox内で動作するubuntuにはdockerがinstallされていないので、installする。    <br/>
 この際にインストールするのは <code>docker</code> ではなくて、 <code>docker.io</code> 。     <br/>
-全く違うものなので、間違えるとこんなエラーが出るので注意。<a href="https://gist.github.com/kjellski/6158747">参考</a>    <br/>
+全く違うものなので、間違えるとこんなエラーが出るので注意。<br>
+<a href="https://gist.github.com/kjellski/6158747">参考記事</a>    <br/>
  <code>Segmentation Fault or Critical Error encountered. Dumping core and aborting.</code></p>
 
 <!-- more -->
@@ -665,7 +668,7 @@ dockerデーモンが動いている。</p>
   
 
 
-<time datetime="2014-07-04T19:00:53+09:00" pubdate data-updated="true">Jul 4<span>th</span>, 2014</time>
+<time datetime="2014-07-04T19:00:53+09:00" pubdate data-updated="true">2014年07月04日</time>
       
 
 <span class="categories">

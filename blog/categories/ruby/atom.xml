@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -132,7 +132,7 @@ $ git push origin source
 
 <h2>参考</h2>
 
-<p>ruby周りは以下のサイトを参考にしました
+<p>ruby周りは以下のサイトを参考にしました。<br>
 <a href="http://qiita.com/emadurandal/items/a60886152a4c99ce1017">http://qiita.com/emadurandal/items/a60886152a4c99ce1017</a></p>
 ]]></content>
   </entry>

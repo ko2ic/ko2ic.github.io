@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -25,12 +25,12 @@
 <p>詳しくは、<a href="http://qiita.com/ko2ic/items/7cefba83be29f8129595">Dropwizardで気軽にユーザ向けのツールを作成する </a>に記述しています。</p>
 
 <p>自分の場合で恐縮なのですが、ソフトアーキテクチャで意識するのは、プロジェクト間の依存関係を疎結合にすることです。<br>
-そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に変更できるからです。<br></p>
+そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に交換できるからです。<br></p>
 
 <p>Dropwizardではまさにそれを高いレベルでやってのけています。<br>
 なので、RESTフレームワークであるはずのDropwizardをwebとは関係のないツールで便利に利用できるわけです。</p>
 
-<p>この記事も<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
+<p>この記事も以前書いた「<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>」と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
 
 <p>サンプルソースはこちらです。<br>
 <a href="https://github.com/ko2ic/spike-groovy-executable-jar">https://github.com/ko2ic/spike-groovy-executable-jar</a></p>
@@ -42,7 +42,8 @@
     <link href="http://ko2ic.github.io/blog/2014/07/04/docker/"/>
     <updated>2014-07-04T19:00:53+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/07/04/docker</id>
-    <content type="html"><![CDATA[<p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
+    <content type="html"><![CDATA[<p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」<br>
+という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
 （この記事ではVagrant1.6からのDocker Provider・boot2dockerを使わない）</p>
 
 <h2>Vagrant</h2>
@@ -93,7 +94,8 @@ boxの配置される場所は <code>~/.vagrant.d/boxes</code> 。</p>
 
 <p>VirtualBox内で動作するubuntuにはdockerがinstallされていないので、installする。    <br/>
 この際にインストールするのは <code>docker</code> ではなくて、 <code>docker.io</code> 。     <br/>
-全く違うものなので、間違えるとこんなエラーが出るので注意。<a href="https://gist.github.com/kjellski/6158747">参考</a>    <br/>
+全く違うものなので、間違えるとこんなエラーが出るので注意。<br>
+<a href="https://gist.github.com/kjellski/6158747">参考記事</a>    <br/>
  <code>Segmentation Fault or Critical Error encountered. Dumping core and aborting.</code></p>
 
 <!-- more -->
@@ -592,9 +594,7 @@ dockerデーモンが動いている。</p>
 しかし、実際はDropwizardでは迷うことがなく実装ができ、Spring Bootでは悩むことが多かったです。<br></p>
 
 <p>おそらく、<br>
-Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がする</p>
-
-<p>のだと思います。<br>
+Spring Bootは多機能で色々なことができるためソースも多く、調査が大変 &ndash;> ごちゃついてる気がするのだと思います。<br>
 ただ、この感覚は単純にDropwizardの得意な分野で比較したのが理由かもしれません。</p>
 
 <p>ここで、話は脱線しますが、久々のSpringについても書いておきます。<br></p>
@@ -605,12 +605,12 @@ Spring Bootは多機能で色々なことができるためソースも多く、
 反対にStruts,Myfacesなどは汚いと思いました。<br>
 (きれいなフレームワークは比較的に長生きしているので、その点Dropwizardもきれいなので長生きするかも）</p>
 
-<p>今の時代では、もう自慢にはなりませんが、おそらく日本で最初に仕事でSpringを利用したプロジェクトに参加していました。<br>
+<p>今の時代では、当たり前に利用されているSpringですが、おそらく日本では業務で最も早く利用したプロジェクトに運良く参加していました。<br>
 それからバージョン3まで仕事で利用し、Spring MVC, Spring Web Flow, Spring Batch, Spring Securityなど多くのSpringプロダクトを利用していました。</p>
 
 <p>しかし、5年ぶりに実装してみて「こんなにめんどくさかったっけ？」と感じました。<br>
 Springも巨大になりすぎたのかなと思います。<br>
-一応、手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
+手を動かしてはいないですが、ずーと追ってはいたので昔の知識で止まっていたわけではないつもりです。<br>
 あれからGuiceなど軽量なDIができたこともあり、そちらで十分な気もします。<br></p>
 
 <p>話は戻して、Spring BootとDropwizardについてです。<br>
@@ -618,13 +618,13 @@ Spring Bootは機能過多な気もしますが、それもメリットとも言
 ちょっとしたホットデプロイならできるので、それも少しメリットかもしれません。<br>
 (が、完全じゃないので微妙）</p>
 
-<p>ただ、今の現在の感想としては<br>
+<p>ただ、現在の感想としては<br>
 RESTfulなアプリを早くシンプルに作るのであれば、自分だったらDropwizardを採用します。<br>
 ソースもシンプルでわかり易く拡張もしやすいように感じます。<br>        <br/>
 (いまの時代、単体テストという面だけでいうとDIである必要もあまりないと思っています。)</p>
 
 <p>Spring Bootは機能過多になったSpringプロジェクトをうまいこと使い易くしてくれる可能性がありそうなので、今後に期待しています。<br>
-もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいとです。</p>
+もっと洗練されて昔のSpringのようにシンプルで、使い易いものになってほしいです。</p>
 ]]></content>
   </entry>
   
@@ -653,11 +653,12 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
     <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。<br>
 特にIntegration Testが気楽に書けました。<br></p>
 
-<p>この記事では、単体テストのたびにテーブルを再作成しています。<br>     <br/>
-その際にLiquibaseのAPIを利用しています。<br>
+<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiitaに書いた記事</a>では、単体テストのたびにテーブルを再作成しています。<br></p>
+
+<p>その際にLiquibaseのAPIを利用しています。<br>
 実際のプロジェクトでもこの機構は使えます。</p>
 
-<p>この記事は<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiita</a>では全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
+<p>この記事はQitaやアクセス数を見ると全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
 ]]></content>
   </entry>
   
@@ -731,7 +732,7 @@ Dropwizardについては、この3つの記事よりも他の記事の方が意
 
 <h2>CocoaPods</h2>
 
-<p><a href="http://ko2ic.github.io/blog/2014/05/21/octopress/" title="Octopress構築">Ruby</a>でruby環境は整っているので、CocoaPodsをインストールする.</p>
+<p><a href="http://ko2ic.github.io/blog/2014/05/21/octopress/" title="Octopress構築">Octopress環境構築</a>でruby環境は整っているので、CocoaPodsをインストールする.</p>
 
 <pre><code>$ gem install -V cocoapods
 $ rbenv rehash
@@ -769,7 +770,7 @@ Integrating client project
     <link href="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/"/>
     <updated>2014-05-25T20:20:30+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/05/25/eclipse-settings</id>
-    <content type="html"><![CDATA[<p>またまたEclipseです。<br></p>
+    <content type="html"><![CDATA[<p>Eclipseの記事です。<br></p>
 
 <p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
 Eclipseを使っている場合は役に立つことがあると思います。</p>
@@ -961,7 +962,7 @@ $ git push origin source
 
 <h2>参考</h2>
 
-<p>ruby周りは以下のサイトを参考にしました
+<p>ruby周りは以下のサイトを参考にしました。<br>
 <a href="http://qiita.com/emadurandal/items/a60886152a4c99ce1017">http://qiita.com/emadurandal/items/a60886152a4c99ce1017</a></p>
 ]]></content>
   </entry>
@@ -989,7 +990,7 @@ $ git push origin source
 </ul>
 
 
-<p>こういった利点があるのでmacportsでしたが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
+<p>こういった利点があるのでmacportsを使っていましたが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
 
 <p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。<br>
 （自分が書くよりもわかりやすい記事がたくさんあります）<br>
@@ -1075,7 +1076,7 @@ $ git config --global core.editor "/usr/local/bin/vim"
 <h2>このページで書かないこと</h2>
 
 <ul>
-<li>homebrew-caskやdotfileなど自動でできること</li>
+<li>Githubで管理しているdotfileやhomebrew-caskなど自動でできること</li>
 </ul>
 
 
@@ -1277,9 +1278,9 @@ Javaのソースを自動生成させるときには相当いいと思います�
 
 <p>それを実現させていたのがJmergeになります。<br></p>
 
-<p>最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+<p>最近、自動生成するPluginのある仕事をやっているので、試してみました。</p>
 
-<p>記事はこちらになります。
+<p>記事はこちらになります。<br>
 <a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
 ]]></content>
   </entry>
@@ -1289,7 +1290,7 @@ Javaのソースを自動生成させるときには相当いいと思います�
     <link href="http://ko2ic.github.io/blog/2014/04/23/tycho/"/>
     <updated>2014-04-23T03:35:07+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/23/tycho</id>
-    <content type="html"><![CDATA[<p>今回もEclipse関連です。</p>
+    <content type="html"><![CDATA[<p>Eclipse関連の記事を書きました。</p>
 
 <p>昔はEclipse Pluginを作るのが難しい（というより面倒）だったのですが、今はTychoがあります。<br>
 Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
@@ -1440,11 +1441,14 @@ Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
 <h2>まとめ</h2>
 
 <p>全記事を取得しているので、投稿数が多い場合はパフォーマンスが悪くなると思います。<br>
-その場合は、最近の記事を表示するのものいいでしょう。<br>
-両方に対応したソースは、githubにあります。<br>
-<a href="https://github.com/ko2ic/octopress-qiita-aside">https://github.com/ko2ic/octopress-qiita-aside</a></p>
+その場合は、最近の記事を表示するのものいいでしょう。<br></p>
 
-<p>なにかあれば、pull requestでもお願いします。</p>
+<br>
+
+
+<p>両方に対応したソースは、<a href="https://github.com/ko3ic/octopress-qiita-aside">github</a>
+におきました。<br>
+なにかあれば、pull requestでもお願いします。</p>
 ]]></content>
   </entry>
   
@@ -1453,13 +1457,15 @@ Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
     <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
     <updated>2014-04-19T20:24:48+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
-    <content type="html"><![CDATA[<p>いまさらですが、mavenについて記事にしました。<br></p>
+    <content type="html"><![CDATA[<p>いまさらですが、mavenについて記事にしました。</p>
 
-<p>eclipseの設定をmavenコマンドで作成する方法です。<br>
+<p>eclipseの設定をmavenコマンドで作成する方法です。<br/>
 mavenはバージョン1の頃から使っていましたが、この方法はやってませんでした。<br>
-結構便利でもっと早くやっておけばよかったと思いました。</p>
+やってみると結構便利でもっと早く試しておけばよかったです。</p>
 
-<p>記事はこちらになります。
+<p>maven使っている方はぜひ試して見て下さい。</p>
+
+<p>記事はこちらになります。<br>
 <a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
 ]]></content>
   </entry>
@@ -1469,13 +1475,15 @@ mavenはバージョン1の頃から使っていましたが、この方法は�
     <link href="http://ko2ic.github.io/blog/2014/04/15/first-octopress/"/>
     <updated>2014-04-15T19:58:32+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/15/first-octopress</id>
-    <content type="html"><![CDATA[<p>初心にかえり技術ブログでも始めてみます。</p>
+    <content type="html"><![CDATA[<p>初心にかえり技術ブログを復活させます。
+過去ログはどっかにいきました。</p>
 
 <h2>Qiitaとの棲み分けについて</h2>
 
-<p><a href="http://qiita.com/ko3ic">Qiita</a>とこのブログの両方に同じ内容を書いたところ、面倒くさかったです。<br>   <br/>
-なので、技術的なことはなるべくQiitaに記述します。<br> <br/>
-「なるべく」とするのは、Qiitaに既出の内容でも自分で試したいこともあるからです。<br>
+<p><a href="http://qiita.com/ko3ic">Qiita</a>とこのブログの両方に同じ内容を書いたところ、面倒でした。   <br/>
+なので、技術的なことはなるべくQiitaに記述します。</p>
+
+<p>「なるべく」とするのは、Qiitaに既出の内容でも自分で試したいこともあるからです。<br>
 その場合には、こちらのブログに書いていきたいと思います。<br></p>
 
 <p>Qiitaには自分の意見を極力書かずに、こちらに記述したいと思います。</p>

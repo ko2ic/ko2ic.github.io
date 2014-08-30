@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Liquibase | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/liquibase/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -21,11 +21,12 @@
     <content type="html"><![CDATA[<p>dropwizardはテストを書くのも簡単でした。<br>
 特にIntegration Testが気楽に書けました。<br></p>
 
-<p>この記事では、単体テストのたびにテーブルを再作成しています。<br>     <br/>
-その際にLiquibaseのAPIを利用しています。<br>
+<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiitaに書いた記事</a>では、単体テストのたびにテーブルを再作成しています。<br></p>
+
+<p>その際にLiquibaseのAPIを利用しています。<br>
 実際のプロジェクトでもこの機構は使えます。</p>
 
-<p>この記事は<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiita</a>では全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
+<p>この記事はQitaやアクセス数を見ると全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
 ]]></content>
   </entry>
   

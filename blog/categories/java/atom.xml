@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -30,9 +30,9 @@ Javaのソースを自動生成させるときには相当いいと思います�
 
 <p>それを実現させていたのがJmergeになります。<br></p>
 
-<p>最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+<p>最近、自動生成するPluginのある仕事をやっているので、試してみました。</p>
 
-<p>記事はこちらになります。
+<p>記事はこちらになります。<br>
 <a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
 ]]></content>
   </entry>

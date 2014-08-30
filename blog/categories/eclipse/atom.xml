@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Eclipse | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/eclipse/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/"/>
     <updated>2014-05-25T20:20:30+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/05/25/eclipse-settings</id>
-    <content type="html"><![CDATA[<p>またまたEclipseです。<br></p>
+    <content type="html"><![CDATA[<p>Eclipseの記事です。<br></p>
 
 <p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
 Eclipseを使っている場合は役に立つことがあると思います。</p>
@@ -63,9 +63,9 @@ Javaのソースを自動生成させるときには相当いいと思います�
 
 <p>それを実現させていたのがJmergeになります。<br></p>
 
-<p>最近、自動生成するPluginのある仕事をやっているので、同じようにできないかを試してみました。</p>
+<p>最近、自動生成するPluginのある仕事をやっているので、試してみました。</p>
 
-<p>記事はこちらになります。
+<p>記事はこちらになります。<br>
 <a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
 ]]></content>
   </entry>
@@ -75,13 +75,15 @@ Javaのソースを自動生成させるときには相当いいと思います�
     <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
     <updated>2014-04-19T20:24:48+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
-    <content type="html"><![CDATA[<p>いまさらですが、mavenについて記事にしました。<br></p>
+    <content type="html"><![CDATA[<p>いまさらですが、mavenについて記事にしました。</p>
 
-<p>eclipseの設定をmavenコマンドで作成する方法です。<br>
+<p>eclipseの設定をmavenコマンドで作成する方法です。<br/>
 mavenはバージョン1の頃から使っていましたが、この方法はやってませんでした。<br>
-結構便利でもっと早くやっておけばよかったと思いました。</p>
+やってみると結構便利でもっと早く試しておけばよかったです。</p>
 
-<p>記事はこちらになります。
+<p>maven使っている方はぜひ試して見て下さい。</p>
+
+<p>記事はこちらになります。<br>
 <a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
 ]]></content>
   </entry>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Groovy | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/groovy/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -25,12 +25,12 @@
 <p>詳しくは、<a href="http://qiita.com/ko2ic/items/7cefba83be29f8129595">Dropwizardで気軽にユーザ向けのツールを作成する </a>に記述しています。</p>
 
 <p>自分の場合で恐縮なのですが、ソフトアーキテクチャで意識するのは、プロジェクト間の依存関係を疎結合にすることです。<br>
-そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に変更できるからです。<br></p>
+そうすることで、いつでも他のプロジェクトでも利用できるし、その部分だけをまるっと気軽に交換できるからです。<br></p>
 
 <p>Dropwizardではまさにそれを高いレベルでやってのけています。<br>
 なので、RESTフレームワークであるはずのDropwizardをwebとは関係のないツールで便利に利用できるわけです。</p>
 
-<p>この記事も<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
+<p>この記事も以前書いた「<a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">dropwizard-testingが便利でした</a>」と同じくらい有用なことを書いたつもりなので、ぜひ試してみてください。<br></p>
 
 <p>サンプルソースはこちらです。<br>
 <a href="https://github.com/ko2ic/spike-groovy-executable-jar">https://github.com/ko2ic/spike-groovy-executable-jar</a></p>

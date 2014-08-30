@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tycho | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/tycho/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ko2ic.github.io/blog/2014/04/23/tycho/"/>
     <updated>2014-04-23T03:35:07+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/04/23/tycho</id>
-    <content type="html"><![CDATA[<p>今回もEclipse関連です。</p>
+    <content type="html"><![CDATA[<p>Eclipse関連の記事を書きました。</p>
 
 <p>昔はEclipse Pluginを作るのが難しい（というより面倒）だったのですが、今はTychoがあります。<br>
 Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>

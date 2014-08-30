@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 環境構築 | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/huan-jing-gou-zhu/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-12T01:45:57+09:00</updated>
+  <updated>2014-08-31T03:05:57+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -22,7 +22,7 @@
 
 <h2>CocoaPods</h2>
 
-<p><a href="http://ko2ic.github.io/blog/2014/05/21/octopress/" title="Octopress構築">Ruby</a>でruby環境は整っているので、CocoaPodsをインストールする.</p>
+<p><a href="http://ko2ic.github.io/blog/2014/05/21/octopress/" title="Octopress構築">Octopress環境構築</a>でruby環境は整っているので、CocoaPodsをインストールする.</p>
 
 <pre><code>$ gem install -V cocoapods
 $ rbenv rehash
@@ -174,7 +174,7 @@ $ git push origin source
 
 <h2>参考</h2>
 
-<p>ruby周りは以下のサイトを参考にしました
+<p>ruby周りは以下のサイトを参考にしました。<br>
 <a href="http://qiita.com/emadurandal/items/a60886152a4c99ce1017">http://qiita.com/emadurandal/items/a60886152a4c99ce1017</a></p>
 ]]></content>
   </entry>
@@ -202,7 +202,7 @@ $ git push origin source
 </ul>
 
 
-<p>こういった利点があるのでmacportsでしたが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
+<p>こういった利点があるのでmacportsを使っていましたが、その利点を余りあるほどcaskが便利そうだと思ったので乗り換えました。</p>
 
 <p>この記事ではすでにgithubで管理しているBrewfileを使うので細かい説明は書きません。<br>
 （自分が書くよりもわかりやすい記事がたくさんあります）<br>
@@ -288,7 +288,7 @@ $ git config --global core.editor "/usr/local/bin/vim"
 <h2>このページで書かないこと</h2>
 
 <ul>
-<li>homebrew-caskやdotfileなど自動でできること</li>
+<li>Githubで管理しているdotfileやhomebrew-caskなど自動でできること</li>
 </ul>
 
 
