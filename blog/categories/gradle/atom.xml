@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Gradle | 悩みがネタ]]></title>
+  <title><![CDATA[Category: Gradle | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/gradle/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-10-23T00:46:33+09:00</updated>
+  <updated>2014-10-23T00:47:49+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
