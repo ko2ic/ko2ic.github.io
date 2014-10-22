@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mac | ko2ic Blog]]></title>
+  <title><![CDATA[Category: Mac | 悩みがネタ]]></title>
   <link href="http://ko2ic.github.io/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-31T03:05:57+09:00</updated>
+  <updated>2014-10-22T22:27:59+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -103,7 +103,7 @@ $ source ~/.bash_profile
 <ul>
 <li>App StoreからXcodeを検索してインストール</li>
 <li>Xcodeを起動して同意する</li>
-<li><code>$ xcode-select -install</code>でCommand Line Toolをインストール</li>
+<li><code>$ xcode-select --install</code>でCommand Line Toolをインストール</li>
 </ul>
 
 

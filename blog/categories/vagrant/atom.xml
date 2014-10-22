@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Vagrant | ko2ic Blog]]></title>
+  <title><![CDATA[Category: Vagrant | 悩みがネタ]]></title>
   <link href="http://ko2ic.github.io/blog/categories/vagrant/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-08-31T03:05:57+09:00</updated>
+  <updated>2014-10-22T22:27:59+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -19,7 +19,7 @@
     <updated>2014-07-04T19:00:53+09:00</updated>
     <id>http://ko2ic.github.io/blog/2014/07/04/docker</id>
     <content type="html"><![CDATA[<p>「VagrantでVirtualBox内でubuntuを動かして、そのubuntu内でdockerコンテナを起動して、その中でubuntuを動かす」<br>
-という普通にやることだけど文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
+という文章にするとややこしいことをすぐ忘れるので自分用にメモしておく。       <br/>
 （この記事ではVagrant1.6からのDocker Provider・boot2dockerを使わない）</p>
 
 <h2>Vagrant</h2>
