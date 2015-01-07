@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2015-01-08T01:06:40+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Seed-fuの使い方]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/11/21/seed-fu/"/>
+    <updated>2014-11-21T23:56:26+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/11/21/seed-fu</id>
+    <content type="html"><![CDATA[<p>Qiitaに投稿しました。 <br/>
+<a href="http://qiita.com/ko2ic/items/be96e450a33d631e0059">railsで初期データを入れる(seed-fuの使い方)</a></p>
+
+<p>ruby素人なので、seed-fuよりもいい方法はあるかもしれないです。 <br/>
+自分は使ってみて便利に感じたので投稿してみました。</p>
+]]></content>
+  </entry>
+  
+</feed>

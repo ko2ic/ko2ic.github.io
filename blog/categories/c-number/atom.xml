@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: C# | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/c-number/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2015-01-08T01:06:40+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[.Netのオープンソース化]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/12/08/specflow/"/>
+    <updated>2014-12-08T00:20:52+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/12/08/specflow</id>
+    <content type="html"><![CDATA[<p>MS系開発は個人的には嫌いですが、仕事でやらざるを得なくなったので仕方なくやっています。    <br/>
+（今の案件では、マイクロサービスなアーキテクチャが一番良いと思っていて、Dropwizardが適切だと思っていました。色々な人の思惑があり、PaasなAzureになりました。残念です。）</p>
+
+<p>なによりもMSのクローズドな文化が嫌いなのです。  <br/>
+調査しても情報発信している人が開発者数の割にとても少ない。    <br/>
+あと、決して使いやすいとは思えないVisual Studio。（慣れの問題？違う気がする） <br/>
+WorkerRoleとかWebRoleとかテストしずらいし、まともなMockフレームワークは、Fakesぐらいでプレミアム以上じゃないと使えないし(Moqがあるけど、JavaのEasyMockレベルで古い感じがするし)。</p>
+
+<p>と色々悪く言いましたが、C#は素晴らしいと思っています。 <br/>
+関数型な部分も取り入れているし(でも何故かSQLっぽい表現)、rubyやgroovyっぽさもあるし、Javaっぽさもある。
+素晴らしい。</p>
+
+<p>そして、ようやくMSも本気でオープンになっていく模様。（開発者増えたらライセンス縛りしないかな？）  <br/>
+Visual StudioでNuGetも使えるバージョンがようやく無料で使えるようになる。これは嬉しい。  <br/>
+（というか、例えばJavaのEclipseとVisual Studioは同レベルのツールでしょ。今更なんだよな）</p>
+
+<p>文化が変わるには時間がかかると思うけど、こうした変革で少しでも文化がよくなり、個々人の開発者がたくさんのオープンソースを作っていくようになれば面白くなるかもしれない。</p>
+
+<p>で、そんなこんなのでVisual Studioが家でも使えるようになったので、Qiitaに投稿しました。     <br/>
+<a href="http://qiita.com/ko2ic/items/cc5e722a167ac2817c02">C#で日本語受入テストの自動化ができるSpecFlowを使おう</a></p>
+
+<p>Cucumber for .NetがSpecFlowです。 <br/>
+C#でも出来るんだね。というのが率直な感想です。便利だと思います。</p>
+
+<p>Visual Studioを無料にしたから、こんな感じで記事を書く人も増えるだろうし、そうなると開発者も増えるだろうし、もっと早くオープンにすれば良かったのにな。
+これから期待しています。</p>
+]]></content>
+  </entry>
+  
+</feed>

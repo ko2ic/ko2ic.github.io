@@ -9,7 +9,10 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="OSのクリーンインストールをしたのでこのブログも入れ直す ソースを取得 自分の場合はbitbuketにこのブログを保存しているので、そこから取得する $ git clone git@bitbucket.org:&lt;user name&gt;/ko2ic.github.io.git &hellip;">
+  <meta name="description" content="環境構築でiphone開発のことを忘れていたので追加 CocoaPods Octopress環境構築でruby環境は整っているので、CocoaPodsをインストールする. $ gem install -V cocoapods
+$ rbenv rehash
+$ which pod
+~/.rbenv/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +86,215 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/27/cocoapods/">Mac環境構築（CocoaPods）</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-27T20:17:09+09:00" pubdate data-updated="true">2014年05月27日</time>
+        
+           | <a href="/blog/2014/05/27/cocoapods/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/27/cocoapods/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>環境構築でiphone開発のことを忘れていたので追加</p>
+
+<h2>CocoaPods</h2>
+
+<p><a href="http://ko2ic.github.io/blog/2014/05/21/octopress/" title="Octopress構築">Octopress環境構築</a>でruby環境は整っているので、CocoaPodsをインストールする.</p>
+
+<pre><code>$ gem install -V cocoapods
+$ rbenv rehash
+$ which pod
+~/.rbenv/shims/pod
+</code></pre>
+
+<p>~/.cocoapodsを作成してライブラリの管理をする準備をするために以下のコマンド。</p>
+
+<pre><code>$ pod setup
+Setup completed (read-only access)
+</code></pre>
+
+<p>試しにPodfileのあるディレクトリで</p>
+
+<pre><code>$ pod install
+・・・
+Integrating client project
+</code></pre>
+
+<h2>Alcatraz</h2>
+
+<p>Xcode上でテンプレートやテーマやPluginをインストールできるPlugin。以下でインストール。</p>
+
+<pre><code>curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
+</code></pre>
+
+<p>Xcodeで「xcworkspace」ファイルを開く <br/>
+メニューのWindow > Package Managerがあれば成功</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/25/eclipse-settings/">Eclipseの設定ファイルの場所</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-25T20:20:30+09:00" pubdate data-updated="true">2014年05月25日</time>
+        
+           | <a href="/blog/2014/05/25/eclipse-settings/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/25/eclipse-settings/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Eclipseの記事です。<br></p>
+
+<p>設定ファイルのできる場所を知っていると何かと便利になります。<br>
+Eclipseを使っている場合は役に立つことがあると思います。</p>
+
+<p>qiitaに書きました。<br>
+<a href="http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0">http://qiita.com/ko2ic/items/4ae027e5f70b8a595ed0</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/22/vim-lua/">+luaなvimをインストール</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-22T22:30:41+09:00" pubdate data-updated="true">2014年05月22日</time>
+        
+           | <a href="/blog/2014/05/22/vim-lua/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/05/22/vim-lua/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>neocompleteを使おうと思ったら+luaなvimが必要らしいのでインストール</p>
+
+<p>luaをインストール</p>
+
+<pre><code>$ brew install lua
+</code></pre>
+
+<p>+luaなvimをインストール</p>
+
+<pre><code>$ brew install vim --with-lua
+</code></pre>
+
+<p>確認してみる</p>
+
+<pre><code>$ vim --version | grep lua
+-lua
+</code></pre>
+
+<p>+luaになっていない！?<br/>
+インストール時のオプションを確認</p>
+
+<pre><code>$ brew options vim
+--with-lua
+        Build vim with lua support
+</code></pre>
+
+<p>ちゃんとできてるな・・・</p>
+
+<pre><code>$ which vim
+/usr/bin/vim
+</code></pre>
+
+<p>なるほど。標準のvimが使われてたのね。
+PATHを確認</p>
+
+<pre><code>$ echo $PATH
+/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+</code></pre>
+
+<p>なるほど。homebrewのvimは<code>/usr/local/bin</code>にあるので先に宣言されてる方が使われてたのね。
+PATHの順序を変える</p>
+
+<figure class='code'><figcaption><span>.bash_profile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>確認</p>
+
+<pre><code>$ vim --version | grep lua
++lua
+</code></pre>
+
+<p>成功！</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -637,105 +849,9 @@ Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/19/maven-eclipse/">Mavenですべての設定ファイルを自動生成させる方法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-19T20:24:48+09:00" pubdate data-updated="true">2014年04月19日</time>
-        
-           | <a href="/blog/2014/04/19/maven-eclipse/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>いまさらですが、mavenについて記事にしました。</p>
-
-<p>eclipseの設定をmavenコマンドで作成する方法です。<br/>
-mavenはバージョン1の頃から使っていましたが、この方法はやってませんでした。<br>
-やってみると結構便利でもっと早く試しておけばよかったです。</p>
-
-<p>maven使っている方はぜひ試して見て下さい。</p>
-
-<p>記事はこちらになります。<br>
-<a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/04/15/first-octopress/">Octopress始めてみた！</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-15T19:58:32+09:00" pubdate data-updated="true">2014年04月15日</time>
-        
-           | <a href="/blog/2014/04/15/first-octopress/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/15/first-octopress/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>初心にかえり技術ブログを復活させます。
-過去ログはどっかにいきました。</p>
-
-<h2>Qiitaとの棲み分けについて</h2>
-
-<p><a href="http://qiita.com/ko3ic">Qiita</a>とこのブログの両方に同じ内容を書いたところ、面倒でした。   <br/>
-なので、技術的なことはなるべくQiitaに記述します。</p>
-
-<p>「なるべく」とするのは、Qiitaに既出の内容でも自分で試したいこともあるからです。<br>
-その場合には、こちらのブログに書いていきたいと思います。<br></p>
-
-<p>Qiitaには自分の意見を極力書かずに、こちらに記述したいと思います。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -747,11 +863,23 @@ mavenはバージョン1の頃から使っていましたが、この方法は�
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby(1)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 110.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 140.0%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/c-number' style='font-size: 110.0%'>C#(1)</a> <a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/rails' style='font-size: 110.0%'>rails(1)</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>ruby(3)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 110.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 140.0%'>環境構築(4)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/12/08/specflow/">.Netのオープンソース化</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/21/seed-fu/">Seed-fuの使い方</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/06/ruby-for-java-engeneer/">Javaエンジニアがいまさら始めるRuby</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/08/07/dropwizard-as-tool/">ツールとして利用できるDropwizard</a>
@@ -759,18 +887,6 @@ mavenはバージョン1の頃から使っていましたが、この方法は�
     
       <li class="post">
         <a href="/blog/2014/07/04/docker/">Dockerメモ</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/29/springboot-dropwizard/">Spring BootとDropwizardのアプリコード比較</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/23/dropwizard-guice-ddd/">DropwizardでGuiceを利用してトランザクション境界を変える</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/19/dropwizard-test/">Dropwizard-testingが便利でした</a>
       </li>
     
   </ul>
@@ -899,7 +1015,7 @@ mavenはバージョン1の頃から使っていましたが、この方法は�
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Koji Ishii -
+  Copyright &copy; 2015 - Koji Ishii -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

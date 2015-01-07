@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-10-23T00:47:49+09:00</updated>
+  <updated>2015-01-08T01:06:40+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Seed-fuの使い方]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/11/21/seed-fu/"/>
+    <updated>2014-11-21T23:56:26+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/11/21/seed-fu</id>
+    <content type="html"><![CDATA[<p>Qiitaに投稿しました。 <br/>
+<a href="http://qiita.com/ko2ic/items/be96e450a33d631e0059">railsで初期データを入れる(seed-fuの使い方)</a></p>
+
+<p>ruby素人なので、seed-fuよりもいい方法はあるかもしれないです。 <br/>
+自分は使ってみて便利に感じたので投稿してみました。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javaエンジニアがいまさら始めるRuby]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/10/06/ruby-for-java-engeneer/"/>
+    <updated>2014-10-06T23:22:00+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/10/06/ruby-for-java-engeneer</id>
+    <content type="html"><![CDATA[<p>少し前にQiitaにRuby関連の投稿をしました。 <br/>
+<a href="http://qiita.com/ko2ic/items/9204f5dba907dab37a1b">Javaエンジニアがいまさら始めるRuby開発環境</a></p>
+
+<p>本当に久しぶりにRubyを触りました。いまさらですが、すごい良いですね。 <br/>
+最後に触ったのが2006年頃で「RailsはJavaの10倍の生産性」と謳われていました。 <br/>
+それを知ってからすぐに触ってみましたが、確かにすごいと思ったけど、Javaで十分と思っていました。</p>
+
+<p>僕がJavaを好きだったのは、言語というよりもオープンな文化です。 <br/>
+オープンソースなフレームワークもたくさん出てくるし、知的好奇心を満たすのに十分満足でした。 <br/>
+時代は流れ、githubのおかげでコミッターという概念も薄まり、当時よりも様々な言語で個々人がソーシャルにフレームワーク開発に参加できるようになりました。</p>
+
+<p>Rubyはそういったオープンなソースがたくさんあり、それらを利用すれば確かに生産性は高いだろうなと現在は思います。</p>
+
+<p>また、現在のJavaはいまさらlambdaが入るくらい停滞している気がするので、サーバーサイドの仕事もRuby中心に探していきたいですね。（これからはScalaをやろうとしてたけど、やっぱりRubyを極めてからかな）</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress構築]]></title>

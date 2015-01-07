@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2014-10-23T00:47:49+09:00</updated>
+  <updated>2015-01-08T01:06:40+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[.Netのオープンソース化]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/12/08/specflow/"/>
+    <updated>2014-12-08T00:20:52+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/12/08/specflow</id>
+    <content type="html"><![CDATA[<p>MS系開発は個人的には嫌いですが、仕事でやらざるを得なくなったので仕方なくやっています。    <br/>
+（今の案件では、マイクロサービスなアーキテクチャが一番良いと思っていて、Dropwizardが適切だと思っていました。色々な人の思惑があり、PaasなAzureになりました。残念です。）</p>
+
+<p>なによりもMSのクローズドな文化が嫌いなのです。  <br/>
+調査しても情報発信している人が開発者数の割にとても少ない。    <br/>
+あと、決して使いやすいとは思えないVisual Studio。（慣れの問題？違う気がする） <br/>
+WorkerRoleとかWebRoleとかテストしずらいし、まともなMockフレームワークは、Fakesぐらいでプレミアム以上じゃないと使えないし(Moqがあるけど、JavaのEasyMockレベルで古い感じがするし)。</p>
+
+<p>と色々悪く言いましたが、C#は素晴らしいと思っています。 <br/>
+関数型な部分も取り入れているし(でも何故かSQLっぽい表現)、rubyやgroovyっぽさもあるし、Javaっぽさもある。
+素晴らしい。</p>
+
+<p>そして、ようやくMSも本気でオープンになっていく模様。（開発者増えたらライセンス縛りしないかな？）  <br/>
+Visual StudioでNuGetも使えるバージョンがようやく無料で使えるようになる。これは嬉しい。  <br/>
+（というか、例えばJavaのEclipseとVisual Studioは同レベルのツールでしょ。今更なんだよな）</p>
+
+<p>文化が変わるには時間がかかると思うけど、こうした変革で少しでも文化がよくなり、個々人の開発者がたくさんのオープンソースを作っていくようになれば面白くなるかもしれない。</p>
+
+<p>で、そんなこんなのでVisual Studioが家でも使えるようになったので、Qiitaに投稿しました。     <br/>
+<a href="http://qiita.com/ko2ic/items/cc5e722a167ac2817c02">C#で日本語受入テストの自動化ができるSpecFlowを使おう</a></p>
+
+<p>Cucumber for .NetがSpecFlowです。 <br/>
+C#でも出来るんだね。というのが率直な感想です。便利だと思います。</p>
+
+<p>Visual Studioを無料にしたから、こんな感じで記事を書く人も増えるだろうし、そうなると開発者も増えるだろうし、もっと早くオープンにすれば良かったのにな。
+これから期待しています。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Seed-fuの使い方]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/11/21/seed-fu/"/>
+    <updated>2014-11-21T23:56:26+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/11/21/seed-fu</id>
+    <content type="html"><![CDATA[<p>Qiitaに投稿しました。 <br/>
+<a href="http://qiita.com/ko2ic/items/be96e450a33d631e0059">railsで初期データを入れる(seed-fuの使い方)</a></p>
+
+<p>ruby素人なので、seed-fuよりもいい方法はあるかもしれないです。 <br/>
+自分は使ってみて便利に感じたので投稿してみました。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javaエンジニアがいまさら始めるRuby]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/10/06/ruby-for-java-engeneer/"/>
+    <updated>2014-10-06T23:22:00+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/10/06/ruby-for-java-engeneer</id>
+    <content type="html"><![CDATA[<p>少し前にQiitaにRuby関連の投稿をしました。 <br/>
+<a href="http://qiita.com/ko2ic/items/9204f5dba907dab37a1b">Javaエンジニアがいまさら始めるRuby開発環境</a></p>
+
+<p>本当に久しぶりにRubyを触りました。いまさらですが、すごい良いですね。 <br/>
+最後に触ったのが2006年頃で「RailsはJavaの10倍の生産性」と謳われていました。 <br/>
+それを知ってからすぐに触ってみましたが、確かにすごいと思ったけど、Javaで十分と思っていました。</p>
+
+<p>僕がJavaを好きだったのは、言語というよりもオープンな文化です。 <br/>
+オープンソースなフレームワークもたくさん出てくるし、知的好奇心を満たすのに十分満足でした。 <br/>
+時代は流れ、githubのおかげでコミッターという概念も薄まり、当時よりも様々な言語で個々人がソーシャルにフレームワーク開発に参加できるようになりました。</p>
+
+<p>Rubyはそういったオープンなソースがたくさんあり、それらを利用すれば確かに生産性は高いだろうなと現在は思います。</p>
+
+<p>また、現在のJavaはいまさらlambdaが入るくらい停滞している気がするので、サーバーサイドの仕事もRuby中心に探していきたいですね。（これからはScalaをやろうとしてたけど、やっぱりRubyを極めてからかな）</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ツールとして利用できるDropwizard]]></title>
@@ -1454,44 +1523,6 @@ Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
 <p>両方に対応したソースは、<a href="https://github.com/ko3ic/octopress-qiita-aside">github</a>
 におきました。<br>
 なにかあれば、pull requestでもお願いします。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mavenですべての設定ファイルを自動生成させる方法]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/04/19/maven-eclipse/"/>
-    <updated>2014-04-19T20:24:48+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/04/19/maven-eclipse</id>
-    <content type="html"><![CDATA[<p>いまさらですが、mavenについて記事にしました。</p>
-
-<p>eclipseの設定をmavenコマンドで作成する方法です。<br/>
-mavenはバージョン1の頃から使っていましたが、この方法はやってませんでした。<br>
-やってみると結構便利でもっと早く試しておけばよかったです。</p>
-
-<p>maven使っている方はぜひ試して見て下さい。</p>
-
-<p>記事はこちらになります。<br>
-<a href="http://qiita.com/ko2ic/items/39be03afbc6c38c409ea">http://qiita.com/ko2ic/items/39be03afbc6c38c409ea</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress始めてみた！]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/04/15/first-octopress/"/>
-    <updated>2014-04-15T19:58:32+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/04/15/first-octopress</id>
-    <content type="html"><![CDATA[<p>初心にかえり技術ブログを復活させます。
-過去ログはどっかにいきました。</p>
-
-<h2>Qiitaとの棲み分けについて</h2>
-
-<p><a href="http://qiita.com/ko3ic">Qiita</a>とこのブログの両方に同じ内容を書いたところ、面倒でした。   <br/>
-なので、技術的なことはなるべくQiitaに記述します。</p>
-
-<p>「なるべく」とするのは、Qiitaに既出の内容でも自分で試したいこともあるからです。<br>
-その場合には、こちらのブログに書いていきたいと思います。<br></p>
-
-<p>Qiitaには自分の意見を極力書かずに、こちらに記述したいと思います。</p>
 ]]></content>
   </entry>
   
