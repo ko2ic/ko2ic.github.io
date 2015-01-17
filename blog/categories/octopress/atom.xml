@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2015-01-08T01:06:40+09:00</updated>
+  <updated>2015-01-18T01:44:13+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -100,6 +100,9 @@ test-unit (2.1.0.0)
 <pre><code>$ rake new_post['title']
 $ bundle exec rake generate
 </code></pre>
+
+<p>以下のブログがMarkdownのリファレンスに役立ちます。 <br/>
+<a href="http://blog.seak.jp.net/blog/2014/04/24/octopress-markdown-quick-reference/">http://blog.seak.jp.net/blog/2014/04/24/octopress-markdown-quick-reference/</a></p>
 
 <p>ローカルで検証する <a href="http://localhost:4000">http://localhost:4000</a></p>
 

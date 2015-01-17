@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Chocolatey | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/chocolatey/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2015-01-18T01:44:13+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Windows環境構築手順]]></title>
+    <link href="http://ko2ic.github.io/blog/2015/01/17/windows-env/"/>
+    <updated>2015-01-17T19:34:30+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2015/01/17/windows-env</id>
+    <content type="html"><![CDATA[<h1>Chocolatey</h1>
+
+<p>まずはChocolateyのインストール。 <br/>
+<a href="https://chocolatey.org/">公式ページ</a>に書いてある通りにします。</p>
+
+<p><code>
+C:\&gt;  @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+</code></p>
+
+<p>次にパッケージをインストールします。 <br/>
+これは、<code>pacakages.config</code> に記述しておきます。 <br/>
+自分の場合は以下です。</p>
+
+<p>```xml
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?>
+<packages>
+  <package id="launchy"/>
+  <package id="GoogleChrome"/></p>
+
+<!-- vmwareの場合は以下はmacで入れるためwindowsにはいれない
+  <package id="jdk8"/>
+  <package id="maven"/>
+  <package id="apache.ant"/>
+  <package id="gradle"/>
+
+  <package id="virtualbox" version="4.3.12"/>-->
+
+
+<p> <!-- これより上のバージョンだと動作しなかった --></p>
+
+<!--
+  <package id="vagrant"/>
+  <package id="nodejs" version="0.10.33"/>-->
+
+
+<p> <!--0.10.34は次の原因による動作せず-> <a href="https://github.com/joyent/node/issues/8894">https://github.com/joyent/node/issues/8894</a> &mdash;></p>
+
+<!--
+  <package id="python2"/>
+  <package id="npm"/>
+
+  <package id="dropbox"/>
+  <package id="tortoisesvn"/>
+  <package id="evernote"/>
+  <package id="skype"/>
+-->
+
+
+<p></packages>
+```</p>
+
+<p><code>
+C:\ cinst packages.config
+</code></p>
+
+<h1>Cygwin</h1>
+
+<p>次はコマンドプロンプトやCygwinを便利にします。 <br/>
+以前に記述したQiitaの記事の通り設定します。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/2574139dd095e5a31e76">ChocolateyでCygwin（C:¥に）インストール・設定する</a></p>
+
+<h1>Launchy</h1>
+
+<p>次にlanchyの設定をします。 <br/>
+ホットキーを <code>alt + space</code> にします。 <br/>
+また、<code>launchy</code>フォルダを作り、以下のように検索対象のディレクトリに指定する。</p>
+
+<p><img src="https://raw.githubusercontent.com/wiki/ko2ic/ko2ic.github.io/images/2015-01-17-windows-env/launchy.png" alt="launchy" /></p>
+
+<p>このフォルダに検索対象のショートカットを入れたり、シンボリックリンク( <code>mklink</code> コマンドで)などを入れます。 <br/>
+例えば、Cygwinのショートカットを入れて、Launchyの設定で「実行可能ファイルも含む」にチェックに入れるとLaunchyで起動できます。</p>
+
+<h1>キーボード割り当て</h1>
+
+<p>普段macを利用しているので、caps lockをCtrlに変えたいです。</p>
+
+<p>以下の内容でchangeCapsLockToCtrl.regという名前で保存しておきます。
+これを実行すると変更されます。（レジストリをいじってるので自己責任でお願いします。）
+<code>
+REGEDIT4
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,02,00,00,00,1d,00,3a,00,00,00,00,00
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -9,9 +9,8 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="いまさらですが、mavenについて記事にしました。 eclipseの設定をmavenコマンドで作成する方法です。
-mavenはバージョン1の頃から使っていましたが、この方法はやってませんでした。
-やってみると結構便利でもっと早く試しておけばよかったです。 &hellip;">
+  <meta name="description" content="Eclipse関連の記事を書きました。 昔はEclipse Pluginを作るのが難しい（というより面倒）だったのですが、今はTychoがあります。
+Tychoを利用するとEclipse Pluginは簡単に作れます。 ただ、そのまま利用するよりも、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +84,207 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/23/tycho/">Eclipseプラグインを簡単に作成する</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-23T03:35:07+09:00" pubdate data-updated="true">2014年04月23日</time>
+        
+           | <a href="/blog/2014/04/23/tycho/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/23/tycho/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Eclipse関連の記事を書きました。</p>
+
+<p>昔はEclipse Pluginを作るのが難しい（というより面倒）だったのですが、今はTychoがあります。<br>
+Tychoを利用するとEclipse Pluginは簡単に作れます。<br></p>
+
+<p>ただ、そのまま利用するよりも、mavenのarchetypeから作成すればもっと簡単に作れます。</p>
+
+<p>バージョンが古い状態で放置されていたのでtychoのarchetypeを公開している方にPull Requestを送って最新に変えてもらいました。</p>
+
+<p>詳しくはこちらに記述しています。<br>
+<a href="http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943">http://qiita.com/ko2ic/items/a3b8aceb1275dfee2943</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/21/octopress-qiita-aside/">OctopressのサイドバーにQiitaに投稿した人気記事を表示させる方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-21T21:19:01+09:00" pubdate data-updated="true">2014年04月21日</time>
+        
+           | <a href="/blog/2014/04/21/octopress-qiita-aside/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/21/octopress-qiita-aside/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>概要</h2>
+
+<p>OctopressのサイドバーにQitaの投稿した記事を表示します。<br>
+自分はブログとは別にQiitaに記述しています。<br>
+他人にQiitaに書いていることを一見してわかってもらうことが目的です。</p>
+
+<h2>方法</h2>
+
+<p>1.Qiitaと同じアイコンを使いたいので、<a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>を使う。</p>
+
+<p>今回は、CDNを使うが、ダウンロードして配置してもよい。</p>
+
+<figure class='code'><figcaption><span>./source/_includes/custom/head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span><span class="nt">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2./source/_includes/custom/asidesに本体を記述する</p>
+
+<p>Qiitaに人気の投稿を取得するAPIがないので、全記事を取得してソートしています。</p>
+
+<figure class='code'><figcaption><span>qiita.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>
+</span><span class='line'><span class="nt">&lt;section&gt;</span>
+</span><span class='line'><span class="nt">&lt;h1&gt;</span>Qiita 人気の投稿<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;qiita_post&quot;</span> <span class="na">class=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s2">&quot;https://qiita.com/api/v1/users/ko2ic/items&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="err">#</span> <span class="err">全投稿を取得して人気順に並び替える</span>
+</span><span class='line'>        <span class="nx">response</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
+</span><span class='line'>          <span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">stock_count</span><span class="p">;</span>
+</span><span class='line'>          <span class="nx">b</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">stock_count</span><span class="p">;</span>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">length</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">response</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">aTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a/&gt;&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span><span class="nx">data</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">iStockTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;i/&gt;&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="s2">&quot;#000&quot;</span><span class="p">,</span><span class="s2">&quot;margin-right&quot;</span><span class="o">:</span><span class="s2">&quot;1em&quot;</span><span class="p">}).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span><span class="s2">&quot;fa fa-folder-o&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">iStockTag</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;  &quot;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">stock_count</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">iCommentTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;i/&gt;&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="s2">&quot;#000&quot;</span><span class="p">}).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span><span class="s2">&quot;fa fa-folder-o&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">iCommentTag</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;  &quot;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">comment_count</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">pTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;p/&gt;&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">pTag</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">iStockTag</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">pTag</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">iCommentTag</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">liTag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;li/&gt;&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span><span class="s2">&quot;post&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-qiita-stock&quot;</span><span class="p">,</span><span class="nx">data</span><span class="p">.</span><span class="nx">stock_count</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">aTag</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">pTag</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#qiita_post&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">liTag</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="err">#</span> <span class="err">指定した投稿数だけ表示する</span>
+</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="p"></span> <span class="o">-</span> <span class="mi">1</span><span class="p">){</span>
+</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>  <span class="nt">&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;/section&gt;</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/04/21/octopress-qiita-aside/">続きを読む &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -196,11 +396,15 @@ mavenはバージョン1の頃から使っていましたが、この方法は�
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/c-number' style='font-size: 110.0%'>C#(1)</a> <a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/rails' style='font-size: 110.0%'>rails(1)</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>ruby(3)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 110.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 140.0%'>環境構築(4)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/c-number' style='font-size: 110.0%'>C#(1)</a> <a href='/blog/categories/chocolatey' style='font-size: 110.0%'>chocolatey(1)</a> <a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/rails' style='font-size: 110.0%'>rails(1)</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>ruby(3)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 110.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/vmware' style='font-size: 110.0%'>vmware(1)</a> <a href='/blog/categories/windows' style='font-size: 110.0%'>windows(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 160.0%'>環境構築(6)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/01/17/windows-env/">Windows環境構築手順</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/12/08/specflow/">.Netのオープンソース化</a>
@@ -211,15 +415,11 @@ mavenはバージョン1の頃から使っていましたが、この方法は�
       </li>
     
       <li class="post">
+        <a href="/blog/2014/10/17/env-vmware-win/">Mac環境構築（VM Ware）</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/06/ruby-for-java-engeneer/">Javaエンジニアがいまさら始めるRuby</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/08/07/dropwizard-as-tool/">ツールとして利用できるDropwizard</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/docker/">Dockerメモ</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 環境構築 | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/huan-jing-gou-zhu/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2015-01-08T01:06:40+09:00</updated>
+  <updated>2015-01-18T01:44:13+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,118 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Windows環境構築手順]]></title>
+    <link href="http://ko2ic.github.io/blog/2015/01/17/windows-env/"/>
+    <updated>2015-01-17T19:34:30+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2015/01/17/windows-env</id>
+    <content type="html"><![CDATA[<h1>Chocolatey</h1>
+
+<p>まずはChocolateyのインストール。 <br/>
+<a href="https://chocolatey.org/">公式ページ</a>に書いてある通りにします。</p>
+
+<p><code>
+C:\&gt;  @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+</code></p>
+
+<p>次にパッケージをインストールします。 <br/>
+これは、<code>pacakages.config</code> に記述しておきます。 <br/>
+自分の場合は以下です。</p>
+
+<p>```xml
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?>
+<packages>
+  <package id="launchy"/>
+  <package id="GoogleChrome"/></p>
+
+<!-- vmwareの場合は以下はmacで入れるためwindowsにはいれない
+  <package id="jdk8"/>
+  <package id="maven"/>
+  <package id="apache.ant"/>
+  <package id="gradle"/>
+
+  <package id="virtualbox" version="4.3.12"/>-->
+
+
+<p> <!-- これより上のバージョンだと動作しなかった --></p>
+
+<!--
+  <package id="vagrant"/>
+  <package id="nodejs" version="0.10.33"/>-->
+
+
+<p> <!--0.10.34は次の原因による動作せず-> <a href="https://github.com/joyent/node/issues/8894">https://github.com/joyent/node/issues/8894</a> &mdash;></p>
+
+<!--
+  <package id="python2"/>
+  <package id="npm"/>
+
+  <package id="dropbox"/>
+  <package id="tortoisesvn"/>
+  <package id="evernote"/>
+  <package id="skype"/>
+-->
+
+
+<p></packages>
+```</p>
+
+<p><code>
+C:\ cinst packages.config
+</code></p>
+
+<h1>Cygwin</h1>
+
+<p>次はコマンドプロンプトやCygwinを便利にします。 <br/>
+以前に記述したQiitaの記事の通り設定します。</p>
+
+<p><a href="http://qiita.com/ko2ic/items/2574139dd095e5a31e76">ChocolateyでCygwin（C:¥に）インストール・設定する</a></p>
+
+<h1>Launchy</h1>
+
+<p>次にlanchyの設定をします。 <br/>
+ホットキーを <code>alt + space</code> にします。 <br/>
+また、<code>launchy</code>フォルダを作り、以下のように検索対象のディレクトリに指定する。</p>
+
+<p><img src="https://raw.githubusercontent.com/wiki/ko2ic/ko2ic.github.io/images/2015-01-17-windows-env/launchy.png" alt="launchy" /></p>
+
+<p>このフォルダに検索対象のショートカットを入れたり、シンボリックリンク( <code>mklink</code> コマンドで)などを入れます。 <br/>
+例えば、Cygwinのショートカットを入れて、Launchyの設定で「実行可能ファイルも含む」にチェックに入れるとLaunchyで起動できます。</p>
+
+<h1>キーボード割り当て</h1>
+
+<p>普段macを利用しているので、caps lockをCtrlに変えたいです。</p>
+
+<p>以下の内容でchangeCapsLockToCtrl.regという名前で保存しておきます。
+これを実行すると変更されます。（レジストリをいじってるので自己責任でお願いします。）
+<code>
+REGEDIT4
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,02,00,00,00,1d,00,3a,00,00,00,00,00
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac環境構築（VM Ware）]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/10/17/env-vmware-win/"/>
+    <updated>2014-10-17T16:34:37+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/10/17/env-vmware-win</id>
+    <content type="html"><![CDATA[<p>環境を再構築するときに忘れないようにメモ</p>
+
+<p>VMwareのスナップショットはファイルで保存されます。        <br/>
+TimeMachineはファイルの更新日付を見て、対象ファイルかを判断しています。 <br/>
+なので、例えば仮想環境のwindowsに100GB割り当てていれて、windows上で何かをすると100GBのファイルが更新され、TimeMachine対象ファイルになってしまいます。</p>
+
+<p>ということで、仮想環境で差分バックアップすればいいのです。</p>
+
+<p>VMWareではそれをAutoProtectで実現できます。 <br/>
+以下が自分の設定です。</p>
+
+<p><img src="https://raw.githubusercontent.com/wiki/ko2ic/ko2ic.github.io/images/2014-10-17-env-vmware-win/autoprotect.png" alt="autoprotect" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac環境構築（CocoaPods）]]></title>
@@ -142,6 +254,9 @@ test-unit (2.1.0.0)
 <pre><code>$ rake new_post['title']
 $ bundle exec rake generate
 </code></pre>
+
+<p>以下のブログがMarkdownのリファレンスに役立ちます。 <br/>
+<a href="http://blog.seak.jp.net/blog/2014/04/24/octopress-markdown-quick-reference/">http://blog.seak.jp.net/blog/2014/04/24/octopress-markdown-quick-reference/</a></p>
 
 <p>ローカルで検証する <a href="http://localhost:4000">http://localhost:4000</a></p>
 
@@ -279,184 +394,6 @@ $ git config --global core.editor "/usr/local/bin/vim"
 <p>以下のURLのように設定をする</p>
 
 <p><a href="http://mizage.com/help/accessibility.html">http://mizage.com/help/accessibility.html</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mac環境構築手順(GUI編)]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/05/18/mac-env-init/"/>
-    <updated>2014-05-18T19:20:40+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/05/18/mac-env-init</id>
-    <content type="html"><![CDATA[<p>macをクリーンインストールすることになったので、環境構築を自分用の備忘録として残しておきます。<br/>
-基本的に自分が使いやすいようにしています。</p>
-
-<h2>このページで書かないこと</h2>
-
-<ul>
-<li>Githubで管理しているdotfileやhomebrew-caskなど自動でできること</li>
-</ul>
-
-
-<h2>このページで書くこと</h2>
-
-<ul>
-<li>GUIで設定すること</li>
-<li>defaultsコマンドで設定すること</li>
-</ul>
-
-
-<h4>defaultsコマンドについて</h4>
-
-<p>defaultsコマンドは「plist」と呼ばれるアプリやシステムの設定ファイルに、設定値を追加、変更、削除、検索するコマンドで以下のファイルが変更されます。</p>
-
-<pre><code>~/Library/Preferences/~.plist
-</code></pre>
-
-<p>以下のコマンドで上記のファイルを表示します</p>
-
-<pre><code>defaults read キー名
-</code></pre>
-
-<p>以下でキーに対応する値を削除できる<br>
-但しキー自体は削除されないのでplistファイル自体を削除します。</p>
-
-<pre><code>defaults delete キー名
-</code></pre>
-
-<p>それぞれの隠し機能のコマンドで変更した場合は以下のように再起動をして反映させましょう。</p>
-
-<pre><code>killall Finder
-killall Dock
-</code></pre>
-
-<!-- more -->
-
-
-<h2>キーボード</h2>
-
-<p>システム環境設定　→　キーボード　→　</p>
-
-<h4>capsキー変更（日本語キーボード）</h4>
-
-<p>macは、windowsでのショートカットで利用するCtrlの役割がcommandになる。<br/>
-（例：command+C コピー）<br>
-windowsのCtrlの位置がmacのcapsの位置にあるので、同じ配置でできるように変更する</p>
-
-<p>→　修飾キー<br>　
-Caps Lock を Commandに変更</p>
-
-<p><img src="/images/mac-env-init/keyboard-caps-change.png" alt="caps" /></p>
-
-<h4>ファンクションキーの動作を変更</h4>
-
-<p>デフォルトでは以下の動作になるために逆になるように変更する</p>
-
-<ul>
-<li>F1キーだけを押下するとディスプレイが暗くなる</li>
-<li>fnキー+F1でファンクションキーの動作</li>
-</ul>
-
-
-<p>→　F1、F2などの・・・にチェックを入れる</p>
-
-<p><img src="/images/mac-env-init/keyboard-function-key.png" alt="function" /></p>
-
-<h3>Windowの切り替え</h3>
-
-<p>Windowsと同じようにalt+Tabで同じアプリで開いているWindowの切り替えができるようにします。</p>
-
-<p>→ ショートカット→ キーボード<br>
-次のウィンドウを操作対象にするをデフォルトの⌘ + F1から変更する</p>
-
-<p><img src="/images/mac-env-init/keyboard-window.png" alt="window" /></p>
-
-<h2>トラッックパッド</h2>
-
-<p>システム環境設定　→　トラックバッド　→</p>
-
-<p>画像のようにすると使いやすい
-<img src="/images/mac-env-init/trackpad1.png" alt="trackpad1" />
-<img src="/images/mac-env-init/trackpad2.png" alt="trackpad2" /></p>
-
-<h2>Finder</h2>
-
-<p>Finder →　環境設定　→　詳細</p>
-
-<h4>拡張子を表示</h4>
-
-<p>「すべてのファイル名拡張子を表示」をチェック</p>
-
-<h4>確実にごみ箱を空にする</h4>
-
-<p>チェックする</p>
-
-<h4>検索実行時の検索対象を変更</h4>
-
-<p>「検索実行時」を「現在のフォルダ内を検索」</p>
-
-<p><img src="/images/mac-env-init/finder1.png" alt="finder" /></p>
-
-<h4>新規Finderで開く先を変更</h4>
-
-<p>一般タブで「新規Finderウィンドウで次を表示」でホームを選択する</p>
-
-<h4>隠しファイルを表示する</h4>
-
-<p>デフォルトではFinder上で「.」ファイルは不可視なのでこれを変更する</p>
-
-<pre><code>defaults write com.apple.finder AppleShowAllFiles -boolean true
-</code></pre>
-
-<h4>終了できるようにする</h4>
-
-<p>デフォルトではFinderに終了がないのでこれを変更する</p>
-
-<pre><code>defaults write com.apple.finder QuitMenuItem -bool true
-</code></pre>
-
-<h4>タイトルにフルパスを表示する</h4>
-
-<p>ウインドウタイトルにもパスを表示する</p>
-
-<pre><code>defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-</code></pre>
-
-<h4>ネットワーク上に.DS_Storeを作らない</h4>
-
-<p>Mac OS Xでは、フォルダの表示形式を変更すると「.DS_Store」という不可視ファイルができるが、これをネットワーク上には作らなくする</p>
-
-<pre><code>defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool YES
-</code></pre>
-
-<h2>Dock</h2>
-
-<p> システム環境設定→　Dock</p>
-
-<h4>Dockを自動で隠す</h4>
-
-<p><img src="/images/mac-env-init/dock.png" alt="Dock" /></p>
-
-<h4>隠しているアプリを半透明で表示する</h4>
-
-<pre><code>defaults write com.apple.Dock showhidden -boolean true
-</code></pre>
-
-<h2>Mission Control</h2>
-
-<p> システム環境設定→　Mission Control</p>
-
-<p><img src="/images/mac-env-init/mission-control.png" alt="mission" /></p>
-
-<h4>ダッシュボードを起動させない</h4>
-
-<pre><code>defaults write com.apple.dashboard mcx-disabled -boolean YES
-</code></pre>
-
-<h2>その他</h2>
-
-<h4>残バッテリーを表示する</h4>
-
-<p><img src="/images/mac-env-init/percent.png" alt="battery" /></p>
 ]]></content>
   </entry>
   

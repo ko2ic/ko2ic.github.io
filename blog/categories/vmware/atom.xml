@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Vmware | ko2ic Blog]]></title>
+  <link href="http://ko2ic.github.io/blog/categories/vmware/atom.xml" rel="self"/>
+  <link href="http://ko2ic.github.io/"/>
+  <updated>2015-01-18T01:44:13+09:00</updated>
+  <id>http://ko2ic.github.io/</id>
+  <author>
+    <name><![CDATA[Koji Ishii]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mac環境構築（VM Ware）]]></title>
+    <link href="http://ko2ic.github.io/blog/2014/10/17/env-vmware-win/"/>
+    <updated>2014-10-17T16:34:37+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2014/10/17/env-vmware-win</id>
+    <content type="html"><![CDATA[<p>環境を再構築するときに忘れないようにメモ</p>
+
+<p>VMwareのスナップショットはファイルで保存されます。        <br/>
+TimeMachineはファイルの更新日付を見て、対象ファイルかを判断しています。 <br/>
+なので、例えば仮想環境のwindowsに100GB割り当てていれて、windows上で何かをすると100GBのファイルが更新され、TimeMachine対象ファイルになってしまいます。</p>
+
+<p>ということで、仮想環境で差分バックアップすればいいのです。</p>
+
+<p>VMWareではそれをAutoProtectで実現できます。 <br/>
+以下が自分の設定です。</p>
+
+<p><img src="https://raw.githubusercontent.com/wiki/ko2ic/ko2ic.github.io/images/2014-10-17-env-vmware-win/autoprotect.png" alt="autoprotect" /></p>
+]]></content>
+  </entry>
+  
+</feed>
