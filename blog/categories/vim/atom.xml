@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2015-01-18T01:44:13+09:00</updated>
+  <updated>2015-01-19T00:49:03+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[nerdtreeのgrepをagでやるPluginを作成しました]]></title>
+    <link href="http://ko2ic.github.io/blog/2015/01/19/nerdtree-plugin-ag/"/>
+    <updated>2015-01-19T00:19:24+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2015/01/19/nerdtree-plugin-ag</id>
+    <content type="html"><![CDATA[<p>vim上でディレクトリ構造をサイドバーのように表示してくれる便利なPluginにnerdtreeがあります。 <br/>
+これにgrep機能を追加すると便利なので、色々な方がネット上に載せています。</p>
+
+<p>せっかくなのでgrepコマンドではなく、agを使ってみようと思い調べたところ、以下が見つかりました。 <br/>
+<a href="https://github.com/taiansu/nerdtree-ag">https://github.com/taiansu/nerdtree-ag</a></p>
+
+<p>これでも良いのですが、オプションを自由に指定できません。 <br/>
+自分としては、もっとシンプルに<code>--rb -s hoge</code>のように打てればいいと思いました。</p>
+
+<p>なので作りました。良かったら使ってみてください。    <br/>
+<a href="https://github.com/ko2ic/nerdtree-plugin-ag">https://github.com/ko2ic/nerdtree-plugin-ag</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[+luaなvimをインストール]]></title>

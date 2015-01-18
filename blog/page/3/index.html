@@ -9,8 +9,8 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="Eclipse関連の記事を書きました。 昔はEclipse Pluginを作るのが難しい（というより面倒）だったのですが、今はTychoがあります。
-Tychoを利用するとEclipse Pluginは簡単に作れます。 ただ、そのまま利用するよりも、 &hellip;">
+  <meta name="description" content="Jmergeについて記事を書きました。 意外と知られていないのですが、これは便利です。
+Javaのソースを自動生成させるときには相当いいと思います。 9年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,60 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/23/jmerge/">自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-23T22:25:51+09:00" pubdate data-updated="true">2014年04月23日</time>
+        
+           | <a href="/blog/2014/04/23/jmerge/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2014/04/23/jmerge/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Jmergeについて記事を書きました。<br></p>
+
+<p>意外と知られていないのですが、これは便利です。<br>
+Javaのソースを自動生成させるときには相当いいと思います。<br></p>
+
+<p>9年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br></p>
+
+<p>コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br>
+そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）<br></p>
+
+<p>それを実現させていたのがJmergeになります。<br></p>
+
+<p>最近、自動生成するPluginのある仕事をやっているので、試してみました。</p>
+
+<p>記事はこちらになります。<br>
+<a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -396,11 +450,15 @@ mavenはバージョン1の頃から使っていましたが、この方法は�
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/c-number' style='font-size: 110.0%'>C#(1)</a> <a href='/blog/categories/chocolatey' style='font-size: 110.0%'>chocolatey(1)</a> <a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/rails' style='font-size: 110.0%'>rails(1)</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>ruby(3)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 110.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/vmware' style='font-size: 110.0%'>vmware(1)</a> <a href='/blog/categories/windows' style='font-size: 110.0%'>windows(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 160.0%'>環境構築(6)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/c-number' style='font-size: 110.0%'>C#(1)</a> <a href='/blog/categories/chocolatey' style='font-size: 110.0%'>chocolatey(1)</a> <a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/rails' style='font-size: 110.0%'>rails(1)</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>ruby(3)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(2)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/vmware' style='font-size: 110.0%'>vmware(1)</a> <a href='/blog/categories/windows' style='font-size: 110.0%'>windows(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 160.0%'>環境構築(6)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/01/19/nerdtree-plugin-ag/">nerdtreeのgrepをagでやるPluginを作成しました</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/01/17/windows-env/">Windows環境構築手順</a>
@@ -416,10 +474,6 @@ mavenはバージョン1の頃から使っていましたが、この方法は�
     
       <li class="post">
         <a href="/blog/2014/10/17/env-vmware-win/">Mac環境構築（VM Ware）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/10/06/ruby-for-java-engeneer/">Javaエンジニアがいまさら始めるRuby</a>
       </li>
     
   </ul>

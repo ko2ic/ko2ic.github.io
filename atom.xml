@@ -4,7 +4,7 @@
   <title><![CDATA[ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2015-01-18T01:44:13+09:00</updated>
+  <updated>2015-01-19T00:49:03+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[nerdtreeのgrepをagでやるPluginを作成しました]]></title>
+    <link href="http://ko2ic.github.io/blog/2015/01/19/nerdtree-plugin-ag/"/>
+    <updated>2015-01-19T00:19:24+09:00</updated>
+    <id>http://ko2ic.github.io/blog/2015/01/19/nerdtree-plugin-ag</id>
+    <content type="html"><![CDATA[<p>vim上でディレクトリ構造をサイドバーのように表示してくれる便利なPluginにnerdtreeがあります。 <br/>
+これにgrep機能を追加すると便利なので、色々な方がネット上に載せています。</p>
+
+<p>せっかくなのでgrepコマンドではなく、agを使ってみようと思い調べたところ、以下が見つかりました。 <br/>
+<a href="https://github.com/taiansu/nerdtree-ag">https://github.com/taiansu/nerdtree-ag</a></p>
+
+<p>これでも良いのですが、オプションを自由に指定できません。 <br/>
+自分としては、もっとシンプルに<code>--rb -s hoge</code>のように打てればいいと思いました。</p>
+
+<p>なので作りました。良かったら使ってみてください。    <br/>
+<a href="https://github.com/ko2ic/nerdtree-plugin-ag">https://github.com/ko2ic/nerdtree-plugin-ag</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Windows環境構築手順]]></title>
@@ -1132,7 +1151,7 @@ test-unit (2.1.0.0)
 <p>ページを作成する<br/>
 ここのtitleはurlに使われるので注意。</p>
 
-<pre><code>$ rake new_post['title']
+<pre><code>$ bundle rake new_post['title']
 $ bundle exec rake generate
 </code></pre>
 
@@ -1471,30 +1490,6 @@ Caps Lock を Commandに変更</p>
 <p>自作のEclipse Pluginの登録は簡単でした。<br>
 Qiitaに方法を記述しています。<br>
 <a href="http://qiita.com/ko2ic/items/a602deccc88d3a11e527">http://qiita.com/ko2ic/items/a602deccc88d3a11e527</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[自動生成したJavaコードに手を加えても綺麗にマージしてくれるJmerge]]></title>
-    <link href="http://ko2ic.github.io/blog/2014/04/23/jmerge/"/>
-    <updated>2014-04-23T22:25:51+09:00</updated>
-    <id>http://ko2ic.github.io/blog/2014/04/23/jmerge</id>
-    <content type="html"><![CDATA[<p>Jmergeについて記事を書きました。<br></p>
-
-<p>意外と知られていないのですが、これは便利です。<br>
-Javaのソースを自動生成させるときには相当いいと思います。<br></p>
-
-<p>9年くらい前にお世話になっていた会社で「おじさんplugin」というJavaコードを自動生成するEclipse Pluginがありました。<br></p>
-
-<p>コードの自動生成ツールはよく見たのですが、このPluginは他とはレベルが違う完成度でした。<br>
-そう感じた理由の一つに、生成したコードを手修正しても綺麗にマージしてくれるからです。（当時見たときは衝撃的でした）<br></p>
-
-<p>それを実現させていたのがJmergeになります。<br></p>
-
-<p>最近、自動生成するPluginのある仕事をやっているので、試してみました。</p>
-
-<p>記事はこちらになります。<br>
-<a href="http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d">http://qiita.com/ko2ic/items/eb8107bd74ab510e0a6d</a></p>
 ]]></content>
   </entry>
   

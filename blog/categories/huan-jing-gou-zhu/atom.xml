@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 環境構築 | ko2ic Blog]]></title>
   <link href="http://ko2ic.github.io/blog/categories/huan-jing-gou-zhu/atom.xml" rel="self"/>
   <link href="http://ko2ic.github.io/"/>
-  <updated>2015-01-18T01:44:13+09:00</updated>
+  <updated>2015-01-19T00:49:03+09:00</updated>
   <id>http://ko2ic.github.io/</id>
   <author>
     <name><![CDATA[Koji Ishii]]></name>
@@ -251,7 +251,7 @@ test-unit (2.1.0.0)
 <p>ページを作成する<br/>
 ここのtitleはurlに使われるので注意。</p>
 
-<pre><code>$ rake new_post['title']
+<pre><code>$ bundle rake new_post['title']
 $ bundle exec rake generate
 </code></pre>
 

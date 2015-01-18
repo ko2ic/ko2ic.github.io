@@ -9,8 +9,7 @@
   <meta name="author" content="Koji Ishii">
 
   
-  <meta name="description" content="Chocolatey まずはChocolateyのインストール。 公式ページに書いてある通りにします。 1
-C:\&gt; @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net. &hellip;">
+  <meta name="description" content="vim上でディレクトリ構造をサイドバーのように表示してくれる便利なPluginにnerdtreeがあります。 これにgrep機能を追加すると便利なので、色々な方がネット上に載せています。 せっかくなのでgrepコマンドではなく、agを使ってみようと思い調べたところ、以下が見つかりました。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +83,55 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/19/nerdtree-plugin-ag/">nerdtreeのgrepをagでやるPluginを作成しました</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-19T00:19:24+09:00" pubdate data-updated="true">2015年01月19日</time>
+        
+           | <a href="/blog/2015/01/19/nerdtree-plugin-ag/#disqus_thread"
+             data-disqus-identifier="http://ko2ic.github.io/blog/2015/01/19/nerdtree-plugin-ag/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>vim上でディレクトリ構造をサイドバーのように表示してくれる便利なPluginにnerdtreeがあります。 <br/>
+これにgrep機能を追加すると便利なので、色々な方がネット上に載せています。</p>
+
+<p>せっかくなのでgrepコマンドではなく、agを使ってみようと思い調べたところ、以下が見つかりました。 <br/>
+<a href="https://github.com/taiansu/nerdtree-ag">https://github.com/taiansu/nerdtree-ag</a></p>
+
+<p>これでも良いのですが、オプションを自由に指定できません。 <br/>
+自分としては、もっとシンプルに<code>--rb -s hoge</code>のように打てればいいと思いました。</p>
+
+<p>なので作りました。良かったら使ってみてください。    <br/>
+<a href="https://github.com/ko2ic/nerdtree-plugin-ag">https://github.com/ko2ic/nerdtree-plugin-ag</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -719,53 +767,6 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/19/dropwizard-test/">Dropwizard-testingが便利でした</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-19T22:41:09+09:00" pubdate data-updated="true">2014年06月19日</time>
-        
-           | <a href="/blog/2014/06/19/dropwizard-test/#disqus_thread"
-             data-disqus-identifier="http://ko2ic.github.io/blog/2014/06/19/dropwizard-test/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>dropwizardはテストを書くのも簡単でした。<br>
-特にIntegration Testが気楽に書けました。<br></p>
-
-<p><a href="http://qiita.com/ko2ic/items/b59447a75952703e809a">Qiitaに書いた記事</a>では、単体テストのたびにテーブルを再作成しています。<br></p>
-
-<p>その際にLiquibaseのAPIを利用しています。<br>
-実際のプロジェクトでもこの機構は使えます。</p>
-
-<p>この記事はQitaやアクセス数を見ると全然人気がないのですが、自分の書いたDropwizardの中でももっとも有用な記事の一つではないかと思っていたります。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -778,11 +779,15 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
   
     <section>
   <h1>Tag Cloud</h1>
-  <span id="tag-cloud"><a href='/blog/categories/c-number' style='font-size: 110.0%'>C#(1)</a> <a href='/blog/categories/chocolatey' style='font-size: 110.0%'>chocolatey(1)</a> <a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/rails' style='font-size: 110.0%'>rails(1)</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>ruby(3)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 110.0%'>vim(1)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/vmware' style='font-size: 110.0%'>vmware(1)</a> <a href='/blog/categories/windows' style='font-size: 110.0%'>windows(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 160.0%'>環境構築(6)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/c-number' style='font-size: 110.0%'>C#(1)</a> <a href='/blog/categories/chocolatey' style='font-size: 110.0%'>chocolatey(1)</a> <a href='/blog/categories/docker' style='font-size: 110.0%'>docker(1)</a> <a href='/blog/categories/dropwizard' style='font-size: 160.0%'>dropwizard(6)</a> <a href='/blog/categories/eclipse' style='font-size: 140.0%'>eclipse(4)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(2)</a> <a href='/blog/categories/groovy' style='font-size: 110.0%'>groovy(1)</a> <a href='/blog/categories/guice' style='font-size: 110.0%'>guice(1)</a> <a href='/blog/categories/homebrew' style='font-size: 110.0%'>homebrew(1)</a> <a href='/blog/categories/java' style='font-size: 110.0%'>java(1)</a> <a href='/blog/categories/liquibase' style='font-size: 120.0%'>liquibase(2)</a> <a href='/blog/categories/mac' style='font-size: 130.0%'>mac(3)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(3)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>Octopress(1)</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress(1)</a> <a href='/blog/categories/rails' style='font-size: 110.0%'>rails(1)</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>ruby(3)</a> <a href='/blog/categories/spring-boot' style='font-size: 110.0%'>spring-boot(1)</a> <a href='/blog/categories/tycho' style='font-size: 110.0%'>tycho(1)</a> <a href='/blog/categories/vagrant' style='font-size: 110.0%'>vagrant(1)</a> <a href='/blog/categories/vim' style='font-size: 120.0%'>vim(2)</a> <a href='/blog/categories/virtualbox' style='font-size: 110.0%'>virtualbox(1)</a> <a href='/blog/categories/vmware' style='font-size: 110.0%'>vmware(1)</a> <a href='/blog/categories/windows' style='font-size: 110.0%'>windows(1)</a> <a href='/blog/categories/huan-jing-gou-zhu' style='font-size: 160.0%'>環境構築(6)</a> </span>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/01/19/nerdtree-plugin-ag/">nerdtreeのgrepをagでやるPluginを作成しました</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/01/17/windows-env/">Windows環境構築手順</a>
@@ -798,10 +803,6 @@ RESTfulなアプリを早くシンプルに作るのであれば、自分だっ�
     
       <li class="post">
         <a href="/blog/2014/10/17/env-vmware-win/">Mac環境構築（VM Ware）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/10/06/ruby-for-java-engeneer/">Javaエンジニアがいまさら始めるRuby</a>
       </li>
     
   </ul>
